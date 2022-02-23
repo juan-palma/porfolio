@@ -1,0 +1,138 @@
+/*
+ * HTML5 ✰ Reset for IE8 or less.
+ *
+ * ==|== normalize ==========================================================
+ */
+
+
+/* =============================================================================
+   HTML5 display definitions
+   ========================================================================== */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, main { display: block; }
+audio, canvas, video { *display: inline; *zoom: 1; }
+
+legend {*margin-left: -7px;}
+
+button, input, select, textarea { *vertical-align: middle; }
+
+button, input[type="button"], input[type="reset"], input[type="submit"] { *overflow: visible; }
+
+.clearfix { *zoom: 1; }
+
+@media print {
+    * { background: transparent !important; color: black !important; box-shadow:none !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
+    @page { margin: 0.5cm; }
+}
+
+.box_c2,
+.box_c3,
+.box_c4,
+.box_c5,
+.box_c6{
+	*margin-left: -1px; /* for IE7 */
+}
+	.box_c2space,
+	.box_c2spaceFin,
+	.box_c3space,
+	.box_c3spaceFin,
+	.box_c4space,
+	.box_c4spaceFin,
+	.box_c5space,
+	.box_c5spaceFin,
+	.box_c6space,
+	.box_c6spaceFin{
+		*margin-left: -1px; /* for IE7 */
+	}
+
+.box_c3{
+	*margin-left: -2px; /* for IE7 */
+}
+	.box_c3space,
+	.box_c3spaceFin{
+		*margin-left: -2px; /* for IE7 */
+	}
+		
+.box_c4{
+	*margin-left: -3px; /* for IE7 */
+}
+	.box_c4space,
+	.box_c4spaceFin{
+		*margin-left: -3px; /* for IE7 */
+	}
+		
+.box_c5{
+	*margin-left: -3px; /* for IE7 */
+}
+	.box_c5space,
+	.box_c5spaceFin{
+		*margin-left: -3px; /* for IE7 */
+	}
+		
+.box_c6{
+	*margin-left: -3px; /* for IE7 */
+}
+	.box_c6space,
+	.box_c6spaceFin{
+		*margin-left: -3px; /* for IE7 */
+	}
+		
+.box_p100, .box_p95, .box_p90, .box_p85, .box_p80, .box_p75, .box_p70, .box_p65, .box_p60, .box_p55, .box_p50, .box_p45, .box_p40, .box_p35, .box_p30, .box_p25, .box_p20, .box_p15, .box_p10, .box_p5{
+	*margin-left: -2px; /* for IE7 */
+}
+.box_p95{ *width: 94.6%; }
+.box_p90{ *width: 89.6%; }
+.box_p85{ *width: 94.6%; }
+.box_p80{ *width: 79.6%; }
+.box_p75{ *width: 74.6%; }
+.box_p70{ *width: 69.6%; }
+.box_p65{ *width: 64.6%; }
+.box_p60{ *width: 59.6%; }
+.box_p55{ *width: 54.6%; }
+.box_p50{ *width: 49.6%; }
+.box_p45{ *width: 44.6%; }
+.box_p40{ *width: 39.6%; }
+.box_p35{ *width: 34.6%; }
+.box_p30{ *width: 29.6%; }
+.box_p25{ *width: 24.6%; }
+.box_p20{ *width: 19.6%; }
+.box_p15{ *width: 14.6%; }
+.box_p10{ *width: 9.6%; }
+.box_p5{ *width: 4.6%; }
+
+
+
+
+
+
+
+
+
+
+/* =============================================================================
+   HTML5 valores personalizados del usuarios
+   ========================================================================== */
+
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"]{
+	*padding: 5px 0px 5px;
+}
+
+
+
+
+

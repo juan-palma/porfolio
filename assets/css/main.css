@@ -1,0 +1,438 @@
+/*
+	*Main CSS para implementacion directa de sitios.
+	
+	*La adaptacion del bolierplate y este codigo son esfuerzo del eqipo de ID.A libre
+	*con agradecimientos especiales a Juan Palma encargado de la implementacion.
+*/
+
+/* ==========================================================================
+	Parametros Globales
+========================================================================== */
+
+body,
+html{
+	width: 100%;
+	min-height: 100vh;
+}
+#fondo_body{
+	background : #002d38;
+	background-size: cover;
+	background-attachment: fixed;
+}
+body, button, input, select, textarea{
+	font-family: 'Lato', Arial, Helvetica, sans-serif;
+	color: #56504a;
+	letter-spacing: 0.05em;
+}
+
+div, label{
+	width: auto;
+	height: auto;
+	display: block;
+	position: relative;
+}
+main, footer, header, aside, section, article, figure, figcaption, q, cite, blockquote{
+	display: block;
+	position: relative;
+}
+
+#vCard{
+	width: 1px;
+	height: 1px;
+	clip: rect(1px 1px 1px 1px);
+	position: absolute;
+	opacity: 0.1;
+	overflow: hidden;
+}
+
+	
+@-ms-viewport {
+	width: device-width;
+	zoom: 1.0;
+	max-zoom: 1.0;
+}
+
+@viewport {
+	width: device-width;
+	zoom: 1.0;
+	max-zoom: 1.0;
+}
+
+
+
+
+
+
+/* ==========================================================================
+	Codigo de ejemplos !!
+========================================================================== */
+/* Bordes Redondeados */
+/*
+	border-radius : 6px;
+	-moz-border-radius : 6px;
+	-webkit-border-radius : 6px;
+*/
+
+/* Sombras de objetos */
+/*
+	box-shadow : 1px 3px 4px rgba(0, 29, 40, 0.18);
+	filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=1, OffY=3, Color='#001D28') ;
+*/
+	
+/* Animaciones de trancicion */
+/*
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+*/
+
+/* comportamiento de borde y padding en objetos a su interior o exterior */
+/*
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+*/
+
+	
+
+
+
+
+/* ==========================================================================
+	Estilos visuales para la Agencia o el Desarrollador
+========================================================================== */
+#idalibreLogo {
+	position: relative;
+}
+	#idalibreLogo a{
+		display: block;
+		position: relative;
+	}
+		#idalibreLogo a img{
+			width: 58px;
+			height: 58px;
+			object-fit: contain;
+			object-position: center;
+		}
+		
+#juanFooter {
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: flex;
+	flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0.6rem 12%;
+    bottom: 0px;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+	#juanFooter .interno{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		color: #45413c;
+    	font-weight: 300;
+	}
+		#juanFooter a {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			text-decoration: none;
+			color: #90502f;
+			font-weight: 300;
+		}
+			#juanFooter img {
+				width: 48px;
+				height: 48px;
+				object-fit: contain;
+				object-position: center;
+			}
+			span.juanpalma {
+				white-space: nowrap;
+				display: inline-flex;
+				margin: 0 2px;
+			}
+
+
+
+
+
+
+
+
+/* ==========================================================================
+	Estilos visiales para elementos GENERALES
+========================================================================== */
+:root{
+	--colorBackDark: #282b30;
+	--colorBackColor: #d05751;
+	--colorPrincipal: yellowgreen;
+	--margenAncho: 76%;
+	--margenPadding: 2em;
+}
+.desaparece{
+	display: none;
+	visibility: hidden;
+	width: 1px;
+	height: 1px;
+	position: absolute;
+	overflow: hidden;
+	opacity: 0;
+	clip: rect(1px 1px 1px 1px);
+	
+}
+.ocultar{
+	display: none !important;
+}
+.opacidad0{
+	opacity: 0 !important;
+}
+.opacidad1{
+	opacity: 1 !important;
+}
+.animar{
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.animar1-4{
+	-webkit-transition: all 1.4s ease-in-out;
+	-moz-transition: all 1.4s ease-in-out;
+	-o-transition: all 1.4s ease-in-out;
+	-ms-transition: all 1.4s ease-in-out;
+	transition: all 1.4s ease-in-out;
+}
+h1{
+	width: 100%;
+	font-size: 150%;
+    text-align: left;
+	line-height: 1;
+    color: var(--colorPrincipal);
+}
+h2{
+	font-size: 140%;
+    font-weight: 400;
+	color: var(--colorPrincipal);
+	margin-bottom: 22px;
+}
+.margenL{
+	width: var(--margenAncho);
+    padding: 0 var(--margenPadding);
+    box-sizing: border-box;
+}
+.margenG{
+	width: var(--margenAncho);
+    padding: var(--margenPadding);
+    box-sizing: border-box;
+}
+
+input[type="text"]{
+	width: 100%;
+    height: 49px;
+    margin-bottom: 3em;
+}
+input[type="button"]{
+	margin-left: 1em;
+}
+input[type="button"]:hover{
+	background-color: var(--colorPrincipal);
+}
+
+
+
+
+/* Estilos para el boton de navegacion */
+.navicon { position: absolute; left: 0px; top: 16vh; }
+#nav-toggle { position: absolute; right: 13px; top: 0; }
+#nav-toggle { cursor: pointer; padding: 10px 30px 16px 0px; }
+#nav-toggle span, #nav-toggle span:before, #nav-toggle span:after { cursor: pointer; border-radius: 1px; -moz-border-radius: 1px; -webkit-border-radius: 1px; -o-border-radius: 1px; height: 3px; width: 30px; background: rgba(255,255,255,0.4); position: absolute; display: block; content: ''; }
+#nav-toggle:hover span, #nav-toggle:hover span:before, #nav-toggle:hover span:after{background: rgba(255,255,255,1);}
+#nav-toggle span:before { top: -10px; }
+#nav-toggle span:after { bottom: -10px; }
+#nav-toggle span, #nav-toggle span:before, #nav-toggle span:after { transition: all 500ms ease-in-out; -webkit-transition: all 500ms ease-in-out; -moz-transition: all 500ms ease-in-out; -o-transition: all 500ms ease-in-out; }
+#nav-toggle.active span { background-color: transparent; }
+#nav-toggle.active span:before, #nav-toggle.active span:after { top: 0; }
+#nav-toggle.active span:before { transform: rotate(45deg); -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); }
+#nav-toggle.active span:after { transform: translateY(-10px) rotate(-45deg); -webkit-transform: translateY(-10px) rotate(-45deg); -ms-transform: translateY(-10px) rotate(-45deg); top: 10px; }
+
+
+
+
+
+
+
+
+
+
+	
+/* ==========================================================================
+	Estilos visiales del sitio.
+========================================================================== */
+#fondo_body{
+	background: #002d38 url(../img/ahorcado_fondo.webp) no-repeat center bottom;
+	background-size: cover;
+	overflow: hidden;
+}
+
+#container0{
+	width: 100%;
+	min-height:100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 10;
+	overflow: hidden;
+}
+	#container1{
+		width: 100%;
+		height: 100vh;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+	}
+		
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+	Estilos para un espect ratio de 8:5
+========================================================================== */
+@media (min-aspect-ratio: 8/5) {
+	
+}
+
+
+
+
+
+
+
+
+/* ==========================================================================
+	Media Queries
+========================================================================== */
+@media only screen and (max-width: 1600px) {
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+	Media Queries
+========================================================================== */
+@media only screen and (max-width: 1280px) {
+
+}
+
+
+
+
+
+
+
+/* ==========================================================================
+	Media Queries
+========================================================================== */
+@media only screen and (max-width: 1024px) {
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+	Media Queries
+========================================================================== */
+@media only screen and (max-width: 846px) {
+	:root{
+		--margenAncho: 90%;
+		--margenPadding: 2em;
+	}
+	h1 {
+	    font-size: 5vw;
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+	Media Queries
+========================================================================== */
+@media only screen and (max-width: 640px) {
+	
+}
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+	Media Queries
+========================================================================== */
+@media only screen and (max-width: 480px) {
+	
+}
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+	Media Queries
+========================================================================== */
+@media only screen and (max-width: 360px) {
+	
+}
+
+
+
+
+
+
+
+
+
+

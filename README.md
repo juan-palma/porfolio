@@ -1,7 +1,7 @@
 Juan Palma - Porfolio (Portafolio)
 ===================
 
-![Juan Palma](img/facebook_web_img_article.jpg)
+![Juan Palma](assets/img/facebook_web_img_article.jpg)
 ### Ver el sitio web:
 https://juan-palma.idalibre.com
 
@@ -16,7 +16,7 @@ espero que les guste :)
 
 
 ## Un poco de mi como persona:
-<img src="img/idalibre-logo.svg" width="100"><img src="img/juan-palma-logo-blanco.svg" width="100">
+<img src="assets/img/idalibre-logo.svg" width="100"><img src="assets/img/juan-palma-logo-blanco.svg" width="100">
 ### Redes Sociales:
 - [Instagram](https://www.instagram.com/juan_palma/)
 - [Facebook](https://www.facebook.com/juan.palma.v)

@@ -7,7 +7,7 @@ self.addEventListener('install', function (event) {
 				'/',
 				'index.html',
 				'assets/css/main.css',
-				'assets/mg/ajax.webp',
+				'assets/img/ajax.webp',
 				'assets/img/idalibre-logo.svg',
 				'assets/img/juan-palma-logo-obscuro.svg',
 				'assets/js/librerias/modernizr.js',

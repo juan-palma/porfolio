@@ -8,7 +8,8 @@ const el = idagl.elementos;
 
 // -- Opciones de control y valores para el sistema ---
 function permissionMotion () {
-    if ( typeof( DeviceMotionEvent ) !== "undefined" && typeof( DeviceMotionEvent.requestPermission ) === "function" ) {
+    let permiso = false;
+	if ( typeof( DeviceMotionEvent ) !== "undefined" && typeof( DeviceMotionEvent.requestPermission ) === "function" ) {
         // (optional) Do something before API request prompt.
         DeviceMotionEvent.requestPermission().then( response => {
             // (optional) Do something after API prompt dismissed.
@@ -16,11 +17,14 @@ function permissionMotion () {
                 // window.addEventListener( "devicemotion", (e) => {
                 //     // do something for 'e' here.
                 // })
+				permiso =  true;
             }
         }).catch( console.error )
     } else {
 		console.log("DeviceMotionEvent is not defined");
 	}
+
+	return permiso;
 }
 
 
@@ -45,11 +49,16 @@ function iniciar() {
 		}
 	}
 
+	function parallaxMobile(){
+		if(permissionMotion()){
+			const miParallax = new Parallax(document.getElementById('parallax'));
+		}
+	}
+	
 	el.permisoFire = document.getElementById('permisionFire');
-	el.permisoFire.addEventListener('click', permissionMotion);
+	el.permisoFire.addEventListener('click', parallaxMobile);
 	//Obtener elementos del html
-	const miParallax = new Parallax(document.getElementById('parallax'));
-
+	
 	// iniciar mas procesos
 	precarga();
 	const bloque1 = document.getElementById("objeto");

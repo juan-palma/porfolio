@@ -7,24 +7,15 @@ const el = idagl.elementos;
 
 
 // -- Opciones de control y valores para el sistema ---
-function permissionMotion () {
+function permissionMotion (f) {
     let permiso = false;
 	if ( typeof( DeviceMotionEvent ) !== "undefined" && typeof( DeviceMotionEvent.requestPermission ) === "function" ) {
         // (optional) Do something before API request prompt.
-        DeviceMotionEvent.requestPermission().then( response => {
-            // (optional) Do something after API prompt dismissed.
-            if ( response == "granted" ) {
-                // window.addEventListener( "devicemotion", (e) => {
-                //     // do something for 'e' here.
-                // })
-				permiso =  true;
-            }
-        }).catch( console.error )
+        DeviceMotionEvent.requestPermission().then( f ).catch( console.error );
     } else {
 		console.log("DeviceMotionEvent is not defined");
 	}
-
-	return permiso;
+	console.log('señal');
 }
 
 
@@ -54,10 +45,13 @@ function iniciar() {
 		e.cancelBubble = true;
 		e.stopPropagation();
 
-		if(permissionMotion()){
-			console.log('se inicio parallax');
-			const miParallax = new Parallax(document.getElementById('parallax'));
+		function ponerParallax(response){
+			if ( response == "granted" ) {
+				console.log('se inicio parallax');
+				const miParallax = new Parallax(document.getElementById('parallax'));
+			}
 		}
+		permissionMotion(ponerParallax);
 	}
 	
 	el.permisoFire = document.getElementById('permisionFire');
@@ -66,6 +60,7 @@ function iniciar() {
 		e.preventDefault();
 		e.cancelBubble = true;
 		e.stopPropagation();
+		console.log('señal');
 	}, {passive: true});
 	el.permisoFire.addEventListener('scroll', e => {
 		e.preventDefault();

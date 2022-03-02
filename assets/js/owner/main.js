@@ -49,7 +49,11 @@ function iniciar() {
 		}
 	}
 
-	function parallaxMobile(){
+	function parallaxMobile(e){
+		e.preventDefault();
+		e.cancelBubble = true;
+		e.stopPropagation();
+
 		if(permissionMotion()){
 			const miParallax = new Parallax(document.getElementById('parallax'));
 		}
@@ -57,6 +61,11 @@ function iniciar() {
 	
 	el.permisoFire = document.getElementById('permisionFire');
 	el.permisoFire.addEventListener('click', parallaxMobile);
+	el.permisoFire.addEventListener('scroll', e => {
+		e.preventDefault();
+		e.cancelBubble = true;
+		e.stopPropagation();
+	})
 	//Obtener elementos del html
 	
 	// iniciar mas procesos

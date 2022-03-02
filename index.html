@@ -33,7 +33,7 @@
 		<meta name="rating" content="General" />
 		
 		
-		<link rel="stylesheet" href="assets/css/reset.css" />
+		<link rel="stylesheet" href="assets/css/reset-sanatize-normalize-boilerplate.css" />
 		<link rel="stylesheet" id="cssMain" href="assets/css/main.css" />
 		<link rel="preload" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,600,900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 		<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,600,900&display=swap"></noscript>
@@ -75,7 +75,7 @@
 
 		<script>
 			if('serviceWorker' in navigator) {
-			  navigator.serviceWorker.register('/sw.js');
+			  //navigator.serviceWorker.register('/sw.js');
 			}
 		</script>
 		
@@ -85,7 +85,7 @@
 	
 
 		<!-- Colocar el contenido de su sitio aqui -->
-		<div id="esfera">
+		<!-- <div id="esfera">
 			<div class="pzEsfera r1"></div>
 			<div class="pzEsfera r2"></div>
 			<div class="pzEsfera r3"></div>
@@ -95,9 +95,15 @@
 			<div class="pzEsfera r7"></div>
 			<div class="pzEsfera r8"></div>
 			<div class="pzEsfera r9"></div>
+		</div> -->
+
+		<div id="objeto">
+			<div id="parallax">
+				<div id="nube1" class="cuadro" data-depth="0.10"></div>
+				<div id="nube2" class="cuadro" data-depth="0.30"></div>
+				<div id="nube3" class="cuadro" data-depth="0.50"></div>
+			</div>
 		</div>
-
-
 
 
 		

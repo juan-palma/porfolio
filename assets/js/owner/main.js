@@ -5,41 +5,70 @@ const idagl = {};
 idagl.elementos = {};
 const el = idagl.elementos;
 
+
 // -- Opciones de control y valores para el sistema ---
+function permissionMotion () {
+    if ( typeof( DeviceMotionEvent ) !== "undefined" && typeof( DeviceMotionEvent.requestPermission ) === "function" ) {
+        // (optional) Do something before API request prompt.
+        DeviceMotionEvent.requestPermission().then( response => {
+            // (optional) Do something after API prompt dismissed.
+            if ( response == "granted" ) {
+                // window.addEventListener( "devicemotion", (e) => {
+                //     // do something for 'e' here.
+                // })
+            }
+        }).catch( console.error )
+    } else {
+		console.log("DeviceMotionEvent is not defined");
+	}
+}
+permissionMotion();
 
 
 
 // ::::::::::::::::: Funciones :::::::::::::::::
+function aniB1(entry, index){
+	var rect = entry.target.getBoundingClientRect();
+	var top = rect.top;
+	var height = rect.height;
+	var windowHeight = window.innerHeight;
+	var scrolled = (top - windowHeight) * -1;
+}
 
 
 
 
 // ::::::::::::::::: Procesos :::::::::::::::::
-function iniciar(){
+function iniciar() {
 	//habilitar funciones para moviles:
-	if(el.mobile = /Mobile/i.test(navigator.userAgent)){
-		if(el.touch = Modernizr.touchevents){
-			
+	if ((el.mobile = /Mobile/i.test(navigator.userAgent))) {
+		if ((el.touch = Modernizr.touchevents)) {
 		}
 	}
 	//Obtener elementos del html
-	
+	const miParallax = new Parallax(document.getElementById('parallax'));
 
 	// iniciar mas procesos
 	precarga();
+	const bloque1 = document.getElementById("objeto");
+	bloque1.idaAniTimeline = aniB1;
+	const ani = new AnimeObserver(bloque1);
+	ani.areaMinima = 0.05;
+	ani.pasos = 20;
+	ani.userTimeline = aniB1;
+	ani.run();
+	
 }
-
-
 
 
 
 // iniciar la solicitud de los modulos y la ejecucion inicial del sistema.
 //importamos los archivos y librerias necesarios
 requirejs.config({
-    baseUrl: 'assets/js/owner',
-    paths: { a: '../animaciones', l: '../librerias' }
+	baseUrl: "assets/js/owner",
+	paths: { a: "../animaciones", l: "../librerias", n: "/node_modules" },
 });
-requirejs(['l/modernizr', 'l/precarga'], iniciar);
+requirejs(["l/modernizr", "l/precarga", "n/animejs/lib/anime.min", "observer"], iniciar);
 
 
 
@@ -49,65 +78,6 @@ requirejs(['l/modernizr', 'l/precarga'], iniciar);
 
 
 
-
-
-
-
-
-
-
-
-// let unArray = ['martha'];
-// let unJson = {"nombre":"martha", "edad":40};
-
-
-// let varMiKeyDesconocida = 'nombre';
-
-// console.log( unArray[0] );
-// console.log( unJson.nombre );
-// console.log( unJson['nombre'] );
-// console.log( unJson[varMiKeyDesconocida] );
-
-
-// const miReg = /a|e|i|o|u/g;
-// const miReg2 = /[a-zA-Z09]/;
-// const miReg3 = /[\w]/;
-// let unTexto = 'hola';
-
-// const resultado = miReg.test(unTexto);
-// const textoModificado = unTexto.replace(miReg, '');
-// console.log(textoModificado);
-
-
-
-
-
-
-// let textoInput = 'hoberlai';
-// let btnEn = document.getElementById('encriptar');
-// let btnDes = document.getElementById('desencriptar');
-// btnEn.addEventListener('click', funClick);
-// btnDes.addEventListener('click', funClick);
-
-
-// const control = {
-// 	encriptar:{
-// 		buscar:/a|e|i|o|u/g,
-// 		remplazar:{a:'ai', e:'enter', i:'imer', o:'ober', u:'ufal'}
-// 	},
-// 	desencriptar:{
-// 		buscar:/ai|enter|imer|ober|ufal/g,
-// 		remplazar:{ai:'a', enter:'e', imer:'i', ober:'o', ufal:'u'}
-// 	}
-// };
-
-
-// function funClick(e){
-// 	const elID = this.id;
-// 	console.log(  textoInput.replace( control[this.id].buscar, function(el){
-// 		return control[elID].remplazar[el];
-// 	}));
-// }
 
 
 

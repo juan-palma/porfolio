@@ -22,7 +22,6 @@ function permissionMotion () {
 		console.log("DeviceMotionEvent is not defined");
 	}
 }
-permissionMotion();
 
 
 
@@ -45,6 +44,9 @@ function iniciar() {
 		if ((el.touch = Modernizr.touchevents)) {
 		}
 	}
+
+	el.permisoFire = document.getElementById('permisionFire');
+	el.permisoFire.addEventListener('click', permissionMotion);
 	//Obtener elementos del html
 	const miParallax = new Parallax(document.getElementById('parallax'));
 

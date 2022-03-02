@@ -55,17 +55,23 @@ function iniciar() {
 		e.stopPropagation();
 
 		if(permissionMotion()){
+			console.log('se inicio parallax');
 			const miParallax = new Parallax(document.getElementById('parallax'));
 		}
 	}
 	
 	el.permisoFire = document.getElementById('permisionFire');
 	el.permisoFire.addEventListener('click', parallaxMobile);
+	el.permisoFire.addEventListener('touchstart', e => {
+		e.preventDefault();
+		e.cancelBubble = true;
+		e.stopPropagation();
+	}, {passive: true});
 	el.permisoFire.addEventListener('scroll', e => {
 		e.preventDefault();
 		e.cancelBubble = true;
 		e.stopPropagation();
-	})
+	}, {passive: true});
 	//Obtener elementos del html
 	
 	// iniciar mas procesos

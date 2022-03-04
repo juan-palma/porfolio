@@ -30,9 +30,44 @@ class AnimeObserver {
 	}
 
 	timeline(entry, index){
+		const data = {};
+
+		data.rect = entry.target.getBoundingClientRect();
+		data.top = data.rect.top;
+		data.height = data.rect.height;
+		data.windowHeight = window.innerHeight;
+		data.scrolled = (data.top - data.windowHeight) * -1;
+		data.winNoPdesplazado = ((data.top * 100)/data.windowHeight);
+		data.winPdesplazado = ((data.scrolled * 100)/data.windowHeight);
+		data.padrePdesplazado = ((data.scrolled * 100)/data.height);
+		data.padreNoPdesplazado = 100 - data.padrePdesplazado;
+		data.wSaturacion = entry.target.idaAni.wSaturacion;
+		data.sentido = 0;
+
+		if(!entry.target.idaAni.hasOwnProperty('sentidoOld')){
+			entry.target.idaAni.sentidoOld = 0;
+		}
+		switch(true){
+			case data.scrolled > entry.target.idaAni.sentidoOld:
+				data.sentido = 'normal';
+			break;
+
+			case data.scrolled == entry.target.idaAni.sentidoOld:
+				data.sentido = 'stop';
+			break;
+
+			case data.scrolled < entry.target.idaAni.sentidoOld:
+				data.sentido = 'reverse';
+			break;
+		}
+		entry.target.idaAni.sentidoOld = data.scrolled;
+		
 		entry.target.idaAni.frameRun = true;
+		data.entry = entry;
+		data.index = index;
+
 		if(entry.target.idaAniTimeline instanceof Function){
-			entry.target.idaAniTimeline.call(this, entry, index);
+			entry.target.idaAniTimeline.call(this, data);
 		}
 		if(entry.target.idaAni.minimaAlcanzada){
 			requestAnimationFrame(this.timeline.bind(this, entry, index));
@@ -44,9 +79,9 @@ class AnimeObserver {
 	trabajo(entries, observer) {
 		entries.forEach((function (entry, index) {
 			if (entry.intersectionRatio > this.ratioAccion) {
-				entry.target.idaAni.progreso = 1;
+				entry.target.idaAni.wSaturacion = 1;
 			} else {
-				entry.target.idaAni.progreso = 0;
+				entry.target.idaAni.wSaturacion = 0;
 			}
 			this.ratioAccion = entry.intersectionRatio;
 

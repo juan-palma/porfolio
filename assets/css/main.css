@@ -20,7 +20,7 @@ html{
 	background-size: cover;
 	background-attachment: fixed;
 }
-body, button, input, select, textarea{
+body, button, input, select, textarea, ::after, ::before{
 	font-family: 'Lato', Arial, Helvetica, sans-serif;
 	color: #56504a;
 	letter-spacing: 0.05em;
@@ -573,7 +573,7 @@ input[type="button"]:hover{
 	background-color: #00927a;
 	margin: 115vh 0;
 }
-	#parallax{
+	#home_hola_box{
 		width: 100%;
 		height: 100vh;
 		position: fixed;
@@ -583,24 +583,21 @@ input[type="button"]:hover{
 		justify-content: center;
 		align-items: center;
 	}
-		#nube1{
-			width: 250px;
-			height: 250px;
-		}
-		#nube2{
-			width: 350px;
-			height: 350px;
-		}
-		#nube3{
-			width: 450px;
-			height: 450px;
-		}
-		.cuadro{
-			border: 2px solid red;
+		
+		.hhola{
+			width: 100%;
+			height: 100%;
 			position: absolute;
-			top: initial !important;
-			left: initial !important;
 		}
+			.hhola > img{
+				width: 118%;
+				height: 118%;
+				position: relative;
+				object-fit: cover;
+				object-position: center;
+				left: -9%;
+				top: -9%;
+			}
 
 	#permisionFire{
 		width: 100%;
@@ -609,7 +606,22 @@ input[type="button"]:hover{
 		top: 0px;
 		left: 0px;
 		z-index: 999999;
+		display: none;
+		justify-content: center;
+		align-items: center;
+		background-color: currentColor;
+		transition: all 500ms ease-in-out;
 	}
+		#permisionFire::after{
+			content: "Toca la pantalla";
+			text-transform: uppercase;
+			font-size: 5vw;
+			color: white;
+			font-weight: 100;
+			letter-spacing: 4px;
+			text-shadow: 1px 5px 6px rgb(0 0 0 / 88%);
+			transition: all 500ms ease-in-out;
+		}
 
 
 

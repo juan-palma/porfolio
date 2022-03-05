@@ -101,8 +101,8 @@
 	"display": "fullscreen",
 	"orientation": "portrait",
 	"scope": "/",
-	"theme_color": "#9acd32",
-	"background_color": "#292D27",
+	"theme_color": "#1a1918",
+	"background_color": "#1a1918",
 	"screenshots": [
 		{
 			"src": "assets/img/screenshot1.jpg",

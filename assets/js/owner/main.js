@@ -33,13 +33,14 @@ function permissionMotion (e, f) {
 }
 function ponerParallax(response){
 	if ( response == "granted" ) {
-		el.permisoFire.style.opacity = 0;
-		setTimeout(() => el.permisoFire.style.display = 'none', 600 );
-		const miParallax = new Parallax(document.getElementById('home_hola_box'));
-	} else{
-		el.permisoFire.style.opacity = 0;
-		setTimeout(() => el.permisoFire.style.display = 'none', 600 );
+		el.home_hola_parallax = new Parallax(document.getElementById('home_hola_box'));
 	}
+
+	el.permisoFire.classList.add('opacidad0');
+	setTimeout(() => {
+		el.permisoFire.style.display = 'none';
+		el.fondo.style.overflow = "auto";
+	}, 600 );
 }
 
 function parallaxMobile(e){
@@ -61,7 +62,24 @@ function aniB1(data){
 
 // ::::::::::::::::: Procesos :::::::::::::::::
 function showPage(){
-	console.log('comenzare a mostrar la pagina');
+	if(el.mobile){
+		el.permisoFire = document.createElement('div');
+		el.permisoFire.id = 'permisionFire';
+		el.permisoFire.addEventListener('click', parallaxMobile);
+		document.body.appendChild(el.permisoFire);
+		setTimeout(()=>el.loading.classList.add('opacidad0'), 150);
+
+	} else{
+		el.loading.classList.add('opacidad0');
+		el.fondo.style.overflow = "auto";
+		el.home_hola_parallax = new Parallax(document.getElementById('home_hola_box'), {
+			relativeInput: true,
+			hoverOnly: true
+		});
+	}
+	setTimeout(()=>{
+		el.timeline1.classList.remove('opacidad0');;
+	}, 550);
 }
 
 function iniciar() {
@@ -70,19 +88,13 @@ function iniciar() {
 		if ((el.touch = Modernizr.touchevents)) {
 
 		}
-
-		el.permisoFire = document.createElement('div');
-		el.permisoFire.id = 'permisionFire';
-		el.permisoFire.addEventListener('click', parallaxMobile);
-		document.body.appendChild(e.permisoFire);
-
-	} else{
-		const miParallax = new Parallax(document.getElementById('home_hola_box'));
-		
 	}
 
 	
-	
+	el.fondo = document.getElementById('fondo_body');
+	el.fondo.style.overflow = "hidden";
+	el.loading = document.getElementById('loading');
+	el.timeline1 = document.getElementById('timeline1');
 	
 	
 	//Obtener elementos del html
@@ -90,8 +102,8 @@ function iniciar() {
 	// iniciar mas procesos
 	const precarga = new Precarga(showPage);
 	precarga.run();
-	
-	const bloque1 = document.getElementById("objeto");
+
+	const bloque1 = document.getElementById("timeline1");
 	bloque1.idaAniTimeline = aniB1;
 	const ani = new AnimeObserver(bloque1);
 	ani.areaMinima = 0.05;

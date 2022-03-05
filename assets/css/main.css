@@ -9,23 +9,6 @@
 	Parametros Globales
 ========================================================================== */
 
-/* body,
-html{
-	width: 100%;
-	min-height: 100vh;
-	height: auto;
-} */
-#fondo_body{
-	background : #002d38;
-	background-size: cover;
-	background-attachment: fixed;
-}
-body, button, input, select, textarea, ::after, ::before{
-	font-family: 'Lato', Arial, Helvetica, sans-serif;
-	color: #56504a;
-	letter-spacing: 0.05em;
-}
-
 /* div, label{
 	width: auto;
 	height: auto;
@@ -170,12 +153,27 @@ body, button, input, select, textarea, ::after, ::before{
 	Estilos visiales para elementos GENERALES
 ========================================================================== */
 :root{
-	--colorBackDark: #282b30;
-	--colorBackColor: #d05751;
-	--colorPrincipal: yellowgreen;
+	--colorBackDark: #1a1918;
+	--colorBackColor: #393735;
+	--colorPrincipal: #a34f29;
+	--colorSecundario: #3a434d;
+	--colorTexto: var(--colorBackColor);
 	--margenAncho: 76%;
 	--margenPadding: 2em;
 }
+#fondo_body{
+	background : var(--colorBackDark);
+	background-size: cover;
+	background-attachment: fixed;
+}
+body, button, input, select, textarea, ::after, ::before{
+	font-family: 'Lato', Arial, Helvetica, sans-serif;
+	color: var(--colorTexto);
+	letter-spacing: 0.05em;
+}
+
+
+
 .desaparece{
 	display: none;
 	visibility: hidden;
@@ -549,6 +547,19 @@ input[type="button"]:hover{
 	justify-content: center;
 	align-items: center;
 }
+#loading{
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	left: 0px;
+	top: 0px;
+	background: transparent url(../img/ajax.webp) no-repeat center center;
+	z-index: 999988;
+	transition: opacity 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
 #container0{
 	width: 100%;
 	min-height:100vh;
@@ -567,11 +578,12 @@ input[type="button"]:hover{
 		left: 0px;
 	}
 		
-#objeto{
+#timeline1{
 	width: 100%;
 	height: 300vh;
 	background-color: #00927a;
 	margin: 115vh 0;
+	transition: all 900ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 	#home_hola_box{
 		width: 100%;
@@ -609,7 +621,7 @@ input[type="button"]:hover{
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background-color: currentColor;
+		background-color: var(--colorBackDark);
 		transition: all 500ms ease-in-out;
 	}
 		#permisionFire::after{

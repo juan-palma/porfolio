@@ -1,36 +1,42 @@
-function showPreload(){
-	el.circuloCarga.style.display = 'none';
-	setTimeout(function(){
-		const gifs = document.getElementById('gifs');
-		gifs.classList.remove('opacidad0');
-		gifs.addEventListener('transitionend', ()=>{ document.getElementById('animFLama').style.opacity = 1; })
-
-		el.fondos.classList.remove('opacidad0');
-		el.btnPlay.classList.remove('ocultar');
-		el.boxOpciones.classList.remove('opacidad0');
-
+class Precarga{
+	preloadTotal = 0;
+	preloadLoad = 0;
+	pres;
+	userFunc;
+	
+	showPreload(){
+		this.pres.forEach(function(pre){
+			pre.src = pre.attributes['preload-src'].value;
+		});
 		
-	}, control.showAllTime);
-}
-
-function checkPreload(e){
-	idagl.preloadLoad++;
-	this.imgOriginal.src = this.src;
-	if(idagl.preloadTotal == idagl.preloadLoad){
-		showPreload();
+		//el.circuloCarga.style.display = 'none';
+		setTimeout((function(){
+			this.userFunc();
+		}).bind(this), 2200);
 	}
-}
 
-idagl.preloadTotal = 0;
-idagl.preloadLoad = 0;
-function precarga(){
-	const imagenes = document.querySelectorAll('img[preload-src]');
-	imagenes.forEach(function(im){
-		const img = document.createElement('img');
-		img.src = im.attributes['preload-src'].value;
-		img.imgOriginal = im;
-		img.onload = checkPreload;
-		el.preloaOculto.appendChild(img);
-		idagl.preloadTotal++;
-	});
+	checkPreload(e){
+		this.preloadLoad++;
+		if(this.preloadTotal == this.preloadLoad){
+			this.showPreload();
+		}
+	}
+
+	run(){
+		this.pres = document.querySelectorAll('[preload-src]');
+		const miDOM = document.createDocumentFragment();
+		this.pres.forEach((function(pre){
+			const tag = document.createElement(pre.tagName);
+			tag.src = pre.attributes['preload-src'].value;
+			tag.onload = this.checkPreload.bind(this);
+			miDOM.appendChild(tag);
+			this.preloadTotal++;
+		}).bind(this));
+	}
+
+	constructor(f){
+		if(f instanceof Function){
+			this.userFunc = f;
+		}
+	}
 }

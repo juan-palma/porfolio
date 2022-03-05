@@ -590,13 +590,13 @@ input[type="button"]:hover{
 			position: absolute;
 		}
 			.hhola > img{
-				width: 118%;
-				height: 118%;
+				width: 128%;
+				height: 128%;
 				position: relative;
 				object-fit: cover;
 				object-position: center;
-				left: -9%;
-				top: -9%;
+				left: -14%;
+				top: -14%;
 			}
 
 	#permisionFire{
@@ -606,7 +606,7 @@ input[type="button"]:hover{
 		top: 0px;
 		left: 0px;
 		z-index: 999999;
-		display: none;
+		display: flex;
 		justify-content: center;
 		align-items: center;
 		background-color: currentColor;

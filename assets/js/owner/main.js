@@ -60,6 +60,10 @@ function aniB1(data){
 
 
 // ::::::::::::::::: Procesos :::::::::::::::::
+function showPage(){
+	console.log('comenzare a mostrar la pagina');
+}
+
 function iniciar() {
 	//habilitar funciones para moviles:
 	if ((el.mobile = /Mobile/i.test(navigator.userAgent))) {
@@ -67,9 +71,10 @@ function iniciar() {
 
 		}
 
-		el.permisoFire = document.getElementById('permisionFire');
-		el.permisoFire.style.display = 'flex';
+		el.permisoFire = document.createElement('div');
+		el.permisoFire.id = 'permisionFire';
 		el.permisoFire.addEventListener('click', parallaxMobile);
+		document.body.appendChild(e.permisoFire);
 
 	} else{
 		const miParallax = new Parallax(document.getElementById('home_hola_box'));
@@ -83,7 +88,9 @@ function iniciar() {
 	//Obtener elementos del html
 	
 	// iniciar mas procesos
-	precarga();
+	const precarga = new Precarga(showPage);
+	precarga.run();
+	
 	const bloque1 = document.getElementById("objeto");
 	bloque1.idaAniTimeline = aniB1;
 	const ani = new AnimeObserver(bloque1);

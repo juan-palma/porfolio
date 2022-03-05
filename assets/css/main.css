@@ -602,13 +602,13 @@ input[type="button"]:hover{
 			position: absolute;
 		}
 			.hhola > img{
-				width: 128%;
-				height: 128%;
+				width: 118%;
+				height: 118%;
 				position: relative;
 				object-fit: cover;
 				object-position: center;
-				left: -14%;
-				top: -14%;
+				left: -9%;
+				top: -9%;
 			}
 
 	#permisionFire{

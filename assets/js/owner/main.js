@@ -33,7 +33,10 @@ function permissionMotion (e, f) {
 }
 function ponerParallax(response){
 	if ( response == "granted" ) {
-		el.home_hola_parallax = new Parallax(document.getElementById('home_hola_box'));
+		el.home_hola_parallax = new Parallax(document.getElementById('home_hola_box'),{
+			limitX: window.innerWidth * .089,
+			limitY: window.innerHeight * .089
+		});
 	}
 
 	el.permisoFire.classList.add('opacidad0');
@@ -73,8 +76,10 @@ function showPage(){
 		el.loading.classList.add('opacidad0');
 		el.fondo.style.overflow = "auto";
 		el.home_hola_parallax = new Parallax(document.getElementById('home_hola_box'), {
-			relativeInput: true,
-			hoverOnly: true
+			relativeInput: false,
+			hoverOnly: false,
+			limitX: window.innerWidth * .089,
+			limitY: window.innerHeight * .089
 		});
 	}
 	setTimeout(()=>{

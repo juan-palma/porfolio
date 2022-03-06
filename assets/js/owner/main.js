@@ -59,33 +59,25 @@ function procesarPermiso(response){
 	setTimeout(() => {
 		el.permisoFire.style.display = 'none';
 		el.fondo.style.overflow = "auto";
-	}, 600 );
+	}, 500 );
 }
-
-// function funBtnPermiso(e){
-// 	e.preventDefault();
-// 	e.cancelBubble = true;
-// 	e.stopPropagation();
-// 	permissionMotion('motion', procesarPermiso);
-// }
 
 function showPage(){
 	if(el.mobile){
 		el.permisoFire = document.createElement('div');
 		el.permisoFire.id = 'permisionFire';
-		el.permisoFire.addEventListener('click', permissionMotion.bind('motion', procesarPermiso));
+		el.permisoFire.classList.add('opacidad0');
+		el.permisoFire.addEventListener('click', permissionMotion.bind(null, 'motion', procesarPermiso));
 		document.body.appendChild(el.permisoFire);
-		setTimeout(()=>el.loading.classList.add('opacidad0'), 150);
+		setTimeout(()=>el.permisoFire.classList.remove('opacidad0'), 10);
 		makeParallaxs();
 
 	} else{
-		el.loading.classList.add('opacidad0');
 		el.fondo.style.overflow = "auto";
-		
 	}
-	setTimeout(()=>{
-		el.timeline1.classList.remove('opacidad0');;
-	}, 550);
+
+	setTimeout(()=>el.loading.classList.add('opacidad0'), 550);
+	setTimeout(()=>el.timeline1.classList.remove('opacidad0'), 1100);
 }
 
 function iniciar() {
@@ -96,14 +88,14 @@ function iniciar() {
 		}
 	}
 
-	
+
+	//Obtener elementos del html
 	el.fondo = document.getElementById('fondo_body');
 	el.fondo.style.overflow = "hidden";
 	el.loading = document.getElementById('loading');
 	el.timeline1 = document.getElementById('timeline1');
 	
 	
-	//Obtener elementos del html
 	
 	// iniciar mas procesos
 	const precarga = new Precarga(showPage);
@@ -127,9 +119,4 @@ requirejs.config({
 	paths: { a: "../animaciones", l: "../librerias", n: "/node_modules" },
 });
 requirejs(["l/modernizr", "l/precarga", "n/animejs/lib/anime.min", "observer"], iniciar);
-
-
-
-
-
 

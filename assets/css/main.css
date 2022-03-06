@@ -577,6 +577,41 @@ input[type="button"]:hover{
 		top: 0px;
 		left: 0px;
 	}
+
+@keyframes logo {
+	0% {
+		-webkit-transform: rotateZ(10deg);
+		-moz-transform: rotateZ(10deg);
+		transform: rotateZ(10deg);
+	}
+	100% {
+		-webkit-transform: rotateZ(-10deg);
+		-moz-transform: rotateZ(-10deg);
+		transform: rotateZ(-10deg);
+	}
+}
+#logoJuan{
+	position: fixed;
+	left: 4%;
+	top: 0px;
+	width: 8vw;
+	height: 8vw;
+	max-width: 200px;
+	max-height: 200px;
+	z-index: 9999999;
+	cursor: pointer;
+	transition: all 300ms ease-in-out;
+	transform-origin: 50% 0%;
+	animation: logo 2s infinite alternate cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+	#logoJuan img{
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		object-position: center top;
+	}
+	
+
 		
 #timeline1{
 	width: 100%;
@@ -609,6 +644,50 @@ input[type="button"]:hover{
 				object-position: center;
 				left: -9%;
 				top: -9%;
+			}
+			@keyframes hola5{
+				0% {
+					transform: translate3d(1.2%,0%,0);
+				}
+				100% {
+					transform: translate3d(-1.2%,0%,0);
+				}
+			}
+			@keyframes hola4{
+				0% {
+					transform: rotateZ(0deg) translate3d(0,1%,0) rotateZ(0deg);
+				}
+				100% {
+					transform: rotateZ(360deg) translate3d(0,1%,0) rotateZ(-360deg);
+				}
+			}
+			@keyframes hola3{
+				0% {
+					transform: translate3d(0,1.2%,0);
+				}
+				100% {
+					transform: translate3d(0,-1.2%,0);
+				}
+			}
+			@keyframes hola2{
+				0% {
+					transform: rotateZ(0deg) translate3d(0,1%,0) rotateZ(0deg);
+				}
+				100% {
+					transform: rotateZ(-360deg) translate3d(0,1%,0) rotateZ(360deg);
+				}
+			}
+			#hhola5 img{
+				animation: hola5 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate;
+			}
+			#hhola4 img{
+				animation: hola4 4.6s linear 10ms infinite;
+			}
+			#hhola3 img{
+				animation: hola3 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate;
+			}
+			#hhola2 img{
+				animation: hola2 4.6s linear 10ms infinite;
 			}
 
 	#permisionFire{

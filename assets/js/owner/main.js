@@ -6,7 +6,29 @@ idagl.elementos = {};
 const el = idagl.elementos;
 
 
+
+
+
+
+// ::::::::::::::::: Funciones :::::::::::::::::
+function aniB1(data){
+	
+}
+
+
+
+
+
+// ::::::::::::::::: Procesos :::::::::::::::::
 // -- Opciones de control y valores para el sistema ---
+function makeParallaxs(){
+	el.home_hola_parallax = new Parallax(document.getElementById('home_hola_box'), {
+		relativeInput: false,
+		hoverOnly: false,
+		limitX: window.innerWidth * .089,
+		limitY: window.innerHeight * .089
+	});
+}
 function permissionMotion (e, f) {
 	switch(e){
 		case 'motion':
@@ -27,16 +49,10 @@ function permissionMotion (e, f) {
 			}
 		break;
 	}
-	
-
-	
 }
-function ponerParallax(response){
+function procesarPermiso(response){
 	if ( response == "granted" ) {
-		el.home_hola_parallax = new Parallax(document.getElementById('home_hola_box'),{
-			limitX: window.innerWidth * .089,
-			limitY: window.innerHeight * .089
-		});
+		makeParallaxs();
 	}
 
 	el.permisoFire.classList.add('opacidad0');
@@ -46,41 +62,26 @@ function ponerParallax(response){
 	}, 600 );
 }
 
-function parallaxMobile(e){
-	e.preventDefault();
-	e.cancelBubble = true;
-	e.stopPropagation();
-	permissionMotion('motion', ponerParallax);
-}
+// function funBtnPermiso(e){
+// 	e.preventDefault();
+// 	e.cancelBubble = true;
+// 	e.stopPropagation();
+// 	permissionMotion('motion', procesarPermiso);
+// }
 
-
-
-// ::::::::::::::::: Funciones :::::::::::::::::
-function aniB1(data){
-	
-}
-
-
-
-
-// ::::::::::::::::: Procesos :::::::::::::::::
 function showPage(){
 	if(el.mobile){
 		el.permisoFire = document.createElement('div');
 		el.permisoFire.id = 'permisionFire';
-		el.permisoFire.addEventListener('click', parallaxMobile);
+		el.permisoFire.addEventListener('click', permissionMotion.bind('motion', procesarPermiso));
 		document.body.appendChild(el.permisoFire);
 		setTimeout(()=>el.loading.classList.add('opacidad0'), 150);
+		makeParallaxs();
 
 	} else{
 		el.loading.classList.add('opacidad0');
 		el.fondo.style.overflow = "auto";
-		el.home_hola_parallax = new Parallax(document.getElementById('home_hola_box'), {
-			relativeInput: false,
-			hoverOnly: false,
-			limitX: window.innerWidth * .089,
-			limitY: window.innerHeight * .089
-		});
+		
 	}
 	setTimeout(()=>{
 		el.timeline1.classList.remove('opacidad0');;

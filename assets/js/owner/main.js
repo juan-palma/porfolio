@@ -12,7 +12,8 @@ const el = idagl.elementos;
 
 // ::::::::::::::::: Funciones :::::::::::::::::
 function aniB1(data){
-	
+	//console.log(data.padrePdesplazado * 10);
+	el.timeline1.seek( data.padrePdesplazado * 10 );
 }
 
 
@@ -70,17 +71,18 @@ function showPage(){
 		el.permisoFire.addEventListener('click', permissionMotion.bind(null, 'motion', procesarPermiso));
 		document.body.appendChild(el.permisoFire);
 		setTimeout(()=>el.permisoFire.classList.remove('opacidad0'), 10);
-		makeParallaxs();
 
 	} else{
+		makeParallaxs();
 		el.fondo.style.overflow = "auto";
 	}
 
 	setTimeout(()=>el.loading.classList.add('opacidad0'), 550);
-	setTimeout(()=>el.timeline1.classList.remove('opacidad0'), 1100);
+	setTimeout(()=>el.boxTimeline1.classList.remove('opacidad0'), 1100);
 }
 
 function iniciar() {
+	window.anime = arguments[2];
 	//habilitar funciones para moviles:
 	if ((el.mobile = /Mobile/i.test(navigator.userAgent))) {
 		if ((el.touch = Modernizr.touchevents)) {
@@ -93,7 +95,24 @@ function iniciar() {
 	el.fondo = document.getElementById('fondo_body');
 	el.fondo.style.overflow = "hidden";
 	el.loading = document.getElementById('loading');
-	el.timeline1 = document.getElementById('timeline1');
+	el.boxTimeline1 = document.getElementById('timeline1');
+
+
+	let targetsHola1 = document.querySelectorAll('#home_hola_box .hhola .anibox');
+	targetsHola1 = [...targetsHola1];
+	targetsHola1.reverse();
+	el.timeline1 = anime.timeline({
+		easing: "linear",
+		autoplay: false,
+	}).add({
+		targets: targetsHola1,
+		opacity: [
+			{ value: 0, duration: 400, delay: 600, easing: 'easeInCubic' }
+		],
+		scale: [
+			{ value: 5, duration: 1000, delay: anime.stagger([0, 300]), easing: 'easeInCubic' }
+		]
+	})
 	
 	
 	

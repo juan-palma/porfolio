@@ -631,12 +631,12 @@ input[type="button"]:hover{
 		align-items: center;
 	}
 		
-		.hhola{
+		.hhola, .anibox{
 			width: 100%;
 			height: 100%;
 			position: absolute;
 		}
-			.hhola > img{
+			.hhola .anibox > img{
 				width: 118%;
 				height: 118%;
 				position: relative;

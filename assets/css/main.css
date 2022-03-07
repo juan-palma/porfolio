@@ -556,7 +556,7 @@ input[type="button"]:hover{
 	align-items: center;
 	left: 0px;
 	top: 0px;
-	background: transparent url(../img/ajax.webp) no-repeat center center;
+	background: var(--colorBackDark) url(../img/ajax.webp) no-repeat center center;
 	z-index: 999988;
 	transition: opacity 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
@@ -592,13 +592,13 @@ input[type="button"]:hover{
 }
 #logoJuan{
 	position: fixed;
-	left: 4%;
+	left: 5%;
 	top: 0px;
-	width: 8vw;
-	height: 8vw;
-	max-width: 200px;
-	max-height: 200px;
-	z-index: 9999999;
+	width: 20vw;
+	height: 20vw;
+	max-width: 120px;
+	max-height: 120px;
+	z-index: 999977;
 	cursor: pointer;
 	transition: all 300ms ease-in-out;
 	transform-origin: 50% 0%;
@@ -610,13 +610,33 @@ input[type="button"]:hover{
 		object-fit: contain;
 		object-position: center top;
 	}
-	
+h1 {
+	position: absolute;
+	top: 69vh;
+	left: 8%;
+	font-size: 11vw;
+	color: white;
+	text-transform: uppercase;
+	width: 84%;
+}
+	h1 span {
+		font-size: 49%;
+		color: var(--colorPrincipal);
+		display: block;
+	}
+	h1::after {
+		content: 'Diseño Gráfico, 3D, Fotografía, Programación y más...';
+		font-size: 38%;
+		display: block;
+		width: 68%;
+		margin-top: 1rem;
+	}
 
 		
 #timeline1{
 	width: 100%;
-	height: 300vh;
-	background-color: #00927a;
+	height: 2400vh;
+	background-color: transparent;
 	margin: 115vh 0;
 	transition: all 900ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
@@ -677,16 +697,16 @@ input[type="button"]:hover{
 					transform: rotateZ(-360deg) translate3d(0,1%,0) rotateZ(360deg);
 				}
 			}
-			#hhola5 img{
+			#hhola5 .anibox > img:first-child{
 				animation: hola5 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate;
 			}
-			#hhola4 img{
+			#hhola4 .anibox > img:first-child{
 				animation: hola4 4.6s linear 10ms infinite;
 			}
-			#hhola3 img{
+			#hhola3 .anibox > img:first-child{
 				animation: hola3 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate;
 			}
-			#hhola2 img{
+			#hhola2 .anibox > img:first-child{
 				animation: hola2 4.6s linear 10ms infinite;
 			}
 
@@ -728,6 +748,35 @@ input[type="button"]:hover{
 	
 }
 
+
+
+
+
+
+/* ==========================================================================
+	Estilos para un espect de pie
+========================================================================== */
+@media screen and (orientation:portrait){
+
+}
+
+
+
+
+
+
+
+/* ==========================================================================
+	Estilos para un espect de pie
+========================================================================== */
+@media screen and (orientation:landscape){
+	h1 {
+		top: 69vh;
+		left: 10%;
+		font-size: 8vh;
+		width: 80%;
+	}
+}
 
 
 
@@ -775,6 +824,20 @@ input[type="button"]:hover{
 
 
 
+/* ==========================================================================
+	Media Queries
+========================================================================== */
+@media only screen and (min-width: 846px) {
+	h1::after {
+		content: 'Diseño Gráfico, 3D, Fotografía, Programación y más...';
+		font-size: 28%;
+	}
+}
+
+
+
+
+
 
 
 
@@ -786,10 +849,6 @@ input[type="button"]:hover{
 		--margenAncho: 90%;
 		--margenPadding: 2em;
 	}
-	h1 {
-	    font-size: 5vw;
-	}
-	
 }
 
 

@@ -73,8 +73,8 @@ function makeParallaxs(){
 	el.home_hola_parallax = new Parallax(document.getElementById('home_hola_box'), {
 		relativeInput: false,
 		hoverOnly: false,
-		limitX: window.innerWidth * .089,
-		limitY: window.innerHeight * .089,
+		limitX: window.innerWidth * .088,
+		limitY: window.innerHeight * .088,
 		calibrateX:true
 	});
 }

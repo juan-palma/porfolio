@@ -88,6 +88,7 @@ class AnimeObserver {
 
 			if(entry.isIntersecting){
 				entry.target.idaAni.minimaAlcanzada = true;
+				if(entry.target.idaAni.frameRun = undefined){entry.target.idaAni.frameRun = false;}
 				if(entry.target.idaAni.hasOwnProperty('frameRun') && !entry.target.idaAni.frameRun){
 					requestAnimationFrame(this.timeline.bind(this, entry, index));
 				}

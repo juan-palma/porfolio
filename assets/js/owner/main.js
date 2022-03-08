@@ -28,9 +28,9 @@ function controlTimeLine1(accion){
 		}
 		el.home_hola_box.style.display = 'flex';
 		el.hhola5.style.animation = 'hola5 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
-		el.hhola4.style.animation = 'animation: hola4 4.6s linear 10ms infinite';
-		el.hhola3.style.animation = 'animation: hola3 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
-		el.hhola2.style.animation = 'animation: hola2 4.6s linear 10ms infinite';
+		el.hhola4.style.animation = 'hola4 4.6s linear 10ms infinite';
+		el.hhola3.style.animation = 'hola3 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
+		el.hhola2.style.animation = 'hola2 4.6s linear 10ms infinite';
 	}
 }
 function animarTimeline1(data){
@@ -74,7 +74,8 @@ function makeParallaxs(){
 		relativeInput: false,
 		hoverOnly: false,
 		limitX: window.innerWidth * .089,
-		limitY: window.innerHeight * .089
+		limitY: window.innerHeight * .089,
+		calibrateX:true
 	});
 }
 function permissionMotion (e, f) {

@@ -37,15 +37,18 @@ function controlTimeLine1(area, accion){
 		break;
 
 		case 'bosque':
+			console.log(accion);
 			if(accion == 'stop'){
 				if(el.hasOwnProperty('home_bosque_parallax')){
+					console.log('se detuvo bosque');
 					el.home_bosque_parallax.disable();
-				}
+				};
 				
 			} else{
 				if(el.hasOwnProperty('home_bosque_parallax')){
+					console.log('se activo bosque');
 					el.home_bosque_parallax.enable();
-				}
+				};
 				
 			}
 		break;
@@ -85,11 +88,11 @@ function makeTimeline1(parametro){
 		changeComplete: ()=>{
 			if(el.timeline1.data.sentido == "normal"){controlTimeLine1('hola', 'stop');};
 		}
-	}).set(targetsBosque, {'scale': '0.8', 'translateY':'-14%'})
+	})//.set(targetsBosque, {'scale': '0.8', 'translateY':'-14%'})
 	.add({
 		targets: targetsBosque,
 		scale: [
-			{ value: 1, duration: 400, delay: anime.stagger([0, 360]), easing: 'linear' },
+			{ value: [0.8, 1], duration: 400, delay: anime.stagger([0, 360]), easing: 'linear' },
 			{ value: 8, duration: 2000, delay: anime.stagger([4300, 4620]), easing: 'linear' }
 		],
 		translateY: [

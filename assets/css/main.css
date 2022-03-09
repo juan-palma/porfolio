@@ -729,13 +729,13 @@ h1 {
 			position: absolute;
 			top: 0px;
 			left: 0px;
-			transform: scale(0.8) translateY(-14%);
+			/* transform: scale(0.8) translateY(-14%); */
 		}
 			.hbosque .anibox > img{
 				width: 118%;
 				height: 118%;
 				position: relative;
-				object-fit: contain;
+				object-fit: cover;
 				object-position: center;
 				left: -9%;
 				top: -9%;

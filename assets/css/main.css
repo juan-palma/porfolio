@@ -711,7 +711,40 @@ h1 {
 			#hhola2 .anibox > img:first-child{
 				animation: hola2 4.6s linear 10ms infinite;
 			}
+	
+	
+	#home_bosque_box{
+		width: 100%;
+		height: 100vh;
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+		.hbosque, .anibox{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			transform: scale(0.8) translateY(-14%);
+		}
+			.hbosque .anibox > img{
+				width: 118%;
+				height: 118%;
+				position: relative;
+				object-fit: contain;
+				object-position: center;
+				left: -9%;
+				top: -9%;
+			}
+		#hbosque7P, #hbosque6P, #hbosque5juanP, #hbosque4P{
+			mix-blend-mode: screen;
+		}
 
+	
 	#permisionFire{
 		width: 100%;
 		height: 100vh;

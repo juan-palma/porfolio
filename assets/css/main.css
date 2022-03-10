@@ -723,6 +723,9 @@ h1 {
 		justify-content: center;
 		align-items: center;
 	}
+		#hbosque7P, #hbosque6P, #hbosque5juanP, #hbosque4P{
+			mix-blend-mode: screen;
+		}
 		.hbosque, .anibox{
 			width: 100%;
 			height: 100%;
@@ -732,17 +735,120 @@ h1 {
 			/* transform: scale(0.8) translateY(-14%); */
 		}
 			.hbosque .anibox > img{
-				width: 118%;
-				height: 118%;
+				width: 120%;
+				height: 120%;
 				position: relative;
 				object-fit: cover;
 				object-position: center;
-				left: -9%;
-				top: -9%;
+				left: -10%;
+				top: -10%;
+				
 			}
-		#hbosque7P, #hbosque6P, #hbosque5juanP, #hbosque4P{
-			mix-blend-mode: screen;
-		}
+			@keyframes bosque2 {
+				0% {
+					-webkit-transform: rotateZ(1deg);
+					-moz-transform: rotateZ(1deg);
+					transform: rotateZ(1deg);
+				}
+				100% {
+					-webkit-transform: rotateZ(-1deg);
+					-moz-transform: rotateZ(-1deg);
+					transform: rotateZ(-1deg);
+				}
+			}
+			@keyframes bosque3 {
+				0% {
+					transform: translate3d(0.5%,0%,0);
+				}
+				100% {
+					transform: translate3d(-0.5%,0%,0);
+				}
+			}
+			@keyframes bosque4 {
+				0% {
+					transform: translate3d(0%,1%,0);
+				}
+				100% {
+					transform: translate3d(0%,-1%,0);
+				}
+			}
+			@keyframes bosque5 {
+				0% {
+					transform: rotateZ(0deg) translate3d(0,1%,0) rotateZ(0deg);
+				}
+				100% {
+					transform: rotateZ(-360deg) translate3d(0,1%,0) rotateZ(360deg);
+				}
+			}
+			@keyframes bosque5P {
+				0% {
+					opacity: 0.3;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			@keyframes bosque7P {
+				0% {
+					opacity: 0.2;
+				}
+				10% {
+					opacity: 0.4;
+				}
+				15% {
+					opacity: 0.3;
+				}
+				20% {
+					opacity: 0.5;
+				}
+				25% {
+					opacity: 0.3;
+				}
+				30% {
+					opacity: 0.5;
+				}
+				35% {
+					opacity: 0.4;
+				}
+				100% {
+					opacity: 0.5;
+				}
+			}
+			@keyframes bosque7 {
+				0% {
+					transform: rotateZ(0deg) translate3d(0,1%,0) rotateZ(0deg);
+				}
+				100% {
+					transform: rotateZ(360deg) translate3d(0,1%,0) rotateZ(-360deg);
+				}
+			}
+			
+			#hbosque2 .anibox > img:first-child{
+				transform-origin: 50% 80%;
+				/* animation: bosque2 3.5s infinite alternate cubic-bezier(0.455, 0.03, 0.515, 0.955); */
+			}
+			/* #hbosque3 .anibox > img:first-child{
+				animation: bosque3 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate;
+			}
+			#hbosque4 .anibox > img:first-child{
+				animation: bosque4 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate;
+			}
+			#hbosque5juanP .anibox > img:first-child{
+				animation: bosque5P 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate;
+			}
+			#hbosque6 .anibox > img:first-child{
+				animation: hola4 5.6s linear 10ms infinite;
+			}
+			#hbosque6P .anibox > img:first-child{
+				animation: bosque7P 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate;
+			}
+			#hbosque7P .anibox > img:first-child{
+				animation: bosque7P 6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate;
+			}
+			#hbosque7 .anibox > img:first-child{
+				animation: hola4 4.6s linear 10ms infinite;
+			} */
+		
 
 	
 	#permisionFire{

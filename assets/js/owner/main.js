@@ -51,13 +51,28 @@ function controlTimeLine1(area, accion){
 				if(el.hasOwnProperty('parallax')){
 					manejadorParallax('stop2');
 				};
+				el.hbosque2.style.animation = 'none';
+				el.hbosque3.style.animation = 'none';
+				el.hbosque4.style.animation = 'none';
+				el.hbosque5juanP.style.animation = 'none';
+				el.hbosque6.style.animation = 'none';
+				el.hbosque6P.style.animation = 'none';
+				el.hbosque7P.style.animation = 'none';
+				el.hbosque7.style.animation = 'none';
 				
 			} else{
 				if(el.hasOwnProperty('parallax')){
 					el.parallaxActivo = 'home_bosque_box';
 					setTimeout(() => manejadorParallax('run'), valGeneral.delayControlTimerRunParallax);
 				};
-				
+				el.hbosque2.style.animation = 'bosque2 3.5s infinite alternate cubic-bezier(0.455, 0.03, 0.515, 0.955)';
+				el.hbosque3.style.animation = 'bosque3 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
+				el.hbosque4.style.animation = 'bosque4 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
+				el.hbosque5juanP.style.animation = 'bosque5P 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
+				el.hbosque6.style.animation = 'hola4 5.6s linear 10ms infinite';
+				el.hbosque6P.style.animation = 'bosque7P 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
+				el.hbosque7P.style.animation = 'bosque7P 6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
+				el.hbosque7.style.animation = 'hola4 4.6s linear 10ms infinite';
 			}
 		break;
 	}
@@ -194,7 +209,7 @@ function procesarPermiso(response){
 	if ( response == "granted" ) {
 		makeParallaxs();
 	}
-
+	el.observer.run();
 	el.permisoFire.classList.add('opacidad0');
 	setTimeout(() => {
 		el.permisoFire.style.display = 'none';
@@ -214,6 +229,7 @@ function showPage(){
 
 	} else{
 		makeParallaxs();
+		el.observer.run();
 		el.fondo.style.overflow = "auto";
 		controlTimeLine1('hola', 'run');
 	}
@@ -243,6 +259,15 @@ function iniciar() {
 	el.hhola3 = document.querySelector('#hhola3 .anibox > img:first-child');
 	el.hhola2 = document.querySelector('#hhola2 .anibox > img:first-child');
 
+	el.hbosque2 = document.querySelector('#hbosque2 .anibox > img:first-child');
+	el.hbosque3 = document.querySelector('#hbosque3 .anibox > img:first-child');
+	el.hbosque4 = document.querySelector('#hbosque4 .anibox > img:first-child');
+	el.hbosque5juanP = document.querySelector('#hbosque5juanP .anibox > img:first-child');
+	el.hbosque6 = document.querySelector('#hbosque6 .anibox > img:first-child');
+	el.hbosque6P = document.querySelector('#hbosque6P .anibox > img:first-child');
+	el.hbosque7P = document.querySelector('#hbosque7P .anibox > img:first-child');
+	el.hbosque7 = document.querySelector('#hbosque7 .anibox > img:first-child');
+
 	
 	
 	// iniciar mas procesos
@@ -252,10 +277,9 @@ function iniciar() {
 	makeTimeline1();
 
 	el.boxTimeline1.idaAniTimeline = animarTimeline1;
-	const observer = new AnimeObserver(el.boxTimeline1);
-	observer.areaMinima = 0.05;
-	observer.pasos = 20;
-	observer.run();
+	el.observer = new AnimeObserver(el.boxTimeline1);
+	el.observer.areaMinima = 0.05;
+	el.observer.pasos = 20;
 	
 }
 

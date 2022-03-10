@@ -8,6 +8,14 @@ const el = idagl.elementos;
 
 
 
+const valGeneral = {};
+valGeneral.delayMakeParallat = 2500;
+valGeneral.delayControlTimerRunParallax = 100;
+valGeneral.TimeLine1Acelerador = 120;
+
+
+
+
 
 
 // ::::::::::::::::: Funciones :::::::::::::::::
@@ -16,8 +24,8 @@ function controlTimeLine1(area, accion){
 	switch(area){
 		case 'hola':
 			if(accion == 'stop'){
-				if(el.hasOwnProperty('home_hola_parallax')){
-					el.home_hola_parallax.disable();
+				if(el.hasOwnProperty('parallax')){
+					manejadorParallax('stop2');
 				}
 				el.hhola5.style.animation = 'none';
 				el.hhola4.style.animation = 'none';
@@ -25,8 +33,10 @@ function controlTimeLine1(area, accion){
 				el.hhola2.style.animation = 'none';
 				el.home_hola_box.style.display = 'none';
 			} else{
-				if(el.hasOwnProperty('home_hola_parallax')){
-					el.home_hola_parallax.enable();
+				
+				if(el.hasOwnProperty('parallax')){
+					el.parallaxActivo = 'home_hola_box';
+					setTimeout(() => manejadorParallax('run'), valGeneral.delayControlTimerRunParallax);
 				}
 				el.home_hola_box.style.display = 'flex';
 				el.hhola5.style.animation = 'hola5 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
@@ -37,17 +47,15 @@ function controlTimeLine1(area, accion){
 		break;
 
 		case 'bosque':
-			console.log(accion);
 			if(accion == 'stop'){
-				if(el.hasOwnProperty('home_bosque_parallax')){
-					console.log('se detuvo bosque');
-					el.home_bosque_parallax.disable();
+				if(el.hasOwnProperty('parallax')){
+					manejadorParallax('stop2');
 				};
 				
 			} else{
-				if(el.hasOwnProperty('home_bosque_parallax')){
-					console.log('se activo bosque');
-					el.home_bosque_parallax.enable();
+				if(el.hasOwnProperty('parallax')){
+					el.parallaxActivo = 'home_bosque_box';
+					setTimeout(() => manejadorParallax('run'), valGeneral.delayControlTimerRunParallax);
 				};
 				
 			}
@@ -57,9 +65,9 @@ function controlTimeLine1(area, accion){
 	
 }
 function animarTimeline1(data){
-	//console.log(data.padrePdesplazado * 10);
+	if(data.sentido == 'stop'){ manejadorParallax('run'); } else{ manejadorParallax('stop'); }
 	el.timeline1.data = data;
-	el.timeline1.seek( data.padrePdesplazado * 120 );
+	el.timeline1.seek( data.padrePdesplazado * valGeneral.TimeLine1Acelerador );
 }
 function makeTimeline1(parametro){
 	let targetsHola1 = document.querySelectorAll('#home_hola_box .hhola .anibox');
@@ -86,7 +94,11 @@ function makeTimeline1(parametro){
 			if(el.timeline1.data.sentido == "reverse"){controlTimeLine1('hola', 'run');};
 		},
 		changeComplete: ()=>{
-			if(el.timeline1.data.sentido == "normal"){controlTimeLine1('hola', 'stop');};
+			if(el.timeline1.data.sentido == "normal"){
+				controlTimeLine1('hola', 'stop');
+			} else{
+				controlTimeLine1('hola', 'run');
+			};
 		}
 	})//.set(targetsBosque, {'scale': '0.8', 'translateY':'-14%'})
 	.add({
@@ -105,7 +117,6 @@ function makeTimeline1(parametro){
 			controlTimeLine1('bosque', 'run');
 		},
 		changeComplete: ()=>{
-			console.log('señal');
 			controlTimeLine1('bosque', 'stop');
 		}
 	}, '-=1450')
@@ -117,21 +128,46 @@ function makeTimeline1(parametro){
 
 // ::::::::::::::::: Procesos :::::::::::::::::
 // -- Opciones de control y valores para el sistema ---
-function makeParallaxs(){
-	// el.home_hola_parallax = new Parallax(document.getElementById('home_hola_box'), {
-	// 	relativeInput: false,
-	// 	hoverOnly: false,
-	// 	limitX: window.innerWidth * .088,
-	// 	limitY: window.innerHeight * .088,
-	// 	calibrateX: true
-	// });
+el.parallaxActivo = "";
+el.parallaxActivoRespaldo = "";
+el.parallaxCronometro = false;
+el.parallaxStatus = false;
+el.parallasLasOrder = ""
+function manejadorParallax(accion){
+	if(!el.hasOwnProperty('parallax')){return}
+	
+	switch(accion){
+		case 'run':
+		case 'stop2':
+			if(el.parallaxActivo != "" && el.parallaxStatus == false){
+				if(el.parallaxCronometro == ""){
+					el.parallaxCronometro = setTimeout(() => {
+						el.parallax = new Parallax(document.getElementById(el.parallaxActivo), el.parallaxParametros);
+						el.parallaxStatus = true;
+					}, valGeneral.delayMakeParallat);
+				}
+			}
+		break;
 
-	// el.home_bosque_parallax = new Parallax(document.getElementById('home_bosque_box'), {
-	// 	relativeInput: false,
-	// 	hoverOnly: false,
-	// 	calibrateX: true
-	// });
-	// el.home_bosque_parallax.disable();
+		case 'stop':
+			if(el.parallaxCronometro != ""){ clearTimeout(el.parallaxCronometro); el.parallaxCronometro = ""; }
+			if(el.parallaxActivo != "" && el.parallaxStatus === true){
+				el.parallaxStatus = false;
+				el.parallax.destroy();
+			}
+		break;
+	}
+}
+
+el.parallaxParametros = {
+	relativeInput: false,
+	hoverOnly: false,
+	limitX: window.innerWidth * .088,
+	limitY: window.innerHeight * .088,
+	calibrateX: true
+};
+function makeParallaxs(){
+	el.parallax = "";
 }
 function permissionMotion (e, f) {
 	switch(e){
@@ -163,6 +199,7 @@ function procesarPermiso(response){
 	setTimeout(() => {
 		el.permisoFire.style.display = 'none';
 		el.fondo.style.overflow = "auto";
+		controlTimeLine1('hola', 'run');
 	}, 500 );
 }
 
@@ -178,6 +215,7 @@ function showPage(){
 	} else{
 		makeParallaxs();
 		el.fondo.style.overflow = "auto";
+		controlTimeLine1('hola', 'run');
 	}
 
 	setTimeout(()=>el.loading.classList.add('opacidad0'), 550);

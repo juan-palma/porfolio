@@ -90,15 +90,17 @@ function controlTimeLine1(area, accion, sentido){
 						controlTimeLine1Espera('completado', sentido, 'home_bosque_box');
 						manejadorParallax('stop2');
 					};
-					el.hbosque2.style.animation = 'none';
-					el.hbosque3.style.animation = 'none';
-					el.hbosque4.style.animation = 'none';
-					el.hbosque5juanP.style.animation = 'none';
-					el.hbosque6.style.animation = 'none';
-					el.hbosque6P.style.animation = 'none';
-					el.hbosque7P.style.animation = 'none';
-					el.hbosque7.style.animation = 'none';
-					el.home_bosque_box.style.display = 'none';
+					if(sentido == 'normal'){
+						el.hbosque2.style.animation = 'none';
+						el.hbosque3.style.animation = 'none';
+						el.hbosque4.style.animation = 'none';
+						el.hbosque5juanP.style.animation = 'none';
+						el.hbosque6.style.animation = 'none';
+						el.hbosque6P.style.animation = 'none';
+						el.hbosque7P.style.animation = 'none';
+						el.hbosque7.style.animation = 'none';
+						el.home_bosque_box.style.display = 'none';
+					}
 				break;
 
 				case 'run':

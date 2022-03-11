@@ -319,6 +319,8 @@ function iniciar() {
 		if ((el.touch = Modernizr.touchevents)) {
 
 		}
+		const particulas = document.querySelectorAll('#hbosque7P, #hbosque6P, #hbosque5juanP, #hbosque4P');
+		particulas.forEach( e => e.style.display = 'none' );
 	}
 
 

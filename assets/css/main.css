@@ -8,25 +8,33 @@
 /* ==========================================================================
 	Parametros Globales
 ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap');
+/* font-family: 'Sen', sans-serif; */
+/* @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;400;700;900&display=swap'); */
+/* font-family: 'League Spartan', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,300;0,400;0,600;1,100;1,300;1,400;1,600&display=swap');
+/* font-family: 'Barlow Condensed', sans-serif; */
+/* @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,700;1,300;1,700&display=swap'); */
+/* font-family: 'Cormorant Garamond', serif; */
 
-/* div, label{
-	width: auto;
-	height: auto;
-	display: block;
-	position: relative;
-} */
-/* main, footer, header, aside, section, article, figure, figcaption, q, cite, blockquote{
-	display: block;
-	position: relative;
-} */
-
-#vCard{
-	width: 1px;
-	height: 1px;
-	clip: rect(1px 1px 1px 1px);
-	position: absolute;
-	opacity: 0.1;
-	overflow: hidden;
+:root{
+	--colorBackDark: #1a1918;
+	--colorBackColor: #393735;
+	--colorPrincipal: #a34f29;
+	--colorSecundario: #3a434d;
+	--colorTexto: var(--colorBackColor);
+	--margenAncho: 76%;
+	--margenPadding: 2em;
+}
+h1, h2{
+	font-family: 'Sen', sans-serif;
+	font-weight: 700;
+}
+body, button, input, select, textarea, ::after, ::before{
+	font-family: 'Barlow Condensed', sans-serif;
+	color: var(--colorTexto);
+	letter-spacing: 0.05em;
+	font-weight: 300;
 }
 
 	
@@ -79,7 +87,24 @@
 	box-sizing:border-box;
 */
 
-	
+
+
+
+
+
+
+
+#vCard{
+	width: 1px;
+	height: 1px;
+	clip: rect(1px 1px 1px 1px);
+	position: absolute;
+	opacity: 0.1;
+	overflow: hidden;
+}
+
+
+
 
 
 
@@ -152,25 +177,13 @@
 /* ==========================================================================
 	Estilos visiales para elementos GENERALES
 ========================================================================== */
-:root{
-	--colorBackDark: #1a1918;
-	--colorBackColor: #393735;
-	--colorPrincipal: #a34f29;
-	--colorSecundario: #3a434d;
-	--colorTexto: var(--colorBackColor);
-	--margenAncho: 76%;
-	--margenPadding: 2em;
-}
+
 #fondo_body{
 	background : var(--colorBackDark);
 	background-size: cover;
 	background-attachment: fixed;
 }
-body, button, input, select, textarea, ::after, ::before{
-	font-family: 'Lato', Arial, Helvetica, sans-serif;
-	color: var(--colorTexto);
-	letter-spacing: 0.05em;
-}
+
 
 
 
@@ -556,10 +569,81 @@ input[type="button"]:hover{
 	align-items: center;
 	left: 0px;
 	top: 0px;
-	background: var(--colorBackDark) url(../img/ajax.webp) no-repeat center center;
-	z-index: 999988;
-	transition: opacity 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+	background: var(--colorBackDark) /*url(../img/ajax.webp)*/ no-repeat center center;
+	z-index: 999999;
+	transition: all 1s ease-in-out;
 }
+	#loadingBoxMain {
+		width: 126px;
+		height: auto;
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+		#boxCerveza {
+			width: 126px;
+			height: 126px;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+			#textoListaDisfrutar {
+				font-size: 26px;
+				position: absolute;
+				width: 100%;
+				text-align: center;
+				white-space: nowrap;
+				color: white;
+				margin-top: 168px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				transition: all 800ms cubic-bezier(.05,.36,.19,.98);
+			}
+			#textoListaDisfrutar.ocultoUp{
+				transform: scale(2.5);
+				opacity: 0;
+			}
+		#boxLoadingContador {
+			width: 126px;
+			height: 126px;
+			margin-top: 62px;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+			@keyframes loginCirculoOut {
+				0%{
+					transform: scale(1.2);
+					opacity: 1;
+				}
+				100%{
+					transform: scale(.6);
+					opacity: 0;
+				}
+			}
+			#loadingCirculoAni {
+				position: absolute;
+				/* animation: loginCirculoOut 600ms cubic-bezier(.35,-1.22,.01,1.17) 100ms 1; */
+			}
+				#loadingCirculoAni g path {
+					stroke: var(--colorPrincipal);
+					stroke-width: 6px;
+					stroke-dashoffset: 884px;
+					transition: all 200ms linear;
+					opacity: 0;
+				}
+			#porcentajeNumero {
+				color: white;
+				position: relative;
+				font-size: 24px;
+				position: absolute;
+			}
 #container0{
 	width: 100%;
 	min-height:100vh;
@@ -638,7 +722,7 @@ h1 {
 	height: 2400vh;
 	background-color: transparent;
 	margin: 115vh 0;
-	transition: all 900ms cubic-bezier(0.075, 0.82, 0.165, 1);
+	/* transition: all 1400ms cubic-bezier(0.075, 0.82, 0.165, 1); */
 }
 	#home_hola_box{
 		width: 100%;
@@ -651,21 +735,35 @@ h1 {
 		align-items: center;
 	}
 		
-		.hhola, .anibox{
+		.hhola, .hhola .anibox,
+		.hhola, .hhola .anibox > div{
 			width: 100%;
 			height: 100%;
 			position: absolute;
 			top: 0px;
 			left: 0px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
-			.hhola .anibox > img{
+			.hhola .anibox > img,
+			.hhola .anibox > div > img{
 				width: 118%;
 				height: 118%;
-				position: relative;
+				position: absolute;
 				object-fit: cover;
 				object-position: center;
-				left: -9%;
-				top: -9%;
+				/* left: -9%;
+				top: -9%; */
+			}
+			#hhola4 > .anibox > div > span {
+				font-family: 'Sen', sans-serif;
+				font-weight: 700;
+				font-size: 4vw;
+				text-align: right;
+				color: white;
+				margin-top: -61vh;
+				position: absolute;
 			}
 			@keyframes hola5{
 				0% {
@@ -726,12 +824,15 @@ h1 {
 		#hbosque7P, #hbosque6P, #hbosque5juanP, #hbosque4P{
 			mix-blend-mode: screen;
 		}
-		.hbosque, .anibox{
+		.hbosque, .hbosque .anibox{
 			width: 100%;
 			height: 100%;
 			position: absolute;
 			top: 0px;
 			left: 0px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 			/* transform: scale(0.8) translateY(-14%); */
 		}
 			.hbosque .anibox > img{
@@ -740,8 +841,8 @@ h1 {
 				position: relative;
 				object-fit: cover;
 				object-position: center;
-				left: -10%;
-				top: -10%;
+				/* left: -10%;
+				top: -10%; */
 				
 			}
 			@keyframes bosque2 {
@@ -857,7 +958,7 @@ h1 {
 		position: fixed;
 		top: 0px;
 		left: 0px;
-		z-index: 999999;
+		z-index: 999988;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -898,7 +999,10 @@ h1 {
 	Estilos para un espect de pie
 ========================================================================== */
 @media screen and (orientation:portrait){
-
+	#hhola4 > .anibox > div > span {
+		font-size: 5vh;
+		margin-top: -61vh;
+	}
 }
 
 

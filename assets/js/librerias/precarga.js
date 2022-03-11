@@ -1,17 +1,22 @@
 class Precarga{
+	preLoadFind = 0;
 	preloadTotal = 0;
 	preloadLoad = 0;
-	pres;
+	elementsPre;
 	userFunc;
+	userAni;
+	progress = false;
 	
 	showPreload(){
-		this.pres.forEach(function(pre){
+		this.elementsPre.forEach(function(pre){
 			pre.src = pre.attributes['preload-src'].value;
 		});
 		
 		//el.circuloCarga.style.display = 'none';
 		setTimeout((function(){
-			this.userFunc();
+			if(this.userFunc instanceof Function){
+				this.userFunc();
+			}
 		}).bind(this), 2200);
 	}
 
@@ -20,12 +25,19 @@ class Precarga{
 		if(this.preloadTotal == this.preloadLoad){
 			this.showPreload();
 		}
+		if(this.progress){
+			const cargadoP = (this.preloadLoad * 100) / this.preLoadFind;
+			if(this.userAni instanceof Function){
+				this.userAni(cargadoP);
+			}
+		}
 	}
 
 	run(){
-		this.pres = document.querySelectorAll('[preload-src]');
+		this.elementsPre = document.querySelectorAll('[preload-src]');
+		this.preLoadFind = this.elementsPre.length;
 		const miDOM = document.createDocumentFragment();
-		this.pres.forEach((function(pre){
+		this.elementsPre.forEach((function(pre){
 			const tag = document.createElement(pre.tagName);
 			tag.src = pre.attributes['preload-src'].value;
 			tag.onload = this.checkPreload.bind(this);

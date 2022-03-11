@@ -165,14 +165,14 @@ function makeTimeline1(parametro){
 	.add({
 		targets: targetsBosque,
 		scale: [
-			{ value: [0.8, 1], duration: 400, delay: anime.stagger([0, 360]), easing: 'linear' },
-			{ value: 8, duration: 2000, delay: anime.stagger([4300, 4620]), easing: 'linear' }
+			{ value: [0.8, 1], duration: 400, delay: anime.stagger([0, 400]), easing: 'linear' },
+			{ value: 8, duration: 900, delay: anime.stagger([5150, 5550]), easing: 'linear' }
 		],
 		translateY: [
-			{ value: 0, duration: 400, delay: anime.stagger([0, 360]), easing: 'linear' }
+			{ value: 0, duration: 400, delay: anime.stagger([0, 400]), easing: 'linear' }
 		],
 		opacity: [
-			{ value: 0, duration: 250, delay: anime.stagger([4500, 5400]), easing: 'linear' }
+			{ value: 0, duration: 350, delay: anime.stagger([5150, 6800]), easing: 'linear' }
 		],
 		changeBegin: ()=>{
 			controlTimeLine1('bosque', 'run', el.timeline1.data.sentido);
@@ -181,6 +181,28 @@ function makeTimeline1(parametro){
 			controlTimeLine1('bosque', 'stop', el.timeline1.data.sentido);
 		}
 	}, '-=200')
+	.add({
+		targets:'#textoBosque1 div',
+		translateX: [
+			{ value: [-50, 0], duration: 400, delay: anime.stagger([0, 400]), easing: 'easeOutBack' },
+			{ value: [0, 50], duration: 400, delay: 800, easing: 'easeOutBack' }
+		],
+		opacity:[
+			{value:[0,1], duration: 400, delay: anime.stagger([0, 400]), easing: 'easeOutBack'},
+			{value:[1,0], duration: 400, delay: 800, easing: 'easeOutBack'}
+		]
+	}, '-=5800')
+	.add({
+		targets:'#textoBosque2 div',
+		translateX: [
+			{ value: [-50, 0], duration: 400, delay: anime.stagger([0, 400]), easing: 'easeOutBack' },
+			{ value: [0, 50], duration: 400, delay: 800, easing: 'easeOutBack' }
+		],
+		opacity:[
+			{value:[0,1], duration: 400, delay: anime.stagger([0, 400]), easing: 'easeOutBack'},
+			{value:[1,0], duration: 400, delay: 800, easing: 'easeOutBack'}
+		]
+	}, '-=3500')
 }
 
 
@@ -279,6 +301,7 @@ function hideLoading(time){
 	}, 1050);
 }
 function showPage(){
+	el.boxTimeline1.classList.remove('opacidad0');
 	if(el.mobile){
 		el.permisoFire = document.createElement('div');
 		el.permisoFire.id = 'permisionFire';
@@ -300,9 +323,8 @@ function animacionLoading(p){
 	tarroCerveza.goToAndStop(Math.round(p), true);
 	//el.loadingAnimacion.seek( Math.round(p * 10) );
 	if(p >= 100){
-		el.boxTimeline1.classList.remove('opacidad0');
-		tarroCerveza.playSegments([100,164], true);
 		setTimeout(()=>{
+			tarroCerveza.playSegments([100,164], true);
 			setTimeout(()=>{
 				el.loadingTextoListaDisfrutar.classList.remove('ocultoUp');
 				setTimeout(()=>showPage(), 600);

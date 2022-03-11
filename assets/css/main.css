@@ -548,7 +548,9 @@ input[type="button"]:hover{
 
 
 
-
+.colorPrincipal{
+	color: var(--colorPrincipal) !important;
+}
 
 	
 /* ==========================================================================
@@ -759,12 +761,17 @@ h1 {
 			#hhola4 > .anibox > div > span {
 				font-family: 'Sen', sans-serif;
 				font-weight: 700;
-				font-size: 4vw;
+				font-size: 3vw;
 				text-align: right;
 				color: white;
-				margin-top: -61vh;
+				margin-top: -50vh;
 				position: relative;
+				text-transform: uppercase;
 			}
+				#hhola4 span span {
+					font-size: 156%;
+					line-height: 1;
+				}
 			@keyframes hola5{
 				0% {
 					transform: translate3d(1.2%,0%,0);
@@ -949,6 +956,65 @@ h1 {
 			#hbosque7 .anibox > img:first-child{
 				animation: hola4 4.6s linear 10ms infinite;
 			} */
+
+			#textoBosque1{
+				position: absolute;
+				color: white;
+				text-align: left;
+				width: 56vw;
+				font-family: 'Sen', sans-serif;
+				font-weight: 700;
+				font-size: 3vw;
+				text-transform: uppercase;
+			}
+				#textoBosque1 div, #textoBosque2 div{
+					opacity: 0;
+					position: relative;
+				}
+				#textoBosque1 div:nth-child(1){
+					font-family: 'Sen', sans-serif;
+					font-weight: 700;
+					text-transform: uppercase;
+				}
+				#textoBosque1 div:nth-child(2){
+					color: var(--colorBackDark);
+				}
+				#textoBosque1 div:nth-child(3){
+					font-family: 'Barlow Condensed', sans-serif;
+					font-weight: 100;
+					font-size: 2vw;
+					text-transform: uppercase;
+				}
+
+				#textoBosque2 {
+					position: absolute;
+					color: white;
+					text-align: left;
+					width: 56vw;
+					font-family: 'Sen', sans-serif;
+					font-weight: 700;
+					font-size: 3vw;
+					text-transform: uppercase;
+				}
+					#textoBosque2 div:nth-child(1) {
+						letter-spacing: normal;
+					}		
+					#textoBosque2 h2 {
+						font-family: 'Sen', sans-serif;
+						font-weight: 900;
+						font-size: 6vw;
+						text-transform: uppercase;
+						color: var(--colorBackDark);
+						letter-spacing: -3px;
+						text-shadow: 0 3px 11px rgb(255 255 255 / 50%);
+					}
+						
+					#textoBosque2 div:nth-child(3){
+						font-family: 'Barlow Condensed', sans-serif;
+						font-weight: 100;
+						font-size: 2vw;
+						text-transform: uppercase;
+					}
 		
 
 	
@@ -1001,8 +1067,21 @@ h1 {
 @media screen and (orientation:portrait){
 	#hhola4 > .anibox > div > span {
 		font-size: 5vh;
-		margin-top: -61vh;
 	}
+	#textoBosque1, #textoBosque2{
+		width: 68vw;
+		font-size: 4.7vh;
+	}
+		#textoBosque1 div:nth-child(3), #textoBosque2 div:nth-child(3){
+			font-weight: 100;
+			font-size: 2.2vh;
+		}
+		#textoBosque2 div:nth-child(1) {
+			font-size: 60%;
+		}
+		#textoBosque2 div:nth-child(2) h2 {
+			font-size: 7.7vh;
+		}
 }
 
 

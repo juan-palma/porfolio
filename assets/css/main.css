@@ -34,7 +34,7 @@ body, button, input, select, textarea, ::after, ::before{
 	font-family: 'Barlow Condensed', sans-serif;
 	color: var(--colorTexto);
 	letter-spacing: 0.05em;
-	font-weight: 300;
+	font-weight: 400;
 }
 
 	
@@ -989,7 +989,7 @@ h1 {
 					}
 				#textoBosque1 div:nth-child(3){
 					font-family: 'Barlow Condensed', sans-serif;
-					font-weight: 300;
+					font-weight: 400;
 					font-size: 2vw;
 					text-transform: uppercase;
 				}
@@ -1022,7 +1022,7 @@ h1 {
 						
 					#textoBosque2 div:nth-child(3){
 						font-family: 'Barlow Condensed', sans-serif;
-						font-weight: 300;
+						font-weight: 400;
 						font-size: 2vw;
 						text-transform: uppercase;
 					}

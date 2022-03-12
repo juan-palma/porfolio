@@ -188,14 +188,14 @@ body, button, input, select, textarea, ::after, ::before{
 
 
 .desaparece{
-	display: none;
-	visibility: hidden;
-	width: 1px;
-	height: 1px;
-	position: absolute;
-	overflow: hidden;
-	opacity: 0;
-	clip: rect(1px 1px 1px 1px);
+	display: none !important;
+	visibility: hidden !important;
+	width: 1px !important;
+	height: 1px !important;
+	position: absolute !important;
+	overflow: hidden !important;
+	opacity: 0 !important;
+	clip: rect(1px 1px 1px 1px) !important;
 	
 }
 .ocultar{
@@ -975,11 +975,18 @@ h1 {
 					font-family: 'Sen', sans-serif;
 					font-weight: 700;
 					text-transform: uppercase;
+					font-size: 86%;
+					width: 88%;
 				}
 				#textoBosque1 div:nth-child(2){
 					color: var(--colorBackDark);
 					font-weight: 900;
+					font-size: 110%;
+					text-shadow: 0 3px 11px rgb(255 255 255 / 50%);
 				}
+					#textoBosque1 div:nth-child(2) .colorPrincipal{
+						text-shadow: 1px 5px 6px rgb(0 0 0 / 78%);
+					}
 				#textoBosque1 div:nth-child(3){
 					font-family: 'Barlow Condensed', sans-serif;
 					font-weight: 100;
@@ -1009,6 +1016,9 @@ h1 {
 						letter-spacing: -3px;
 						text-shadow: 0 3px 11px rgb(255 255 255 / 50%);
 					}
+						#textoBosque2 h2 .colorPrincipal{
+							text-shadow: 1px 5px 6px rgb(0 0 0 / 78%);
+						}
 						
 					#textoBosque2 div:nth-child(3){
 						font-family: 'Barlow Condensed', sans-serif;
@@ -1070,7 +1080,7 @@ h1 {
 		font-size: 5vh;
 	}
 	#textoBosque1, #textoBosque2{
-		width: 66vw;
+		width: 68vw;
 		font-size: 4.7vh;
 	}
 		#textoBosque1 div:nth-child(3), #textoBosque2 div:nth-child(3){
@@ -1095,6 +1105,10 @@ h1 {
 	Estilos para un espect de pie
 ========================================================================== */
 @media screen and (orientation:landscape){
+	#logoJuan {
+		width: 20vh;
+		height: 20vh;
+	}
 	h1 {
 		top: 69vh;
 		left: 10%;
@@ -1102,6 +1116,33 @@ h1 {
 		width: 80%;
 	}
 }
+
+
+/* ==========================================================================
+	Estilos para un espect acostado pero en dispositivos chicos
+========================================================================== */
+@media screen and (orientation:landscape) and (max-width: 980px){
+	
+	h1 {
+		top: 52vh;
+		font-size: 5vw;
+	}
+	#textoBosque1, #textoBosque2{
+		width: 68vw;
+		font-size: 4.4vw;
+	}
+		#textoBosque1 div:nth-child(3), #textoBosque2 div:nth-child(3){
+			font-weight: 100;
+			font-size: 2.4vw;
+		}
+		#textoBosque2 div:nth-child(1) {
+			font-size: 60%;
+		}
+		#textoBosque2 div:nth-child(2) h2 {
+			font-size: 6.5vw;
+		}
+}
+
 
 
 

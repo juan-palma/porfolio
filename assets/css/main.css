@@ -646,6 +646,89 @@ input[type="button"]:hover{
 				font-size: 24px;
 				position: absolute;
 			}
+#scrollIcono {
+	display: flex;
+	justify-self: center;
+	position: absolute;
+	width: 30px;
+	height: 50px;
+	left: auto;
+	top: auto;
+	bottom: 3%;
+	right: 6%;
+	border-radius: 15px;
+}
+	#scrollIcono::before {
+		content: "";
+		width: 100%;
+		height: 100%;
+		display: block;
+		position: absolute;
+		border: 2px solid var(--colorSecundario);
+		border-radius: 15px;
+	}
+	@keyframes scroll {
+		0%{
+			opacity: 0;
+			clip-path: inset(51px -1px -4px -1px);
+		}
+		10%{
+			opacity: 1;
+		}
+		40%{
+			opacity: 1;
+		}
+		50%{
+			opacity: 0;
+			clip-path: inset(-4px -1px 51px -1px);
+		}
+		100%{
+			opacity: 0;
+			clip-path: inset(-4px -1px 51px -1px);
+		}
+	}
+	#scrollIcono::after {
+		content: "";
+		width: 100%;
+		height: 100%;
+		display: block;
+		position: absolute;
+		border: 2px solid var(--colorPrincipal);
+		border-radius: 15px;
+		clip-path: inset(-1px -1px -1px -1px);
+		animation: scroll 4s cubic-bezier(.7,-0.01,.3,1) infinite;
+	}
+	@keyframes scrollTouch {
+		0%{
+			opacity: 0;
+			top: 30px;
+		}
+		10%{
+			opacity: 1;
+		}
+		40%{
+			opacity: 1;
+		}
+		50%{
+			opacity: 0;
+			top: 10px;
+		}
+		100%{
+			opacity: 0;
+		}
+	}
+	#scrolTouch {
+		width: 10px;
+		height: 10px;
+		display: block;
+		position: absolute;
+		border-radius: 50%;
+		background-color: var(--colorPrincipal);
+		top: 30px;
+		animation: scrollTouch 4s cubic-bezier(.7,-0.01,.3,1) infinite;
+	}
+
+			
 #container0{
 	width: 100%;
 	min-height:100vh;
@@ -845,7 +928,7 @@ h1 {
 			.hbosque .anibox > img{
 				width: 120%;
 				height: 120%;
-				position: relative;
+				position: absolute;
 				object-fit: cover;
 				object-position: center;
 				/* left: -10%;
@@ -990,7 +1073,7 @@ h1 {
 				#textoBosque1 div:nth-child(3){
 					font-family: 'Barlow Condensed', sans-serif;
 					font-weight: 400;
-					font-size: 2vw;
+					font-size: 2.2vw;
 					text-transform: uppercase;
 				}
 
@@ -1023,7 +1106,7 @@ h1 {
 					#textoBosque2 div:nth-child(3){
 						font-family: 'Barlow Condensed', sans-serif;
 						font-weight: 400;
-						font-size: 2vw;
+						font-size: 2.2vw;
 						text-transform: uppercase;
 					}
 		
@@ -1037,11 +1120,20 @@ h1 {
 		left: 0px;
 		z-index: 999988;
 		display: flex;
+		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		background-color: var(--colorBackDark);
 		transition: all 500ms ease-in-out;
 	}
+		div#permisionFire::before {
+			content: "";
+			display: block;
+			width: 200px;
+			height: 100px;
+			background-image: url(../img/posicion_celular.svg);
+			margin-bottom: 1em;
+		}
 		#permisionFire::after{
 			content: "Toca la pantalla";
 			text-transform: uppercase;
@@ -1085,7 +1177,7 @@ h1 {
 	}
 		#textoBosque1 div:nth-child(3), #textoBosque2 div:nth-child(3){
 			font-weight: 100;
-			font-size: 2.2vh;
+			font-size: 2.4vh;
 		}
 		#textoBosque2 div:nth-child(1) {
 			font-size: 60%;
@@ -1133,7 +1225,7 @@ h1 {
 	}
 		#textoBosque1 div:nth-child(3), #textoBosque2 div:nth-child(3){
 			font-weight: 100;
-			font-size: 2.4vw;
+			font-size: 2.6vw;
 		}
 		#textoBosque2 div:nth-child(1) {
 			font-size: 60%;

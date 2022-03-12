@@ -11,7 +11,7 @@ const el = idagl.elementos;
 const valGeneral = {};
 valGeneral.delayMakeParallat = 1500;
 valGeneral.delayControlTimerRunParallax = 100;
-valGeneral.TimeLine1Acelerador = 120;
+valGeneral.TimeLine1Acelerador = 126;
 
 
 

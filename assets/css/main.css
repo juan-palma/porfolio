@@ -989,7 +989,7 @@ h1 {
 					}
 				#textoBosque1 div:nth-child(3){
 					font-family: 'Barlow Condensed', sans-serif;
-					font-weight: 100;
+					font-weight: 300;
 					font-size: 2vw;
 					text-transform: uppercase;
 				}
@@ -1022,7 +1022,7 @@ h1 {
 						
 					#textoBosque2 div:nth-child(3){
 						font-family: 'Barlow Condensed', sans-serif;
-						font-weight: 100;
+						font-weight: 300;
 						font-size: 2vw;
 						text-transform: uppercase;
 					}
@@ -1047,7 +1047,7 @@ h1 {
 			text-transform: uppercase;
 			font-size: 5vw;
 			color: white;
-			font-weight: 100;
+			font-weight: 300;
 			letter-spacing: 4px;
 			text-shadow: 1px 5px 6px rgb(0 0 0 / 88%);
 			transition: all 500ms ease-in-out;

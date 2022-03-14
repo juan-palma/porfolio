@@ -64,12 +64,13 @@ function controlTimeLine1(area, accion, sentido){
 					el.hhola4.style.animation = 'none';
 					el.hhola3.style.animation = 'none';
 					el.hhola2.style.animation = 'none';
+					el.scrollIcono.style.display = 'none'
+					el.scrollTouch.style.animation = 'none';
 					el.home_hola_box.style.display = 'none';
 				break;
 
 				case 'run':
 					if(el.hasOwnProperty('parallax')){
-						//el.parallaxActivo = 'home_hola_box';
 						controlTimeLine1Espera('comenzado', sentido, 'home_hola_box');
 						setTimeout(() => manejadorParallax('run'), valGeneral.delayControlTimerRunParallax);
 					}
@@ -78,6 +79,8 @@ function controlTimeLine1(area, accion, sentido){
 					el.hhola4.style.animation = 'hola4 4.6s linear 10ms infinite';
 					el.hhola3.style.animation = 'hola3 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
 					el.hhola2.style.animation = 'hola2 4.6s linear 10ms infinite';
+					el.scrollIcono.style.display = 'flex'
+					el.scrollTouch.style.animation = 'scrollTouch 4s cubic-bezier(.7,-0.01,.3,1) infinite';
 				break;
 			}
 		break;
@@ -85,7 +88,6 @@ function controlTimeLine1(area, accion, sentido){
 		case 'bosque':
 			switch(accion){
 				case 'stop':
-					console.log('señal');
 					if(el.hasOwnProperty('parallax')){
 						controlTimeLine1Espera('completado', sentido, 'home_bosque_box');
 						manejadorParallax('stop2');
@@ -105,7 +107,6 @@ function controlTimeLine1(area, accion, sentido){
 
 				case 'run':
 					if(el.hasOwnProperty('parallax')){
-						//el.parallaxActivo = 'home_bosque_box';
 						controlTimeLine1Espera('comenzado', sentido, 'home_bosque_box');
 						setTimeout(() => manejadorParallax('run'), valGeneral.delayControlTimerRunParallax);
 					};
@@ -118,6 +119,29 @@ function controlTimeLine1(area, accion, sentido){
 					el.hbosque6P.style.animation = 'bosque7P 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
 					el.hbosque7P.style.animation = 'bosque7P 6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
 					el.hbosque7.style.animation = 'hola4 4.6s linear 10ms infinite';
+				break;
+			}	
+		break;
+
+		case 'pradera':
+			switch(accion){
+				case 'stop':
+					if(el.hasOwnProperty('parallax')){
+						controlTimeLine1Espera('completado', sentido, 'home_pradera_box');
+						manejadorParallax('stop2');
+					};
+					el.home_pradera_box.style.display = 'none';
+					// if(sentido == 'normal'){
+					// 	el.home_pradera_box.style.display = 'none';
+					// }
+				break;
+
+				case 'run':
+					if(el.hasOwnProperty('parallax')){
+						controlTimeLine1Espera('comenzado', sentido, 'home_pradera_box');
+						setTimeout(() => manejadorParallax('run'), valGeneral.delayControlTimerRunParallax);
+					};
+					el.home_pradera_box.style.display = 'flex';
 				break;
 			}	
 		break;
@@ -203,6 +227,21 @@ function makeTimeline1(parametro){
 			{value:[1,0], duration: 400, delay: 800, easing: 'easeOutBack'}
 		]
 	}, '-=3500')
+	.add({
+		targets: el.home_pradera_box,
+		opacity: [
+			{ value: [0,1], duration: 350, delay: 0, easing: 'linear' },
+			{ value: [1,0], duration: 550, delay: 3000, easing: 'linear' }
+		],
+		changeBegin: ()=>{
+			console.log('empezo');
+			controlTimeLine1('pradera', 'run', el.timeline1.data.sentido);
+		},
+		changeComplete: ()=>{
+			console.log('termino');
+			controlTimeLine1('pradera', 'stop', el.timeline1.data.sentido);
+		}
+	}, '-=600')
 }
 
 
@@ -354,6 +393,8 @@ function iniciar() {
 	el.loadingPorcNum = document.getElementById('porcentajeNumero');
 	el.loadingCirulo = document.getElementById('boxLoadingContador');
 	el.loadingTextoListaDisfrutar = document.getElementById('textoListaDisfrutar');
+	el.scrollIcono = document.getElementById('scrollIcono');
+	el.scrollTouch = document.getElementById('scrollTouch');
 	el.home_hola_box = document.getElementById('home_hola_box');
 	el.boxTimeline1 = document.getElementById('timeline1');
 	el.hhola5 = document.querySelector('#hhola5 .anibox > img:first-child');
@@ -370,6 +411,8 @@ function iniciar() {
 	el.hbosque6P = document.querySelector('#hbosque6P .anibox > img:first-child');
 	el.hbosque7P = document.querySelector('#hbosque7P .anibox > img:first-child');
 	el.hbosque7 = document.querySelector('#hbosque7 .anibox > img:first-child');
+
+	el.home_pradera_box = document.getElementById('home_pradera_box');
 
 	
 	

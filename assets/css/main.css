@@ -670,21 +670,21 @@ input[type="button"]:hover{
 	@keyframes scroll {
 		0%{
 			opacity: 0;
-			clip-path: inset(51px -1px -4px -1px);
+			clip-path: inset(51px -1px -5px -1px);
 		}
-		10%{
+		15%{
 			opacity: 1;
 		}
-		40%{
+		35%{
 			opacity: 1;
 		}
 		50%{
 			opacity: 0;
-			clip-path: inset(-4px -1px 51px -1px);
+			clip-path: inset(-5px -1px 51px -1px);
 		}
 		100%{
 			opacity: 0;
-			clip-path: inset(-4px -1px 51px -1px);
+			clip-path: inset(-5px -1px 51px -1px);
 		}
 	}
 	#scrollIcono::after {
@@ -717,7 +717,7 @@ input[type="button"]:hover{
 			opacity: 0;
 		}
 	}
-	#scrolTouch {
+	#scrollTouch {
 		width: 10px;
 		height: 10px;
 		display: block;
@@ -1109,9 +1109,253 @@ h1 {
 						font-size: 2.2vw;
 						text-transform: uppercase;
 					}
-		
+
+					
+					
+	#home_pradera_box{
+		width: 100%;
+		height: 100vh;
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		display: block;
+		overflow: hidden;
+	}
+		#home_pradera_box > div,
+		#home_pradera_box > div > div{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			display: block;
+		}
+			#home_pradera_box > div > div{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			#home_pradera_box > div > div > .sizeBox{
+					width: 120%;
+					height: 120%;
+					position: absolute;
+				}
+				#home_pradera_box > div > div > .sizeBox img{
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					object-position: center;
+					position: absolute;
+				}
+				@keyframes nubes {
+					0%{
+						background-position: 0vh center;
+					}
+					100%{
+						background-position: calc((100vh * (1.6 * 2)) * -1) center;
+					}
+				}
+				#p1nubes{
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					top: 0px;
+					left: 0px;
+					display: block;
+					background: transparent url(../img/home_hola/p1.webp) no-repeat left center;
+					background-size: calc(100vh * (1.6 * 3)) 100vh;
+					animation: nubes 260s linear infinite;
+				}
+				@keyframes pajaros {
+					0%{
+						transform: translateX(0) scale(0.3);
+						opacity: 0.8;
+					}
+					62%{
+						transform: translateX(130vw) scale(0.1);
+						opacity: 0.4;
+					}
+					100%{
+						transform: translateX(130vw) scale(0.1);
+						opacity: 0.4;
+					}
+				}
+				#hpradera1 > div > img{
+					position: absolute;
+					transform-style: preserve-3d;
+					transform: scale(0.3);
+					left: -30%;
+					top: 20vh;
+					opacity: 0.8;
+					animation: pajaros 65s linear 14s infinite;
+				}
+				#hpradera6 > div > .sizeBox {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
+					@keyframes brisaPradera {
+						0%{
+							transform: skewX(3deg);
+						}
+						100%{
+							transform: skewX(-3deg);
+						}
+					}
+					#hpradera5 > div > .sizeBox img{
+						transform-origin: 50% 90%;
+						animation: brisaPradera 5s ease-in-out 800ms infinite alternate;
+					}
+					@keyframes arbol {
+						0%{
+							transform: skewX(12deg);
+						}
+						100%{
+							transform: skewX(10deg);
+						}
+					}
+					#p6arbol{
+						width: calc(63.25vh * 1.2);
+						height: calc(49.313vh * 1.2);
+						display: block;
+						position: absolute;
+						margin-left: calc((120vh * .2225) * 2);
+						margin-top: calc((120vh * .11) * 2);
+						transform-origin: 50% 100%;
+						animation: arbol 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate;
+					}
+						#p6ahojas{
+							width: 100%;
+							height: 68.948%;
+							display: block;
+							position: absolute;
+						}
+							@keyframes hoja1 {
+								0%{
+									transform: translateY(1%) scale(.98) skewX(2deg);
+								}
+								50%{
+									transform: scale(1);
+								}
+								100%{
+									transform: translateY(-1%) scale(1.02) skewX(-2deg);
+								}
+							}
+							#p6ahojas img:nth-child(1){
+								animation: hoja1 5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0ms infinite alternate;
+							}
+							@keyframes hoja2 {
+								0%{
+									transform: translateX(1.5%) scale(.97);
+									opacity: 1;
+								}
+								50%{
+									transform: scale(1.01);
+									opacity: 0.4;
+								}
+								100%{
+									transform: translateX(-1.5%) scale(.97);
+									opacity: 1;
+								}
+							}
+							#p6ahojas img:nth-child(2){
+								animation: hoja2 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0ms infinite alternate;
+							}
+							@keyframes hoja3{
+								0% {
+									transform: rotateZ(0deg) translate3d(0,1%,0) rotateZ(0deg);
+								}
+								100% {
+									transform: rotateZ(360deg) translate3d(0,1%,0) rotateZ(-360deg);
+								}
+							}
+							#p6ahojas img:nth-child(3){
+								animation: hoja3 4.6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite;
+							}
+							@keyframes hoja4{
+								0% {
+									transform: rotateZ(0deg) translate3d(0,1%,0) rotateZ(0deg);
+								}
+								100% {
+									transform: rotateZ(-360deg) translate3d(0,1%,0) rotateZ(360deg);
+								}
+							}
+							#p6ahojas img:nth-child(4){
+								animation: hoja4 3.6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite;
+							}
+							@keyframes hoja4{
+								0% {
+									transform: translateX(0%) skewX(0deg);
+								}
+								5%{
+									transform: translateX(1%) skewX(1deg);
+								}
+								10%{
+									transform: translateX(-1%) skewX(-1deg);
+								}
+								15%{
+									transform: translateX(1%) skewX(1deg);
+								}
+								20%{
+									transform: translateX(-1%) skewX(-1deg);
+								}
+								25%{
+									transform: translateX(1%) skewX(1deg);
+								}
+								30%{
+									transform: translateX(-1%) skewX(-1deg);
+								}
+								35%{
+									transform: translateX(0%) skewX(0deg);
+								}
+								100% {
+									
+								}
+							}
+							#p6ahojas img:nth-child(4){
+								animation: hoja4 28.6s ease-in-out 10ms infinite;
+							}
+							@keyframes hoja5{
+								0%{
+									transform: translateX(-5px);
+									opacity: 1;
+								}
+								100%{
+									transform: translateX(5px);
+									opacity: .8;
+								}
+							}
+							#p6ahojas img:nth-child(5){
+								animation: hoja5 2.6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate;
+							}
+					@keyframes hierva7 {
+						0%{
+							transform: skewX(6deg) translateX(-5px);
+						}
+						100%{
+							transform: skewX(-6deg) translateX(5px);
+						}
+					}
+					#hpradera7 > div > .sizeBox img{
+						transform-origin: 50% 100%;
+						animation: hierva7 4s ease-in-out 80ms infinite alternate;
+					}
+					@keyframes hierva8 {
+						0%{
+							transform: skewX(-6deg) translateX(-5px);
+						}
+						100%{
+							transform: skewX(6deg) translateX(5px);
+						}
+					}
+					#hpradera8 > div > .sizeBox img{
+						transform-origin: 50% 100%;
+						animation: hierva8 4s ease-in-out 80ms infinite alternate;
+					}
 
 	
+
+
 	#permisionFire{
 		width: 100%;
 		height: 100vh;
@@ -1147,7 +1391,15 @@ h1 {
 
 
 
-
+	/* div#timeline1::after {
+		content: "";
+		border: 1px solid red;
+		display: block;
+		position: absolute;
+		z-index: 999999999999;
+		width: 100%;
+		height: 2400vh;
+	} */
 
 
 
@@ -1156,7 +1408,25 @@ h1 {
 	Estilos para un espect ratio de 8:5
 ========================================================================== */
 @media (min-aspect-ratio: 8/5) {
-	
+	@keyframes nubes {
+		0%{
+			background-position: 0vw center;
+		}
+		100%{
+			background-position: -200vw center;
+		}
+	}
+	#p1nubes{
+		background-size: 300vw calc(100vw * .625);
+		/* animation: nubes2 260s linear infinite; */
+	}
+	#p6arbol{
+		width: calc(39.53vw * 1.2);
+		height: calc(30.82vw * 1.2);
+		margin-left: calc((120vw * .13906) * 2);
+		margin-top: calc((120vw * .06875) * 2);
+
+	}
 }
 
 
@@ -1194,7 +1464,7 @@ h1 {
 
 
 /* ==========================================================================
-	Estilos para un espect de pie
+	Estilos para un espect de acostado
 ========================================================================== */
 @media screen and (orientation:landscape){
 	#logoJuan {

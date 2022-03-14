@@ -1169,7 +1169,7 @@ h1 {
 				}
 				@keyframes pajaros {
 					0%{
-						transform: translateX(0) scale(0.3);
+						transform: translateX(-30vw) scale(0.3);
 						opacity: 0.8;
 					}
 					62%{
@@ -1184,8 +1184,8 @@ h1 {
 				#hpradera1 > div > img{
 					position: absolute;
 					transform-style: preserve-3d;
-					transform: scale(0.3);
-					left: -80%;
+					transform: translateX(-30vw) scale(0.3);
+					left: 0px;
 					top: 20vh;
 					opacity: 0.8;
 					animation: pajaros 65s linear 14s infinite;
@@ -1423,15 +1423,16 @@ h1 {
 	}
 	@keyframes arbol {
 		0%{
-			transform: translateX(calc(120vh * .13906)) translateY(calc(120vh * .06875)) skewX(12deg);
+			transform: translateX(calc(120vw * .13906)) translateY(calc(120vw * .06875)) skewX(12deg);
 		}
 		100%{
-			transform: translateX(calc(120vh * .13906)) translateY(calc(120vh * .06875)) skewX(10deg);
+			transform: translateX(calc(120vw * .13906)) translateY(calc(120vw * .06875)) skewX(10deg);
 		}
 	}
 	#p6arbol{
 		width: calc(39.53vw * 1.2);
 		height: calc(30.82vw * 1.2);
+		transform: translateX(calc(120vw * .13906)) translateY(calc(120vw * .06875)) skewX(12deg);
 	}
 }
 
@@ -1461,6 +1462,23 @@ h1 {
 		#textoBosque2 div:nth-child(2) h2 {
 			font-size: 7.7vh;
 		}
+	@keyframes pajaros {
+		0%{
+			transform: translateX(-30vh) scale(0.3);
+			opacity: 0.8;
+		}
+		62%{
+			transform: translateX(130vh) scale(0.1);
+			opacity: 0.4;
+		}
+		100%{
+			transform: translateX(130vh) scale(0.1);
+			opacity: 0.4;
+		}
+	}
+	#hpradera1 > div > img{
+		transform: translateX(-30vh) scale(0.3);
+	}
 }
 
 
@@ -1509,6 +1527,9 @@ h1 {
 		#textoBosque2 div:nth-child(2) h2 {
 			font-size: 6.5vw;
 		}
+	#hpradera1 > div > img{
+		top: 0%;
+	}
 }
 
 

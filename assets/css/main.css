@@ -1209,10 +1209,10 @@ h1 {
 					}
 					@keyframes arbol {
 						0%{
-							transform: skewX(12deg);
+							transform: translateX(calc(120vh * .2225)) translateY(calc(120vh * .11)) skewX(12deg);
 						}
 						100%{
-							transform: skewX(10deg);
+							transform: translateX(calc(120vh * .2225)) translateY(calc(120vh * .11)) skewX(10deg);
 						}
 					}
 					#p6arbol{
@@ -1220,8 +1220,6 @@ h1 {
 						height: calc(49.313vh * 1.2);
 						display: block;
 						position: absolute;
-						margin-left: calc((120vh * .2225) * 2);
-						margin-top: calc((120vh * .11) * 2);
 						transform-origin: 50% 100%;
 						animation: arbol 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate;
 					}
@@ -1421,12 +1419,17 @@ h1 {
 		background-size: 300vw calc(100vw * .625);
 		/* animation: nubes2 260s linear infinite; */
 	}
+	@keyframes arbol {
+		0%{
+			transform: translateX(calc(120vh * .13906)) translateY(calc(120vh * .06875)) skewX(12deg);
+		}
+		100%{
+			transform: translateX(calc(120vh * .13906)) translateY(calc(120vh * .06875)) skewX(10deg);
+		}
+	}
 	#p6arbol{
 		width: calc(39.53vw * 1.2);
 		height: calc(30.82vw * 1.2);
-		margin-left: calc((120vw * .13906) * 2);
-		margin-top: calc((120vw * .06875) * 2);
-
 	}
 }
 

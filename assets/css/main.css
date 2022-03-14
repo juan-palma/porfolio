@@ -1205,6 +1205,7 @@ h1 {
 					}
 					#hpradera5 > div > .sizeBox img{
 						transform-origin: 50% 90%;
+						transform: skewX(3deg);
 						animation: brisaPradera 5s ease-in-out 800ms infinite alternate;
 					}
 					@keyframes arbol {

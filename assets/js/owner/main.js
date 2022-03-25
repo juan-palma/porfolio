@@ -19,6 +19,60 @@ valGeneral.TimeLine1Acelerador = 126;
 
 
 // ::::::::::::::::: Funciones :::::::::::::::::
+
+function animSecFormacion(data){
+	if(data.padrePdesplazado > 50){
+		
+	} else{
+		
+	}
+}
+
+
+
+function btnRunMenuP(e){
+	const indexEl = parseInt(this.id.replace(/[a-zA-Z]/gi, ''));
+	console.log(this);
+}
+
+
+const formasPath = [];
+formasPath.push(['M10.4,0c0,21.4,5.7,41.5,15.7,58.8L128,0C79.5,0,31.3,0,10.4,0z', 'M0,0c0,23.3,6.2,45.2,17.1,64L128,0C75.2,0,22.7,0,0,0z' ]);
+formasPath.push(['M26.1,58.8c10.3,17.8,25.2,32.7,43.1,43.1L128,0L26.1,58.8z', 'M17.1,64C28.4,83.4,44.6,99.6,64,110.9L128,0L17.1,64z' ]);
+formasPath.push(['M69.2,101.9c17.3,10,37.4,15.7,58.8,15.7L128,0L69.2,101.9z', 'M64,110.9c18.8,10.9,40.7,17.1,64,17.1l0-128L64,110.9z' ]);
+formasPath.push(['M128,0l0,117.6h0c21.4,0,41.5-5.7,58.8-15.7L128,0C128,0,128,0,128,0z', 'M128,0l0,128h0c23.3,0,45.2-6.2,64-17.1L128,0C128,0,128,0,128,0z' ]);
+formasPath.push(['M229.9,58.8L128,0h0l58.8,101.9C204.7,91.5,219.5,76.7,229.9,58.8z', 'M238.9,64L128,0h0l64,110.9C211.4,99.6,227.6,83.4,238.9,64z' ]);
+formasPath.push(['M245.6,0c-22.2,0-70,0-117.6,0l101.9,58.8C239.9,41.5,245.6,21.4,245.6,0z', 'M256,0c-24.2,0-76.2,0-128,0l110.9,64C249.8,45.2,256,23.3,256,0z' ]);
+function btnEfecMenuP(e){
+	const indexEl = parseInt(this.id.replace(/[a-zA-Z]/gi, ''));
+	switch(e.type){
+		case 'mouseenter':
+			el.menuPLi[indexEl-1].classList.add('activo');
+			el.menuPpaths[indexEl-1].classList.add('activo');
+			el.menuPpaths[indexEl-1].setAttribute('d', formasPath[indexEl-1][1]);
+			el.menuPiconos[indexEl-1].classList.add('activo');
+			
+			// anime({
+			// 	targets: el.menuPpaths[indexEl-1],
+			// 	points: [
+			// 	  { value: ['M256,0c-24.2,0-76.2,0-128,0l110.9,64C249.8,45.2,256,23.3,256,0z', 'M256,0c-24.2,0-76.2,0-128,0l110.9,64C249.8,45.2,256,23.3,256,0z'] }
+			// 	],
+			// 	easing: 'easeOutQuad',
+			// 	duration: 200,
+			// 	autoplay: true
+			// });
+		break;
+
+		case 'mouseleave':
+			el.menuPLi[indexEl-1].classList.remove('activo');
+			el.menuPpaths[indexEl-1].classList.remove('activo');
+			el.menuPpaths[indexEl-1].setAttribute('d', formasPath[indexEl-1][0]);
+			el.menuPiconos[indexEl-1].classList.remove('activo');
+		break;
+	}
+}
+
+
 el.efectoEnEspera = "";
 function controlTimeLine1Espera(accion, sentido, valor){
 	switch(accion){
@@ -130,7 +184,7 @@ function controlTimeLine1(area, accion, sentido){
 						controlTimeLine1Espera('completado', sentido, 'home_pradera_box');
 						manejadorParallax('stop2');
 					};
-					el.home_pradera_box.style.display = 'none';
+					el.home_pradera_box.classList.add('ocultar');
 					// if(sentido == 'normal'){
 					// 	el.home_pradera_box.style.display = 'none';
 					// }
@@ -141,7 +195,7 @@ function controlTimeLine1(area, accion, sentido){
 						controlTimeLine1Espera('comenzado', sentido, 'home_pradera_box');
 						setTimeout(() => manejadorParallax('run'), valGeneral.delayControlTimerRunParallax);
 					};
-					el.home_pradera_box.style.display = 'flex';
+					el.home_pradera_box.classList.remove('ocultar');
 				break;
 			}	
 		break;
@@ -242,6 +296,23 @@ function makeTimeline1(parametro){
 			controlTimeLine1('pradera', 'stop', el.timeline1.data.sentido);
 		}
 	}, '-=600')
+	.add({
+		targets:'#praderaTexto1 span',
+		translateX: [
+			{ value: [-50, 0], duration: 400, delay: anime.stagger([0, 400]), easing: 'easeOutBack' },
+			{ value: [0, 50], duration: 400, delay: 700, easing: 'easeOutBack' }
+		],
+		opacity:[
+			{value:[0,1], duration: 400, delay: anime.stagger([0, 400]), easing: 'easeOutBack'},
+			{value:[1,0], duration: 400, delay: 700, easing: 'easeOutBack'}
+		]
+	}, '-=3000')
+	.add({
+		targets:'#praderaTexto2 span',
+		opacity:[
+			{value:[0,1], duration: 400, easing: 'easeOutBack'},
+		]
+	}, '-=1100')
 }
 
 
@@ -350,9 +421,18 @@ function showPage(){
 		makeParallaxs();
 		el.observer.run();
 		el.fondo.style.overflow = "auto";
-		if(window.pageYOffset < window.innerHeight){
-			controlTimeLine1('hola', 'run', 'normal');
-		}
+		// if(window.pageYOffset < window.innerHeight){
+		// 	controlTimeLine1('hola', 'run', 'normal');
+		// } else if(window.pageYOffset > (window.innerHeight * 23)){
+		// 	controlTimeLine1('hola', 'stop', 'normal');
+		// 	controlTimeLine1('bosque', 'stop', 'normal');
+		// }
+	}
+	if(window.pageYOffset < window.innerHeight){
+		controlTimeLine1('hola', 'run', 'normal');
+	} else if(window.pageYOffset > (window.innerHeight * 23)){
+		controlTimeLine1('hola', 'stop', 'normal');
+		controlTimeLine1('bosque', 'stop', 'normal');
 	}
 	hideLoading('time');
 }
@@ -374,14 +454,15 @@ function animacionLoading(p){
 }
 
 function iniciar() {
+	window.bodymovin = arguments[1];
 	window.anime = arguments[2];
+	window.Parallax = arguments[3];
 	//habilitar funciones para moviles:
 	if ((el.mobile = /Mobile/i.test(navigator.userAgent))) {
 		if ((el.touch = Modernizr.touchevents)) {
 
 		}
 		const particulas = document.querySelectorAll('#hbosque7P, #hbosque6P, #hbosque5juanP, #hbosque4P');
-		console.log(particulas);
 		particulas.forEach( e => e.classList.add('desaparece') );
 	}
 
@@ -413,6 +494,21 @@ function iniciar() {
 	el.hbosque7 = document.querySelector('#hbosque7 .anibox > img:first-child');
 
 	el.home_pradera_box = document.getElementById('home_pradera_box');
+
+	el.menuBox = document.getElementById('menuPrincipalBox');
+	el.btnMenuP = document.getElementById('botonAccionMenuP');
+	el.btnMenuP.addEventListener('click', () => el.menuBox.classList.toggle('activo'));
+	el.gajos = document.querySelectorAll('#navActivador > svg > g > path');
+	el.gajos.forEach((g) => {
+		g.addEventListener('click', btnRunMenuP);
+		g.addEventListener('mouseenter', btnEfecMenuP);
+		g.addEventListener('mouseleave', btnEfecMenuP);
+	});
+	el.menuPLi = document.querySelectorAll('#menuPrincipal ul li');
+	el.menuPpaths = document.querySelectorAll('#menuPrincipal > svg > g > path');
+	el.menuPiconos = document.querySelectorAll('#iconosMenuP figure');
+
+	el.formacion = document.getElementById('formacion');
 
 	
 	
@@ -447,7 +543,14 @@ function iniciar() {
 	makeTimeline1();
 
 	el.boxTimeline1.idaAniTimeline = animarTimeline1;
-	el.observer = new AnimeObserver(el.boxTimeline1);
+	el.boxTimeline1.idaObserverAccion = 'animationFrame';
+	el.formacion.idaAniTimeline = animSecFormacion;
+	el.formacion.idaObserverAccion = 'pasos';
+
+	observerArray = [];
+	observerArray.push(el.boxTimeline1);
+	observerArray.push(el.formacion);
+	el.observer = new AnimeObserver(observerArray);
 	el.observer.areaMinima = 0.05;
 	el.observer.pasos = 20;
 	
@@ -461,5 +564,5 @@ requirejs.config({
 	baseUrl: "assets/js/owner",
 	paths: { a: "../animaciones", l: "../librerias", n: "/node_modules" },
 });
-requirejs(["l/modernizr", "l/precarga", "n/animejs/lib/anime.min", "observer"], iniciar);
+requirejs(["l/modernizr", "n/lottie-web/build/player/lottie.min", "n/animejs/lib/anime.min", "l/parallax", "l/precarga", "observer"], iniciar);
 

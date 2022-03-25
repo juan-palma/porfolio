@@ -66,14 +66,20 @@ class AnimeObserver {
 		data.entry = entry;
 		data.index = index;
 
+		
 		if(entry.target.idaAniTimeline instanceof Function){
 			entry.target.idaAniTimeline.call(this, data);
 		}
-		if(entry.target.idaAni.minimaAlcanzada){
-			requestAnimationFrame(this.timeline.bind(this, entry, index));
-		} else{
-			entry.target.idaAni.frameRun = false;
+		switch(entry.target.idaObserverAccion){
+			case 'animationFrame':
+				if(entry.target.idaAni.minimaAlcanzada){
+					requestAnimationFrame(this.timeline.bind(this, entry, index));
+				} else{
+					entry.target.idaAni.frameRun = false;
+				}
+			break;
 		}
+		
 	}
 
 	trabajo(entries, observer) {
@@ -88,16 +94,34 @@ class AnimeObserver {
 
 			if(entry.isIntersecting){
 				entry.target.idaAni.minimaAlcanzada = true;
-				if(entry.target.idaAni.frameRun = undefined){entry.target.idaAni.frameRun = false;}
-				if(entry.target.idaAni.hasOwnProperty('frameRun') && !entry.target.idaAni.frameRun){
-					requestAnimationFrame(this.timeline.bind(this, entry, index));
+				switch(entry.target.idaObserverAccion){
+					case 'animationFrame':
+						if(entry.target.idaAni.frameRun = undefined){entry.target.idaAni.frameRun = false;}
+						if(entry.target.idaAni.hasOwnProperty('frameRun') && !entry.target.idaAni.frameRun){
+							requestAnimationFrame(this.timeline.bind(this, entry, index));
+						}
+					break;
+
+					case 'pasos':
+					this.timeline(entry, index);
+					break;
 				}
+				
+				
 			} else{
 				entry.target.idaAni.frameRun = false;
 				entry.target.idaAni.minimaAlcanzada = false;
 			}
 		}).bind(this));
 		
+	}
+
+	validar(n){
+		if(!this.isNode(n)){ console.warn('El parametro no es un elemento HTML valido'); return false; }
+		if(!this.isInPage(n)){ console.warn('El elemento del parametro no se encuentra visible en el documento'); return false; }
+		n.idaAni = {};
+		this.node.push(n);
+		return true;
 	}
 
 	run(){
@@ -108,10 +132,22 @@ class AnimeObserver {
 		}).bind(this));
 	}
 
+	add(n){
+		if(this.validar(n)){
+			this.observer.observe(n);
+		}
+	}
+
+	
+
 	constructor(n) {
-		if(!this.isNode(n)){ console.warn('El parametro no es un elemento HTML valido'); return; }
-		if(!this.isInPage(n)){ console.warn('El elemento del parametro no se encuentra visible en el documento'); return; }
-		n.idaAni = {};
-		this.node.push(n);
+		//console.log(typeof n);
+		//console.log(Array.isArray(n));
+		if(Array.isArray(n)){
+			n.forEach((el) => this.validar(el));
+		} else{
+			this.validar(n);
+		}
+		
 	}
 }

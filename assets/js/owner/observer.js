@@ -109,8 +109,16 @@ class AnimeObserver {
 				
 				
 			} else{
-				entry.target.idaAni.frameRun = false;
-				entry.target.idaAni.minimaAlcanzada = false;
+				switch(entry.target.idaObserverAccion){
+					case 'animationFrame':
+						entry.target.idaAni.frameRun = false;
+					entry.target.idaAni.minimaAlcanzada = false;
+					break;
+
+					case 'pasos':
+						this.timeline(entry, index);
+					break;
+				}
 			}
 		}).bind(this));
 		

@@ -19,12 +19,33 @@ valGeneral.TimeLine1Acelerador = 126;
 
 
 // ::::::::::::::::: Funciones :::::::::::::::::
-
+idagl.formAniActive = false;
+idagl.formAniTimer = "";
 function animSecFormacion(data){
-	if(data.padrePdesplazado > 50){
-		
-	} else{
-		
+	switch(true){
+		case (data.padrePdesplazado > 20 && data.padrePdesplazado < 93):
+			if(idagl.formAniActive){return;}
+			idagl.formAniActive = true;
+			el.boxTimeline2.style.display = 'flex';
+			if(idagl.formAniTimer != ""){ clearTimeout(idagl.formAniTimer); };
+			idagl.formAniTimer = setTimeout(() => {
+				el.boxTimeline2.classList.remove('opacidad0');
+				clearTimeout(idagl.formAniTimer);
+				idagl.formAniTimer = "";
+			}, 80);
+		break;
+
+		default:
+			if(!idagl.formAniActive){return;}
+			idagl.formAniActive = false;
+			el.boxTimeline2.classList.add('opacidad0');
+			if(idagl.formAniTimer != ""){ clearTimeout(idagl.formAniTimer); };
+			idagl.formAniTimer = setTimeout(() => {
+				el.boxTimeline2.style.display = 'none';
+				clearTimeout(idagl.formAniTimer);
+				idagl.formAniTimer = "";
+			}, 310);
+		break
 	}
 }
 
@@ -51,16 +72,6 @@ function btnEfecMenuP(e){
 			el.menuPpaths[indexEl-1].classList.add('activo');
 			el.menuPpaths[indexEl-1].setAttribute('d', formasPath[indexEl-1][1]);
 			el.menuPiconos[indexEl-1].classList.add('activo');
-			
-			// anime({
-			// 	targets: el.menuPpaths[indexEl-1],
-			// 	points: [
-			// 	  { value: ['M256,0c-24.2,0-76.2,0-128,0l110.9,64C249.8,45.2,256,23.3,256,0z', 'M256,0c-24.2,0-76.2,0-128,0l110.9,64C249.8,45.2,256,23.3,256,0z'] }
-			// 	],
-			// 	easing: 'easeOutQuad',
-			// 	duration: 200,
-			// 	autoplay: true
-			// });
 		break;
 
 		case 'mouseleave':
@@ -185,9 +196,6 @@ function controlTimeLine1(area, accion, sentido){
 						manejadorParallax('stop2');
 					};
 					el.home_pradera_box.classList.add('ocultar');
-					// if(sentido == 'normal'){
-					// 	el.home_pradera_box.style.display = 'none';
-					// }
 				break;
 
 				case 'run':
@@ -239,7 +247,7 @@ function makeTimeline1(parametro){
 				controlTimeLine1('hola', 'run', el.timeline1.data.sentido);
 			};
 		}
-	})//.set(targetsBosque, {'scale': '0.8', 'translateY':'-14%'})
+	})
 	.add({
 		targets: targetsBosque,
 		scale: [
@@ -421,12 +429,6 @@ function showPage(){
 		makeParallaxs();
 		el.observer.run();
 		el.fondo.style.overflow = "auto";
-		// if(window.pageYOffset < window.innerHeight){
-		// 	controlTimeLine1('hola', 'run', 'normal');
-		// } else if(window.pageYOffset > (window.innerHeight * 23)){
-		// 	controlTimeLine1('hola', 'stop', 'normal');
-		// 	controlTimeLine1('bosque', 'stop', 'normal');
-		// }
 	}
 	if(window.pageYOffset < window.innerHeight){
 		controlTimeLine1('hola', 'run', 'normal');
@@ -509,20 +511,12 @@ function iniciar() {
 	el.menuPiconos = document.querySelectorAll('#iconosMenuP figure');
 
 	el.formacion = document.getElementById('formacion');
+	el.boxTimeline2 = document.getElementById('formacionAniTimeLine');
 
 	
 	
-	// iniciar mas procesos
-	// el.loadingAnimacion = anime({
-	// 	targets: '#loadingCirculoAni g path',
-	// 	strokeDashoffset: [anime.setDashoffset, 0],
-	// 	opacity:1,
-	// 	easing: "linear",
-	// 	duration: 1000,
-	// 	autoplay: false
-	// });
 
-	const precarga = new Precarga(/*showPage*/);
+	const precarga = new Precarga();
 	precarga.progress = true;
 	precarga.userAni = animacionLoading;
 	//precarga.run();
@@ -545,7 +539,7 @@ function iniciar() {
 	el.boxTimeline1.idaAniTimeline = animarTimeline1;
 	el.boxTimeline1.idaObserverAccion = 'animationFrame';
 	el.formacion.idaAniTimeline = animSecFormacion;
-	el.formacion.idaObserverAccion = 'pasos';
+	el.formacion.idaObserverAccion = 'animationFrame';
 
 	observerArray = [];
 	observerArray.push(el.boxTimeline1);

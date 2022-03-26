@@ -45,6 +45,7 @@ i::before{
 }
 .anchoFull{
 	width: 100vw;
+	position: relative;
 }
 	
 @-ms-viewport {
@@ -2139,6 +2140,18 @@ article{
 
 .box{
 	position: relative;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.fin {
+	width: 100%;
+	text-align: center;
+	font-size: 10vw;
+	font-family: 'Sen';
+	color: #fffad9;
+	text-shadow: 0 0 20px rgb(0 0 0 / 30%);
 }
 #formacion{
 	width: 100%;
@@ -2150,9 +2163,10 @@ article{
 	color: var(--colorTexto);
 }
 #formacion h2{
-	font-size: 200%;
+	font-size: 6vw;
 	font-weight: 900;
 	font-family: 'Sen';
+	letter-spacing: 0;
 	color: var(--colorTexto);
 }
 	#fondoFormacion{
@@ -2167,6 +2181,108 @@ article{
 		height: 50px;
 		background: transparent url(../img/yo/teja_triangulo.svg) repeat-x center top;
 	}
+	#formacionEscenarioBox {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 10vh 0 30vh;
+	}
+		#formacionEscenarioBox .capas {
+			width: calc(100% + (var(--margenGlobal) * 2));
+			min-height: 100vh;
+			position: relative;
+		}
+			#formacionEscenarioBox .capas img {
+				width: 100%;
+				height: auto;
+			}
+	#formacionAniTimeLine {
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		display: none;
+		transition: all 300ms ease-in-out;
+	}
+		.flecha_continuar{
+			width: 100%;
+			font-size: 10vh;
+			text-align: center;
+		}
+		#formacion p {
+			width: 90%;
+			font-family: 'Montserrat';
+			font-weight: 500;
+			font-size: 88%;
+			line-height: 1.6;
+			text-align: justify;
+		}
+		#formacionAniTimeLine .relleno {
+			flex: 1 0 0;
+			background-color: #fffad9;
+		}
+			#formacion .relleno h3 {
+				position: absolute;
+				left: auto;
+				right: 0px;
+				padding: 1em 2em;
+				font-size: 3vw;
+				z-index: 500;
+				font-weight: 900;
+				background-color: #fffad9;
+				top: 10%;
+				box-shadow: 0 0 34px rgb(0 0 0 / 20%);
+			}
+		#marcoEscenario {
+			width: 100%;
+			height: auto;
+			position: relative;
+			border-bottom: 1px solid #fffad9;
+		}
+			#marcoEscenario .capas {
+				width: 100%;
+			}
+			#marcoEscenario .capas:first-child{
+				transform: scale(1.02);
+			}
+				#marcoEscenario .capas:first-child img{
+					animation: 4.6s linear 10ms infinite normal none running hola4;
+				}
+			#marcoEscenario .capas:nth-child(2) {
+				position: absolute;
+				top: 0px;
+				transform: scale(1.1);
+			}
+				#marcoEscenario .capas:nth-child(2) img{
+					animation: 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate none running hola5;
+				}
+				#marcoEscenario .capas img {
+					width: 100%;
+					height: auto;
+				}
+			#formacion p.onlyLanscape{
+				position: absolute;
+				width: 23%;
+				padding: 2em 2em 8vw;
+				background-color: #fffad9;
+				top: auto;
+				bottom: -3%;
+				left: auto;
+				right: 10%;
+				letter-spacing: 0;
+			}
+			#c3e4 .flecha_continuar{
+				position: absolute;
+				top: auto;
+				bottom: -12%;
+				margin: 0px;
+				padding: 0px;
+			}
+				
 
 
 
@@ -2235,6 +2351,13 @@ article{
 	:root{
 		--margenGlobal: 10vw;
 	}
+	.onlyLanscape{
+		display: none !important;
+		visibility: hidden !important;
+		width: 0px !important;
+		height: 0px !important;
+		overflow: hidden !important;
+	}
 
 
 	#hhola4 > .anibox > div > span {
@@ -2281,6 +2404,30 @@ article{
 		#praderaTexto1 span {
 			width: 100%;
 		}
+
+	
+
+	#formacion .relleno h3 {
+		font-size: 3vh;
+		text-align: right;
+		padding: 1em;
+		top: inherit;
+	}	
+	#formacion p.onlyPortrait {
+		font-size: 78%;
+		line-height: 1.3;
+		bottom: -3%;
+		padding: 2em 2em 13vw;
+		right: 6%;
+		margin: 0 auto;
+	}
+	#formacionAniTimeLine .relleno {
+		flex: 1 0 0;
+		background-color: #fffad9;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 }
 
 @media screen and (orientation:portrait) and (max-width: 680px){
@@ -2299,6 +2446,13 @@ article{
 	Estilos para un espect de acostado
 ========================================================================== */
 @media screen and (orientation:landscape){
+	.onlyPortrait{
+		display: none !important;
+		visibility: hidden !important;
+		width: 0px !important;
+		height: 0px !important;
+		overflow: hidden !important;
+	}
 	#logoJuan {
 		width: 20vh;
 		height: 20vh;
@@ -2309,8 +2463,9 @@ article{
 		font-size: 8vh;
 		width: 80%;
 	}
-}
 
+	
+}
 
 /* ==========================================================================
 	Estilos para un espect acostado pero en dispositivos chicos
@@ -2352,6 +2507,17 @@ article{
 	#yo h2{
 		font-size: 2.6vw;
 	}
+
+
+	
+	#formacion p.onlyLanscape {
+		font-size: 78%;
+		line-height: 1.3;
+		bottom: -3%;
+		padding: 2em 2em 13vw;
+		right: 6%;
+	}
+
 }
 
 
@@ -2417,10 +2583,14 @@ article{
 /* ==========================================================================
 	Media Queries
 ========================================================================== */
-@media only screen and (min-width: 846px) {
+@media only screen and (min-width: 860px) {
 	h1::after {
 		content: 'Diseño Gráfico, 3D, Fotografía, Programación y más...';
 		font-size: 28%;
+	}
+
+	#formacion p {
+		line-height: 1.3;
 	}
 }
 

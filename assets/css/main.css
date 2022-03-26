@@ -2509,7 +2509,9 @@ article{
 	}
 
 
-	
+	#formacion p {
+		line-height: 1.3;
+	}
 	#formacion p.onlyLanscape {
 		font-size: 78%;
 		line-height: 1.3;

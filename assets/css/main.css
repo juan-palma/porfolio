@@ -2206,7 +2206,7 @@ article{
 		flex-direction: column;
 		justify-content: center;
 		display: none;
-		transition: all 300ms ease-in-out;
+		transition: all 200ms ease-in-out;
 	}
 		.flecha_continuar{
 			width: 100%;
@@ -2221,6 +2221,21 @@ article{
 			line-height: 1.6;
 			text-align: justify;
 		}
+			#formacion p a {
+				text-decoration: none;
+				font-weight: 900;
+				color: var(--colorPrincipal);
+				cursor: pointer;
+				transition: all 200ms;
+				display: inline-flex;
+				padding: 0 5px;
+				background: transparent;
+				transition: all 200ms ease-in-out;
+			}
+			#formacion p a:hover{
+				background: var(--colorBackColor);
+				color: #fff;
+			}
 		#formacionAniTimeLine .relleno {
 			flex: 1 0 0;
 			background-color: #fffad9;
@@ -2509,9 +2524,7 @@ article{
 	}
 
 
-	#formacion p {
-		line-height: 1.3;
-	}
+	
 	#formacion p.onlyLanscape {
 		font-size: 78%;
 		line-height: 1.3;
@@ -2590,10 +2603,6 @@ article{
 		content: 'Diseño Gráfico, 3D, Fotografía, Programación y más...';
 		font-size: 28%;
 	}
-
-	#formacion p {
-		line-height: 1.3;
-	}
 }
 
 
@@ -2610,6 +2619,10 @@ article{
 	:root{
 		--margenAncho: 90%;
 		--margenPadding: 2em;
+	}
+
+	#formacion p {
+		line-height: 1.3;
 	}
 }
 

@@ -73,6 +73,20 @@ function animSecFormacion(data){
 }
 
 
+el.proyectoActivo = "";
+function proyecto(e){
+	this.classList.toggle('activo');
+	if(el.proyectoActivo != ""){
+		if(el.proyectoActivo != this.idaData+1){
+			el.portafolios[el.proyectoActivo-1].classList.remove('activo');
+			el.proyectoActivo = this.idaData+1;
+		}		
+	} else{
+		el.proyectoActivo = this.idaData+1;
+	}
+}
+
+
 
 function btnRunMenuP(e){
 	const indexEl = parseInt(this.id.replace(/[a-zA-Z]/gi, ''));
@@ -535,6 +549,12 @@ function iniciar() {
 
 	el.formacion = document.getElementById('formacion');
 	el.boxTimeline2 = document.getElementById('formacionAniTimeLine');
+
+	el.portafolios = document.querySelectorAll('#portaProgramacion .proyecto');
+	el.portafolios.forEach((p, i) => {
+		p.idaData = i;
+		p.addEventListener('click', proyecto);
+	});
 
 	el.form = document.getElementById('form');
 	el.form.addEventListener('submit', formulario);

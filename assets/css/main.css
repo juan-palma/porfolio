@@ -2370,23 +2370,33 @@ article{
 				right: 0px;
 				opacity: .2;
 			}
+			#boxPPortafolio > div > img {
+				width: 100vw;
+				height: 100vh;
+				display: block;
+				position: fixed;
+				top: 0px;
+				left: 0px;
+				object-fit: cover;
+				object-position: center;
+			}
 			#boxPPortafolio > div > span{
 				position: relative;
 			}
 		#boxPPortafolio > div:nth-child(1){
 			left: auto;
 			right: -9%;
-			background-image: url(../img/portafolio/enP1.webp);
-			background-position: center;
+			/* background-image: url(../img/portafolio/enP1.webp);
+			background-position: center; */
 		}
 		#boxPPortafolio > div:nth-child(2){
-			background-image: url(../img/portafolio/enP2.webp);
-			background-position: left;
+			/* background-image: url(../img/portafolio/enP2.webp);
+			background-position: left; */
 		}
 		#boxPPortafolio > div:nth-child(3){
 			left: -9%;
 			right: auto;
-			background-image: url(../img/portafolio/enP3.webp);
+			/* background-image: url(../img/portafolio/enP3.webp); */
 		}
 
 		#portafolio h3 {
@@ -2700,7 +2710,8 @@ article{
 					opacity: 0;
 					transition: all 300ms ease-in-out;
 				}
-				#portaProgramacion > div .col2:hover{
+				#portaProgramacion > .proyecto .col2:hover,
+				#portaProgramacion > .proyecto.activo .col2{
 					transform: scale(1);
 					opacity: 1;
 				}
@@ -3208,14 +3219,17 @@ div#ventanaPOP {
 		justify-content: center;
 	}
 
-	#boxPPortafolio > div:nth-child(1) {
-		background-position: -77px;
+	#boxPPortafolio > div:nth-child(1) img{
+		object-position: 18%;
+		/* background-position: -77px; */
 	}
-	#boxPPortafolio > div:nth-child(2){
-		background-position: -185px;
+	#boxPPortafolio > div:nth-child(2) img{
+		object-position: 23%;
+		/* background-position: -185px; */
 	}
-	#boxPPortafolio > div:nth-child(3){
-		background-image: url(../img/portafolio/enP3-mobile.webp);
+	#boxPPortafolio > div:nth-child(3) img{
+		object-position: 73%;
+		/* background-image: url(../img/portafolio/enP3-mobile.webp); */
 	}
 
 	

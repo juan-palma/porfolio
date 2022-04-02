@@ -2937,6 +2937,31 @@ article{
 									color: #4d0000;
 								}
 
+		div#whats {
+			width: 76px;
+			height: 76px;
+			display: block;
+			position: fixed;
+			left: auto;
+			top: auto;
+			bottom: 13px;
+			right: 18px;
+			z-index: 2147483644;
+		}
+			div#whats a {
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
+				div#whats a img {
+					width: 100%;
+					height: auto;
+				}
+		div#fb-root .fb_dialog_content iframe {
+			right: 98px !important;
+		}
+
+
 
 footer{
 	width: 100%;

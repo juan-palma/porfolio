@@ -2180,6 +2180,9 @@ article{
 		width: 100%;
 		height: 50px;
 		background: transparent url(../img/yo/teja_triangulo.svg) repeat-x center top;
+		position: relative;
+		top: -1px;
+		border-bottom: 1px solid #fffad9;
 	}
 	#formacionEscenarioBox {
 		display: flex;
@@ -2206,7 +2209,7 @@ article{
 		flex-direction: column;
 		justify-content: center;
 		display: none;
-		transition: all 200ms ease-in-out;
+		transition: all 100ms ease-in-out;
 	}
 		.flecha_continuar{
 			width: 100%;
@@ -2299,6 +2302,649 @@ article{
 			}
 				
 
+#portafolio {
+	min-height: 100vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 17vh 0 0;
+	position: relative;
+	color: #fff;
+}
+	#portafolio:before {
+		content: "";
+		width: 100vw;
+		height: 21vh;
+		background-color: #fffad9;
+		display: block;
+		position: absolute;
+		z-index: 3;
+		clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+		top: -1px;
+	}
+	#fondoPortafolio{
+		height: 100%;
+		display: block;
+		position: absolute;
+		top: 0px;
+		background-color: var(--colorBackColor);
+	}
+	#portafolio h2 {
+		font-size: 6vw;
+		font-weight: 700;
+		color: #fff;
+		text-align: left;
+		width: 100%;
+		position: relative;
+	}
+	#boxPPortafolio {
+		display: flex;
+		justify-content: center;
+		position: relative;
+	}
+		#boxPPortafolio > div {
+			width: 39.3%;
+			flex: 1 0 39.3%;
+			height: 25vh;
+			position: relative;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			background-color: rebeccapurple;
+			background-attachment: fixed;
+			background-size: cover;
+			background-position: center;
+			font-size: 4vw;
+			color: #fff;
+			padding: 1em;
+			clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%);
+		}
+			#boxPPortafolio > div:before {
+				content: "";
+				width: 100%;
+				height: 100%;
+				display: block;
+				position: absolute;
+				background-color: #000;
+				right: 0px;
+				opacity: .2;
+			}
+			#boxPPortafolio > div > span{
+				position: relative;
+			}
+		#boxPPortafolio > div:nth-child(1){
+			left: auto;
+			right: -9%;
+			background-image: url(../img/portafolio/enP1.webp);
+			background-position: center;
+		}
+		#boxPPortafolio > div:nth-child(2){
+			background-image: url(../img/portafolio/enP2.webp);
+			background-position: left;
+		}
+		#boxPPortafolio > div:nth-child(3){
+			left: -9%;
+			right: auto;
+			background-image: url(../img/portafolio/enP3.webp);
+		}
+
+		#portafolio h3 {
+			font-size: 3vw;
+			margin-bottom: 1em;
+			color: var(--colorBackColor);
+			letter-spacing: 0;
+			font-weight: 900;
+		}
+		#portafolio .box{
+			min-height: auto;
+		}
+			#portafolio .box .bl1{
+				display: flex;
+				padding: 6em 0;
+			}
+				#portafolio .box .bl1 .col1 {
+					padding: 3em 8em;
+					flex: 7 0 0;
+					background-color: var(--colorPrincipal);
+					margin-right: 2em;
+					min-height: 40vh;
+					display: flex;
+					flex-direction: column;
+					align-items: flex-start;
+					justify-content: center;
+				}
+				#portafolio .box .bl1 .col2 {
+					flex: 1 0 12.5%;
+					width: 12.5%;
+					line-height: 1;
+					font-size: 19vw;
+					font-weight: 600;
+				}
+	#ejemplos {
+		min-height: 100vh;
+		background-color: #fffad9;
+	}
+		#portaArte, #porta3D {
+			display: grid;
+			grid-template-areas:
+				"negro texto texto"
+				"foto1 foto2 foto2"
+				"foto3 foto2 foto2";
+			height: 100vh;
+			grid-gap: 3px;
+			grid-template-columns: minmax(33.33%, 33.33%);
+			grid-template-rows: minmax(170px, 33.33%) 1fr 1fr;
+			grid-auto-rows: 33.33%;
+			grid-auto-columns: 33.33%;
+			overflow: hidden;
+		}
+			#portaArte > div,
+			#porta3D > div {
+				overflow: hidden;
+				position: relative;
+				display: flex;
+			}
+			#portaArte .foto1,
+			#porta3D .foto1{
+				grid-area: foto1;
+			}
+			#portaArte .foto2,
+			#porta3D .foto2{
+				grid-area: foto2;
+			}
+			#portaArte .foto3,
+			#porta3D .foto3{
+				grid-area: foto3;
+			}
+				#portaArte img,
+				#porta3D img{
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					object-position: center;
+				}
+				/* #portaArte .foto1::after,
+				#portaArte .foto2::after,
+				#portaArte .foto3::after,
+				#porta3D .foto1::after,
+				#porta3D .foto2::after,
+				#porta3D .foto3::after {
+					width: 100%;
+					height: 100%;
+					content: "";
+					position: absolute;
+					top: 0;
+					background-color: #000;
+					opacity: .2;
+				} */
+			#portaArte .negro,
+			#porta3D .negro{
+				grid-area: negro;
+				background-color: #000;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+			}
+				#portaArte .negro > div,
+				#porta3D .negro > div{
+					margin-top: 12px;
+				}
+					#portaArte .negro i{
+						cursor: pointer;
+					}
+					#portaArte .negro i:before,
+					#porta3D .negro i:before{
+						color: #fff;
+						font-size: 200%;
+						background-color: var(--colorSecundario);
+						padding: 8px;
+						border-radius: 6px;
+						transition: all 200ms ease-in-out;
+						cursor: pointer;
+						margin: 0px 4px;
+					}
+					#portaArte .negro i:hover:before,
+					#porta3D .negro i:hover:before{
+						background-color: var(--colorPrincipal);
+					}
+			#portaArte .texto,
+			#porta3D .texto{
+				grid-area: texto;
+				background-color: var(--colorPrincipal);
+				padding: 3em;
+				justify-content: center;
+				align-items: flex-start;
+				flex-direction: column;
+				text-align: justify;
+				font-weight: 200;
+				font-size: 98%;
+			}
+				#portaArte .texto h4,
+				#porta3D .texto h4 {
+					margin-bottom: 1em;
+					font-size: 150%;
+				}
+
+
+		#porta3D{
+			grid-template-areas:
+				"texto texto negro"
+				"foto2 foto2 foto1"
+				"foto2 foto2 foto3";
+			margin-top: 3em;
+		}
+			#porta3D .foto3 img{
+				object-position: center bottom;
+			}
+			
+
+		#portaFoto{
+			display: flex;
+			flex-wrap: wrap;
+			margin-top: 3em;
+		}
+			#portaFoto > div {
+				flex: 1 0 50%;
+				display: flex;
+				flex-wrap: wrap;
+			}
+			#portaFoto > div.intro{
+				flex: 1 0 100%;
+				width: 100%;
+				padding: 3em;
+				background-color: var(--colorPrincipal);
+			}
+				#portaFoto > div h4 {
+					width: 100%;
+					padding: 2em 2em 1rem;
+					font-size: 180%;
+					text-transform: uppercase;
+					text-align: right;
+					font-weight: 900;
+					background-color: #000;
+				}
+
+			#fotoErotica {
+				background-color: var(--colorSecundario);
+			}
+				div#fotoErotica h4{
+					color: #fffad9;
+					text-align: left;
+					background-color: var(--colorPrincipal);
+				}
+			.foto{
+				width: 50%;
+				position: relative;
+			}
+				.foto::before {
+					content: "";
+					display: block;
+					padding-bottom: 100%;
+					position: relative;
+				}
+				.foto img{
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					object-position: center;
+					position: absolute;
+					top: 0;
+				}
+
+			#fotoPublicitaria{
+				position: relative;
+			}
+				div#fotoPublicitaria h4{
+					text-align: center;
+				}
+				div#fotoPublicitaria .foto{
+					width: 25%;
+				}
+			
+				#portaFoto > div .mas {
+					width: 100%;
+					height: auto;
+					padding: 1.2em 0 2em;
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+					font-size: 110%;
+					background-color: var(--colorPrincipal);
+				}
+					#portaFoto > div .mas > div{
+						margin-top: 10px;
+					}
+						#portaFoto > div .mas i{
+							cursor: pointer;
+						}
+						#portaFoto > div .mas i::before{
+							color: #fff;
+							font-size: 200%;
+							background-color: var(--colorSecundario);
+							padding: 8px;
+							border-radius: 6px;
+							transition: all 200ms ease-in-out;
+							cursor: pointer;
+							margin: 0px 4px;
+						}
+						#portaFoto > div .mas i:hover::before{
+							background-color: #000;
+						}
+
+					#portaFoto > div#fotoErotica .mas{
+						background-color: #000;
+					}
+						#portaFoto > div#fotoErotica .mas i::before{
+							background-color: var(--colorSecundario);
+						}
+						#portaFoto > div#fotoErotica .mas i:hover::before{
+							background-color: var(--colorPrincipal);
+						}
+
+		#portaProgramacion {
+			width: 100%;
+			display: grid;
+			padding: var(--margenGlobal);
+			color: var(--colorTexto);
+			grid-template-areas:
+				"titulo titulo titulo"
+				"texto texto texto"
+				"p1 p2 p3";
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-template-rows: auto;
+			grid-gap: 26px;
+			background-color: #fffad9;
+		}
+			#portaProgramacion h3 {
+				grid-area: titulo;
+				margin-bottom: 0;
+			}
+			#portaProgramacion .texto {
+				grid-area: texto;
+				text-align: left;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+			}
+			#portaProgramacion > div {
+				overflow: hidden;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				position: relative;
+			}
+				#portaProgramacion > div > div {
+					position: relative;
+				}
+					#portaProgramacion > div > img {
+						width: 100%;
+						height: auto;
+					}
+				#portaProgramacion > div .col2 {
+					width: 100%;
+					height: 100%;
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: flex-start;
+					position: absolute;
+					top: 0;
+					padding: 12%;
+					color: #fff;
+					background-color: rgb(0 0 0 / 82%);
+					transform: scale(1.4);
+					border: 14px solid var(--colorPrincipal);
+					opacity: 0;
+					transition: all 300ms ease-in-out;
+				}
+				#portaProgramacion > div .col2:hover{
+					transform: scale(1);
+					opacity: 1;
+				}
+					#portaProgramacion .proyecto .col2 h4 {
+						font-size: 110%;
+						margin-bottom: 8px;
+						font-weight: 900;
+						color: #fff;
+					}
+					#portaProgramacion .proyecto .col2 p {
+						font-size: 90%;
+					}
+					#portaProgramacion .proyecto .col2 a {
+						padding: 6px 18px;
+						background-color: var(--colorPrincipal);
+						line-height: 1;
+						text-decoration: none;
+						color: #fff;
+						text-transform: uppercase;
+						margin-top: 10px;
+						cursor: pointer;
+					}
+
+
+		#contacto {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			position: relative;
+		}
+			#fondoContacto {
+				height: 100%;
+				background: var(--colorPrincipal) url(../img/footer/pleca_sup_contacto.svg) no-repeat center top;
+				/* background-size: auto 10vh; */
+				position: absolute;
+			}
+			#contacto .box {
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				padding: 12vh 0;
+				min-height: auto;
+			}
+				#contacto .box h3 {
+					width: 100%;
+					font-size: 240%;
+					color: #fff;
+					margin-bottom: 1em;
+				}
+				#boxForm {
+					width: 100%;
+					display: flex;
+				}
+					#boxForm > div {
+						flex: 1 0 50%;
+					}
+					#boxForm .col1 {
+						position: relative;
+					}
+						#boxForm .col1 img {
+							width: calc(95% + var(--margenGlobal));
+							height: 100%;
+							position: absolute;
+							object-fit: cover;
+							object-position: center;
+							left: calc(var(--margenGlobal) * -1);
+							border-bottom-right-radius: 30px;
+							border-top-right-radius: 30px;
+						}
+					
+					#boxForm .col2{
+						position: relative;
+					}
+						form#form{
+							display: flex;
+							flex-direction: column;
+						}
+							form#form .boxInput{
+								margin: 6px 0;
+							}
+								form#form .inputEfect{
+									position: relative;
+								}
+									form#form .inputEfect .efectoLinea {
+										width: calc(100% + 2px);
+										height: calc(100% + 2px);
+										display: block;
+										position: absolute;
+										top: -1px;
+										left: -1px;
+										border-radius: 12px;
+										z-index: 10;
+									}
+									form#form input,
+									form#form textarea {
+										display: block;
+										border: 1px solid rgba(128, 128, 128, 0.1);
+										border-radius: 12px;
+										background-color: var(--colorPrincipal);
+										box-shadow: inset 6px 6px 10px 0 rgb(0 0 0 / 20%), inset -6px -6px 10px 0 rgb(255 255 255 / 6%);
+										height: auto;
+										padding: 1rem;
+										font-family: 'Montserrat';
+										font-size: 110%;
+										width: 100%;
+										color: #fff;
+										margin: 0;
+										transition: all 200ms ease-in-out;
+										position: relative;
+										outline: none;
+										z-index: 20;
+									}
+									form#form input:focus,
+									form#form input:active,
+									form#form input:target,
+									form#form textarea:focus,
+									form#form textarea:active,
+									form#form textarea:target{
+										outline: none;
+										background-color: #D26534;
+									}
+									form#form textarea{
+										resize: none;
+									}
+									@keyframes laser {
+										0%{
+											opacity: 0;
+											clip-path: inset(-1px 101% -1px -3%);
+										}
+										15%{
+											opacity: 1;
+										}
+										35%{
+											opacity: 1;
+										}
+										50%{
+											opacity: 0;
+											clip-path: inset(-1px -3% -1px 101%);
+										}
+										100%{
+											opacity: 0;
+											clip-path: inset(-1px -3% -1px 101%);
+										}
+									}
+									form#form input:focus ~ .efectoLinea,
+									form#form input:active ~ .efectoLinea,
+									form#form input:target ~ .efectoLinea,
+									form#form textarea:focus ~ .efectoLinea,
+									form#form textarea:active ~ .efectoLinea,
+									form#form textarea:target ~ .efectoLinea{
+										background-color: #fffad9;
+										animation: laser 4s ease-in-out infinite;
+									}
+
+									form#form input#btnForm {
+										width: auto;
+										padding: 1rem 3rem;
+										box-shadow: -6px -6px 22px 0 rgb(255 255 255 / 11%), 6px 6px 16px 0 rgb(26 26 26 / 61%);
+										background-color: black;
+										margin-top: 24px;
+										align-self: stretch;
+										cursor: pointer;
+									}
+
+									form#form input#btnForm:hover,
+									form#form input#btnForm:focus,
+									form#form input#btnForm:active,
+									form#form input#btnForm:target{
+										background-color: #ff6b26;
+									}
+									form#form .boxInput .iconoStatus {
+										width: auto;
+										height: 100%;
+										position: absolute;
+										top: 0px;
+										display: flex;
+										justify-content: flex-end;
+										align-items: center;
+										left: auto;
+										right: 0.5rem;
+										z-index: 30;
+										opacity: 0;
+										transition: all 200ms ease-in-out;
+									}
+										form#form .boxInput .iconoStatus i:before{
+											transition: all 200ms ease-in-out;
+										}
+								form#form .boxInput .inputError {
+									height: 18px;
+									padding: 3px 1rem;
+									font-size: 90%;
+									opacity: 0;
+									transition: all 200ms ease-in-out;
+								}
+
+							form#form .boxInput.valido{
+								outline: none;
+							}
+								form#form .boxInput.valido .iconoStatus{
+									opacity: 1;
+								}
+									form#form .boxInput.valido .iconoStatus i:before{
+										color: #00ffd5;
+									}
+
+							form#form .boxInput.error{
+								outline: none;
+							}
+								form#form .boxInput.error .iconoStatus{
+									opacity: 1;
+								}
+									form#form .boxInput.error .iconoStatus i:before{
+										content: "\f057";
+										color: #fff;
+									}
+								form#form .boxInput.error input,
+								form#form .boxInput.error textarea{
+									background-color: #a33729;
+								}
+								form#form .boxInput.error input:focus,
+								form#form .boxInput.error input:active,
+								form#form .boxInput.error input:target,
+								form#form .boxInput.error textarea:focus,
+								form#form .boxInput.error textarea:active,
+								form#form .boxInput.error textarea:target{
+									background-color:#d23d34;
+								}
+								form#form .boxInput.error .inputError{
+									opacity: 1;
+									color: #4d0000;
+								}
+
+
+footer{
+	width: 100%;
+	height: auto;
+	padding: 0 0 var(--margenGlobal);
+	position: relative;
+	display: flex;
+}
 
 
 
@@ -2308,15 +2954,108 @@ article{
 
 
 
+/* Estilos para la ventana de avisos */
+div#ventanaPOP {
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgb(0 0 0 / 84%);
+	z-index: 99999999;
+	transition: all 200ms ease-in-out;
+}
+	#ventanaPOP .ventanaCerrar {
+		width: 28px;
+		height: 28px;
+		position: absolute;
+		top: 18px;
+		left: auto;
+		right: 18px;
+		background: darkred;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: #fff;
+		line-height: 0;
+		border-radius: 4px;
+		padding-bottom: 2px;
+		cursor: pointer;
+		font-weight: 900;
+		transition: all 200ms ease-in-out;
+	}
+	#ventanaPOP .ventanaCerrar:hover{
+		background-color: orangered;
+	}
+	#ventanaPOP .mensajeBox {
+		max-width: 86%;
+		height: auto;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 3em;
+		background: #fff;
+		border: 8px solid #555;
+		border-radius: 30px;
+		font-size: 120%;
+		transition: all 200ms ease-in-out;
+	}
+		#ventanaPOP button {
+			appearance: none;
+			padding: 6px 24px;
+			margin: 24px 0 0;
+			border: 0;
+			border-radius: 6px;
+			background-color: #444;
+			color: #fff;
+			cursor: pointer;
+			transition: all 200ms ease-in-out;
+		}
+		#ventanaPOP .mensajeBox button:hover{
+			background-color: #000 !important;
+		}
+		div#ventanaPOP .mensajeBox i:before {
+			font-size: 360%;
+			margin-bottom: 30px;
+			display: block;
+		}
 
 
 
+	div#ventanaPOP.ok .mensajeBox i:before{
+		color: #1ba902;
+	}
+	div#ventanaPOP.ok .mensajeBox{
+		border: 8px solid #1ba902;
+	}
+	div#ventanaPOP.ok .mensajeBox button{
+		background-color: #1ba902;
+	}
 
+	div#ventanaPOP.alert .mensajeBox i:before{
+		color: #ddaa01;
+	}
+	div#ventanaPOP.alert .mensajeBox{
+		border: 8px solid #ddaa01;
+	}
+	div#ventanaPOP.alert .mensajeBox button{
+		background-color: #ddaa01;
+	}
 
-
-
-
-
+	div#ventanaPOP.error .mensajeBox i:before{
+		color: #b42b08;
+	}
+	div#ventanaPOP.error .mensajeBox{
+		border: 8px solid #b42b08;
+	}
+	div#ventanaPOP.error .mensajeBox button{
+		background-color: #b42b08;
+	}
 
 
 
@@ -2443,6 +3182,71 @@ article{
 		align-items: center;
 		justify-content: center;
 	}
+
+	#boxPPortafolio > div:nth-child(1) {
+		background-position: -77px;
+	}
+	#boxPPortafolio > div:nth-child(2){
+		background-position: -185px;
+	}
+	#boxPPortafolio > div:nth-child(3){
+		background-image: url(../img/portafolio/enP3-mobile.webp);
+	}
+
+	
+	#portafolio .box {
+		min-height: auto;
+		overflow: hidden;
+		width: 100vw;
+	}
+	#portafolio h3 {
+		font-size: 3vh;
+	}
+	#portafolio .box .bl1 {
+		width: 100vw;
+	}
+	#portafolio .box .bl1 .col1 {
+		padding: 3rem;
+		margin-right: 0;
+		line-height: 1.1;
+		flex: 1 0 80%;
+		width: 80%;
+	}
+	#portafolio .box .bl1 .col2 {
+		flex: 1 0 20%;
+		width: 20%;
+		text-align: center;
+		font-size: 10vh;
+		padding: 0 1%;
+	}
+	#portaArte, #porta3D {
+		grid-template-areas:
+			"texto texto texto"
+			"foto1 foto2 foto2"
+			"foto3 foto2 foto2"
+			"negro negro negro";
+		grid-template-rows: minmax(170px, 33.33%) 1fr 1fr minmax(90px, 0.8fr);
+		height: auto;
+	}
+	#portaArte .texto, #porta3D .texto {
+		font-size: 92%;
+		line-height: 1.2;
+	}
+
+
+	#portaProgramacion .texto {
+		font-size: 94%;
+	}
+	#portaProgramacion {
+		grid-template-areas:
+			"titulo"
+			"texto"
+			"p1"
+			"p2"
+			"p3";
+		grid-template-columns: 1fr;
+	}
+	
 }
 
 @media screen and (orientation:portrait) and (max-width: 680px){
@@ -2526,15 +3330,74 @@ article{
 
 	
 	#formacion p.onlyLanscape {
-		font-size: 78%;
-		line-height: 1.3;
+		width: 34%;
+		font-size: 74%;
+		line-height: 1.14;
 		bottom: -3%;
 		padding: 2em 2em 13vw;
-		right: 6%;
+		right: 1%;
 	}
 
 }
 
+
+/* ==========================================================================
+	Estilos para un espect acostado pero en dispositivos chicos
+========================================================================== */
+@media screen and (orientation:landscape) and (max-width: 860px){
+	#portafolio .box .bl1 .col1 {
+		padding: 3em 3em;
+	}
+	#portafolio h3 {
+		font-size: 5vw;
+	}
+}
+
+/* ==========================================================================
+	Estilos para un espect acostado pero en dispositivos chicos
+========================================================================== */
+@media screen and (orientation:landscape) and (max-width: 720px){
+	#portaArte, #porta3D {
+		grid-template-areas:
+			"texto texto texto"
+			"foto1 foto2 foto2"
+			"foto3 foto2 foto2"
+			"negro negro negro";
+		grid-template-rows: minmax(170px, 33.33%) 1fr 1fr minmax(90px, 0.8fr);
+		height: 140vh;
+		height: auto;
+	}
+}
+
+
+
+/* ==========================================================================
+	Estilos para un espect acostado pero en dispositivos chicos
+========================================================================== */
+@media screen and (orientation:landscape) and (max-height: 460px){
+	
+	#portaArte .texto, #porta3D .texto,
+	#portaArte .negro, #porta3D .negro{
+		line-height: 1.1;
+		font-size: 94%;
+	}
+		#portaArte .texto h4, #porta3D .texto h4 {
+			margin-bottom: 0.5em;
+			font-size: 130%;
+		}
+	
+	
+	#portaArte, #porta3D {
+		grid-template-areas:
+			"texto texto texto"
+			"foto1 foto2 foto2"
+			"foto3 foto2 foto2"
+			"negro negro negro";
+		grid-template-rows: minmax(170px, 33.33%) 1fr 1fr minmax(90px, 0.8fr);
+		height: 140vh;
+		height: auto;
+	}
+}
 
 
 
@@ -2716,6 +3579,25 @@ article{
 
 
 
+/* ==========================================================================
+	Media Queries
+========================================================================== */
+@media only screen and (max-width: 590px) {
+	div#fotoPublicitaria .foto {
+		width: 50%;
+	}
+	#formacion p {
+		line-height: 1.1;
+		font-size: 94%;
+		font-family: 'Barlow Condensed';
+	}
+
+	#portaArte, #porta3D {
+		grid-template-rows: minmax(min-content, 33.33%) 1fr 1fr minmax(90px, 0.8fr);
+		height: auto;
+	}
+}
+
 
 
 
@@ -2724,7 +3606,14 @@ article{
 	Media Queries
 ========================================================================== */
 @media only screen and (max-width: 480px) {
-	
+	#formacion p.onlyLanscape {
+		width: 42%;
+		font-size: 74%;
+		line-height: 1.14;
+		bottom: -3%;
+		padding: 2em 2em 6vw;
+		right: 1%;
+	}
 }
 
 

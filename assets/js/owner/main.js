@@ -19,11 +19,34 @@ valGeneral.TimeLine1Acelerador = 126;
 
 
 // ::::::::::::::::: Funciones :::::::::::::::::
+let fPv = "";
+function formulario(e){
+	e.preventDefault();
+
+	function enviado(j){
+		el.fPv.clear();
+		pop('Gracias por contactarnos, tu correo fue enviado y en breve me pondre en contacto contigo.', 'ok');
+	}
+
+	function error(j){
+		pop('No se puedo enviar el correo, intentolo mas tarde.', 'error');
+	}
+
+	if(el.fPv.validar()){
+		const formData = new FormData(el.form);
+		request('server/form.php', formData, enviado, error);
+	} else{
+		pop('El formulario tiene errores que se deben corregir.', 'alert');
+	}
+}
+
+
+
 idagl.formAniActive = false;
 idagl.formAniTimer = "";
 function animSecFormacion(data){
 	switch(true){
-		case (data.padrePdesplazado > 20 && data.padrePdesplazado < 93):
+		case (data.padrePdesplazado > 24 && data.padrePdesplazado < 93):
 			if(idagl.formAniActive){return;}
 			idagl.formAniActive = true;
 			el.boxTimeline2.style.display = 'flex';
@@ -513,6 +536,12 @@ function iniciar() {
 	el.formacion = document.getElementById('formacion');
 	el.boxTimeline2 = document.getElementById('formacionAniTimeLine');
 
+	el.form = document.getElementById('form');
+	el.form.addEventListener('submit', formulario);
+	el.fPv = new ValidarForm();
+	el.fPv.form = el.form;
+	el.fPv.run();
+
 	
 	
 
@@ -556,7 +585,7 @@ function iniciar() {
 //importamos los archivos y librerias necesarios
 requirejs.config({
 	baseUrl: "assets/js/owner",
-	paths: { a: "../animaciones", l: "../librerias", n: "/node_modules" },
+	paths: { a: "../animaciones", l: "../librerias", n: "/node_modules"},
 });
-requirejs(["l/modernizr", "n/lottie-web/build/player/lottie.min", "n/animejs/lib/anime.min", "l/parallax", "l/precarga", "observer"], iniciar);
+requirejs(["l/modernizr", "n/lottie-web/build/player/lottie.min", "n/animejs/lib/anime.min", "l/parallax", "l/precarga", "observer", "validaciones", "alertas", "peticiones"], iniciar);
 

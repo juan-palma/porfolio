@@ -2958,6 +2958,8 @@ article{
 			bottom: 13px;
 			right: 18px;
 			z-index: 2147483644;
+			z-index: 999977;
+			display: none;
 		}
 			div#whats a {
 				display: block;
@@ -2968,8 +2970,10 @@ article{
 					width: 100%;
 					height: auto;
 				}
-		div#fb-root .fb_dialog_content iframe {
+		div#fb-root .fb_dialog_content iframe,
+		div#fb-root .fb-customer-chat iframe {
 			right: 98px !important;
+			z-index: 999977 !important;
 		}
 
 

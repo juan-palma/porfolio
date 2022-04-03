@@ -89,10 +89,26 @@ function proyecto(e){
 
 
 function activeRastreoBtn(f, n){
-	if(n == 0){
+	if(n == 0 || n == 9){
 		el.btnMenuP.className = '';
 		return;
 	}
+	// if(n == 6 || n == 9){
+	// 	if(el.chatActivo){ return; }
+	// 	el.chatActivo = true;
+	// 	el.chats.style.display = 'block';
+	// 	setTimeout(() => {
+	// 		el.chats.classList.remove('opacidad0');
+	// 	}, 20);
+	// } else{
+	// 	if(!el.chatActivo){ return; }
+	// 	el.chatActivo = false;
+	// 	el.chats.classList.add('opacidad0');
+	// 	setTimeout(() => {
+	// 		el.chats.style.display = 'none';
+	// 	}, 350);
+	// }
+
 	switch(f){
 		case 'add':
 			el.menuPLi[n-1].classList.add('visto');
@@ -126,10 +142,13 @@ function calculosRastreo(el){
 	return {sentido: d, top: Math.round((v.top *100) / w), end: Math.round((v.bottom * 100) / w) };
 }
 el.btnActivo = "";
+el.chatActivo = false;
+el.chatTime = "";
 function rastrearMenu(data){
 	if(el.btnActivo.id == data.id){ return; }
 	const v = calculosRastreo(data);
 	let dentro = false;
+
 	switch(v.sentido){
 		case 'normal':
 			if(v.top < 24 && v.end > 28){
@@ -151,6 +170,27 @@ function rastrearMenu(data){
 		el.btnActivo = data;
 		activeRastreoBtn('add', el.btnActivo.attributes['data-lugar'].value);
 	}
+
+	if(v.sentido == 'normal' && data.id == 'contacto' && v.top < 86){
+		if(el.chatActivo){ return; }
+		el.chatActivo = true;
+		el.chats.style.display = 'block';
+		if(el.chatTime != ""){ clearTimeout(el.chatTime); }
+		el.chatTime = setTimeout(() => {
+			el.chats.classList.remove('opacidad0');
+			el.chatTime = "";
+		}, 20);
+	} else if(v.sentido == 'reversa' && data.id == 'contacto' && v.top > 88){
+		if(!el.chatActivo){ return; }
+		el.chatActivo = false;
+		el.chats.classList.add('opacidad0');
+		if(el.chatTime != ""){ clearTimeout(el.chatTime); }
+		el.chatTime = setTimeout(() => {
+			el.chats.style.display = 'none';
+			el.chatTime = "";
+		}, 350);
+	}
+
 }
 function controlRastreoMenu(){
 	rastrearMenu(el.yo);
@@ -668,6 +708,7 @@ function iniciar() {
 	el.pasatiempos = document.getElementById('pasatiempos');
 	el.yo = document.getElementById('yo');
 	el.footer = document.getElementById('footer');
+	el.chats = document.getElementById('boxContactoChats');
 
 	
 	window.onscroll = controlRastreoMenu;

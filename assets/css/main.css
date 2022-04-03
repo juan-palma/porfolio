@@ -2993,7 +2993,7 @@ article{
 
 	#boxContactoChats{
 		display: none;
-		opacity: 0;
+		transition: all 300ms ease-in-out;
 	}
 		div#whats {
 			width: 76px;
@@ -3033,14 +3033,6 @@ footer{
 }
 
 
-.prubeaentrada{
-	width: 100%;
-	height: 125vh;
-	background-color: #4d0000;
-}
-#prueba{
-	background-color: #00927a;
-}
 
 
 

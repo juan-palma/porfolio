@@ -191,6 +191,7 @@ function btnRunMenuP(e){
 			elemento = el.contacto;
 		break;
 	}
+	el.menuBox.classList.toggle('activo');
 	elemento.scrollIntoView({block: "nearest", behavior: "smooth"});
 }
 

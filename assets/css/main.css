@@ -3087,7 +3087,6 @@ footer{
 		grid-area: col3;
 		justify-content: flex-end;
 		text-align: right;
-		margin-top: calc((var(--margenGlobal) / 1) * -1);
 	}
 		div#footerBoxRedes {
 			display: flex;
@@ -3118,49 +3117,6 @@ footer{
 				color: var(--colorPrincipal);
 				font-size: 126%;
 			}
-	/* #juanFooter {
-		width: 100%;
-		height: auto;
-		position: relative;
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
-		padding: 0.6rem 12%;
-		bottom: 0px;
-		box-sizing: border-box;
-		background-color: #fff;
-	}
-		#juanFooter .interno{
-			display: flex;
-			flex-direction: row;
-			justify-content: center;
-			align-items: center;
-			color: #45413c;
-			font-weight: 300;
-		}
-			#juanFooter a {
-				display: flex;
-				justify-content: flex-start;
-				align-items: center;
-				text-decoration: none;
-				color: #90502f;
-				font-weight: 300;
-			}
-				#juanFooter img {
-					width: 48px;
-					height: 48px;
-					object-fit: contain;
-					object-position: center;
-				}
-				span.juanpalma {
-					white-space: nowrap;
-					display: inline-flex;
-					margin: 0 2px;
-				} */
-
-
-
 
 
 
@@ -3460,6 +3416,43 @@ div#ventanaPOP {
 			"p3";
 		grid-template-columns: 1fr;
 	}
+
+
+	footer {
+		grid-template-areas:
+			"titulo"
+			"col2"
+			"col1"
+			"col3";
+		grid-template-columns: 1fr;
+	}
+		footer > h2 {
+			text-align: center;
+			margin-bottom: calc(var(--margenGlobal) / 1);
+		}
+		footer > div {
+			justify-content: center;
+			align-items: center;
+			margin: 1rem 0;
+		}
+			footer > .col1 > div ul:last-of-type {
+				padding-right: 0px;
+			}
+				footer > .col1 > div ul li {
+					font-size: 100%;
+				}
+				div#footerBoxRedes {
+					align-items: center;
+					text-align: center;
+				}
+				div#footerBoxRedes > div > div {
+					justify-content: center;
+					padding: 15px 0;
+				}
+				#footerBoxRedes .redes i::before, #footerBoxRedes .webs i::before {
+					font-size: 160%;
+				}
+				
 	
 }
 

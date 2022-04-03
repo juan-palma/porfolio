@@ -595,6 +595,16 @@ p:last-of-type {
 	z-index: 999987;
 }
 	#menuPrincipal, #navActivador {
+		width: auto;
+		height: auto;
+		max-width: 326px;
+		max-height: 163px;
+		display: flex;
+		justify-content: center;
+		top: 0px;
+		position: absolute;
+	}
+	#menuPrincipalBox.activo #menuPrincipal, #menuPrincipalBox.activo #navActivador {
 		width: 76vw;
 		height: 35vw;
 		max-width: 326px;
@@ -612,7 +622,8 @@ p:last-of-type {
 			opacity: 0;
 			transition: opacity 150ms ease-in-out;
 		}
-		#menuPrincipalBox.activo #fondoMenuPActivo{
+		#menuPrincipalBox.activo #fondoMenuPActivo,
+		#menuPrincipalBox.visto #fondoMenuPActivo{
 			width: 100%;
 			height: 100vh;
 			background-color: var(--colorBackDark);
@@ -627,7 +638,8 @@ p:last-of-type {
 			transform: scale(0.1);
 			transition: all 600ms ease-in-out;
 		}
-		#menuPrincipalBox.activo ul{
+		#menuPrincipalBox.activo ul,
+		#menuPrincipalBox.visto ul{
 			opacity: 1;
 			transform: scale(1);
 		}
@@ -664,25 +676,32 @@ p:last-of-type {
 			#menuPrincipal ul li:nth-child(6) {
 				transform: rotate(-75deg);
 			}
-			#menuPrincipal ul li:nth-child(1).activo {
+			#menuPrincipal ul li:nth-child(1).activo,
+			#menuPrincipal ul li:nth-child(1).visto {
 				transform: rotate(75deg) translateY(10px);
 			}
-			#menuPrincipal ul li:nth-child(2).activo {
+			#menuPrincipal ul li:nth-child(2).activo,
+			#menuPrincipal ul li:nth-child(2).visto {
 				transform: rotate(45deg) translateY(10px);
 			}
-			#menuPrincipal ul li:nth-child(3).activo {
+			#menuPrincipal ul li:nth-child(3).activo,
+			#menuPrincipal ul li:nth-child(3).visto {
 				transform: rotate(15deg) translateY(10px);
 			}
-			#menuPrincipal ul li:nth-child(4).activo {
+			#menuPrincipal ul li:nth-child(4).activo,
+			#menuPrincipal ul li:nth-child(4).visto {
 				transform: rotate(-15deg) translateY(10px);
 			}
-			#menuPrincipal ul li:nth-child(5).activo {
+			#menuPrincipal ul li:nth-child(5).activo,
+			#menuPrincipal ul li:nth-child(5).visto {
 				transform: rotate(-45deg) translateY(10px);
 			}
-			#menuPrincipal ul li:nth-child(6).activo {
+			#menuPrincipal ul li:nth-child(6).activo,
+			#menuPrincipal ul li:nth-child(6).visto {
 				transform: rotate(-75deg) translateY(10px);
 			}
-			#menuPrincipal ul li.activo a{
+			#menuPrincipal ul li.activo a,
+			#menuPrincipal ul li.visto a{
 				color: #00ffd5;
 			}
 
@@ -693,7 +712,8 @@ p:last-of-type {
 			transform: scale(0.1);
 			transition: all 300ms ease-in-out;
 		}
-		#menuPrincipalBox.activo svg{
+		#menuPrincipalBox.activo svg,
+		#menuPrincipalBox.visto svg{
 			transform: scale(1);
 		}
 			#menuPrincipal > svg > g > path{
@@ -703,7 +723,8 @@ p:last-of-type {
 				cursor: pointer;
 			}
 			#menuPrincipal > svg > g > path:hover,
-			#menuPrincipal > svg > g > path.activo{
+			#menuPrincipal > svg > g > path.activo,
+			#menuPrincipal > svg > g > path.visto{
 				fill: var(--colorBackColor);
 				stroke: var(--colorBackColor);
 			}
@@ -716,7 +737,8 @@ p:last-of-type {
 			transform: scale(0.1);
 			transition: all 300ms ease-in-out;
 		}
-		#menuPrincipalBox.activo #iconosMenuP {
+		#menuPrincipalBox.activo #iconosMenuP,
+		#menuPrincipalBox.visto #iconosMenuP {
 			transform: scale(1);
 		}
 			#iconosMenuP figure {
@@ -770,7 +792,8 @@ p:last-of-type {
 		transform-origin: 50% 0%;
 		transform: scale(0.1);
 	}
-	#menuPrincipalBox.activo #navActivador{
+	#menuPrincipalBox.activo #navActivador,
+	#menuPrincipalBox.visto #navActivador{
 		transform: scale(1);
 	}
 		#navActivador svg{
@@ -810,8 +833,28 @@ p:last-of-type {
 			font-size: 128%;
 			letter-spacing: 0;
 		}
+		#botonAccionMenuP.icono1 i::before{
+			content: "\f507";
+		}
+		#botonAccionMenuP.icono2 i::before{
+			content: "\f412";
+			font-family: "Font Awesome 6 Brands";
+		}
+		#botonAccionMenuP.icono3 i::before{
+			content: "\f828";
+		}
+		#botonAccionMenuP.icono4 i::before{
+			content: "\f19d";
+		}
+		#botonAccionMenuP.icono5 i::before{
+			content: "\f07b";
+		}
+		#botonAccionMenuP.icono6 i::before{
+			content: "\f2b9";
+		}
 		#menuPrincipalBox.activo #botonAccionMenuP i::before{
 			content: "\f00d";
+			font-family: "Font Awesome 6 Free";
 		}
 
 
@@ -2948,6 +2991,10 @@ article{
 									color: #4d0000;
 								}
 
+	#boxContactoChats{
+		display: none;
+		opacity: 0;
+	}
 		div#whats {
 			width: 76px;
 			height: 76px;
@@ -2986,7 +3033,14 @@ footer{
 }
 
 
-
+.prubeaentrada{
+	width: 100%;
+	height: 125vh;
+	background-color: #4d0000;
+}
+#prueba{
+	background-color: #00927a;
+}
 
 
 

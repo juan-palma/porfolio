@@ -88,9 +88,110 @@ function proyecto(e){
 
 
 
+function activeRastreoBtn(f, n){
+	if(n == 0){
+		el.btnMenuP.className = '';
+		return;
+	}
+	switch(f){
+		case 'add':
+			el.menuPLi[n-1].classList.add('visto');
+			el.menuPpaths[n-1].classList.add('visto');
+			el.menuPpaths[n-1].setAttribute('d', formasPath[n-1][1]);
+			el.menuPiconos[n-1].classList.add('visto');
+			el.btnMenuP.classList.add('icono'+n);
+		break;
+
+		case 'remove':
+			el.menuPLi[n-1].classList.remove('visto');
+			el.menuPpaths[n-1].classList.remove('visto');
+			el.menuPpaths[n-1].setAttribute('d', formasPath[n-1][0]);
+			el.menuPiconos[n-1].classList.remove('visto');
+			el.btnMenuP.classList.remove('icono'+n);
+		break;
+	}
+}
+el.rastreoMPunto = 0;
+function calculosRastreo(el){
+	const v = el.getBoundingClientRect();
+	const w = window.innerHeight;
+	let d = 'normal';
+	if(el.rastreoMPunto > v.y){
+		d = 'normal';
+	} else{
+		d = 'reversa';
+	}
+	el.rastreoMPunto = v.y;
+
+	return {sentido: d, top: Math.round((v.top *100) / w), end: Math.round((v.bottom * 100) / w) };
+}
+el.btnActivo = "";
+function rastrearMenu(data){
+	if(el.btnActivo.id == data.id){ return; }
+	const v = calculosRastreo(data);
+	let dentro = false;
+	switch(v.sentido){
+		case 'normal':
+			if(v.top < 24 && v.end > 28){
+				dentro = true;
+			}
+		break;
+
+		case 'reversa':
+			if(v.end > 66 && v.top < 62){
+				dentro = true;
+			}
+		break;
+	}
+
+	if(dentro){
+		if(el.btnActivo != ""){
+			activeRastreoBtn('remove', el.btnActivo.attributes['data-lugar'].value);
+		}
+		el.btnActivo = data;
+		activeRastreoBtn('add', el.btnActivo.attributes['data-lugar'].value);
+	}
+}
+function controlRastreoMenu(){
+	rastrearMenu(el.yo);
+	rastrearMenu(el.pasatiempos);
+	rastrearMenu(el.habilidades);
+	rastrearMenu(el.formacion);
+	rastrearMenu(el.portafolio);
+	rastrearMenu(el.contacto);
+	rastrearMenu(el.boxTimeline1);
+	rastrearMenu(el.footer);
+}
+
 function btnRunMenuP(e){
 	const indexEl = parseInt(this.id.replace(/[a-zA-Z]/gi, ''));
-	console.log(this);
+	let elemento = "";
+	switch(indexEl){
+		case 1:
+			elemento = el.yo;
+		break;
+
+		case 2:
+			elemento = el.pasatiempos;
+		break;
+
+		case 3:
+			elemento = el.habilidades;
+		break;
+
+		case 4:
+			elemento = el.formacion;
+		break;
+
+		case 5:
+			elemento = el.portafolio;
+		break;
+
+		case 6:
+			elemento = el.contacto;
+		break;
+	}
+	elemento.scrollIntoView({block: "nearest", behavior: "smooth"});
 }
 
 
@@ -333,11 +434,9 @@ function makeTimeline1(parametro){
 			{ value: [1,0], duration: 550, delay: 3000, easing: 'linear' }
 		],
 		changeBegin: ()=>{
-			console.log('empezo');
 			controlTimeLine1('pradera', 'run', el.timeline1.data.sentido);
 		},
 		changeComplete: ()=>{
-			console.log('termino');
 			controlTimeLine1('pradera', 'stop', el.timeline1.data.sentido);
 		}
 	}, '-=600')
@@ -561,6 +660,17 @@ function iniciar() {
 	el.fPv = new ValidarForm();
 	el.fPv.form = el.form;
 	el.fPv.run();
+
+	el.contacto = document.getElementById('contacto');
+	el.portafolio = document.getElementById('portafolio');
+	el.habilidades = document.getElementById('habilidades');
+	el.pasatiempos = document.getElementById('pasatiempos');
+	el.yo = document.getElementById('yo');
+	el.footer = document.getElementById('footer');
+
+	
+	window.onscroll = controlRastreoMenu;
+	
 
 	
 	

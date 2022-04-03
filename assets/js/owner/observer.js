@@ -91,7 +91,6 @@ class AnimeObserver {
 			}
 			this.ratioAccion = entry.intersectionRatio;
 
-
 			if(entry.isIntersecting){
 				entry.target.idaAni.minimaAlcanzada = true;
 				switch(entry.target.idaObserverAccion){
@@ -103,7 +102,7 @@ class AnimeObserver {
 					break;
 
 					case 'pasos':
-					this.timeline(entry, index);
+						this.timeline(entry, index);
 					break;
 				}
 				
@@ -112,7 +111,7 @@ class AnimeObserver {
 				switch(entry.target.idaObserverAccion){
 					case 'animationFrame':
 						entry.target.idaAni.frameRun = false;
-					entry.target.idaAni.minimaAlcanzada = false;
+						entry.target.idaAni.minimaAlcanzada = false;
 					break;
 
 					case 'pasos':

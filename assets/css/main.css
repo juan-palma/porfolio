@@ -1496,7 +1496,7 @@ h1 {
 					left: 0px;
 					top: 20vh;
 					opacity: 0.8;
-					animation: pajaros 65s linear 14s infinite;
+					animation: pajaros 65s linear 6s infinite;
 				}
 				#hpradera6 > div > .sizeBox {
 					display: flex;

@@ -3036,11 +3036,38 @@ footer{
 	grid-template-columns: repeat(3, 1fr);
 	color: darkgray;
 }
+	div#fondoFooter {
+		width: 100%;
+		height: auto;
+		display: block;
+		position: absolute;
+		left: 0px;
+		top: -22vh;
+	}
+		div#fondoFooter img {
+			width: 100%;
+			height: auto;
+			object-fit: cover;
+			object-position: center;
+		}
+		img#footerFuego {
+			display: block !important;
+			position: absolute !important;
+			width: 8.217% !important;
+			height: auto !important;
+			left: 50%;
+			top: 50%;
+			margin-left: calc(-4.108% - 0.2vw);
+			margin-top: calc((8.217vw * 1.44681) / 2);
+			margin-top: 9vw;
+			mix-blend-mode: color-dodge;
+		}
 	footer > h2{
 		grid-area: titulo;
 		font-size: 210%;
 		font-weight: 700;
 		margin-bottom: calc(var(--margenGlobal) / 2);
+		position: relative;
 	}
 	footer h3, footer h4, footer h5{
 		color: cornsilk;
@@ -3048,6 +3075,7 @@ footer{
 	footer > div{
 		display: flex;
 		flex-direction: column;
+		position: relative;
 	}
 	footer > .col1{
 		grid-area: col1;

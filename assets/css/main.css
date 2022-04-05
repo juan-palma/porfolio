@@ -2456,17 +2456,10 @@ article{
 		#boxPPortafolio > div:nth-child(1){
 			left: auto;
 			right: -9%;
-			/* background-image: url(../img/portafolio/enP1.webp);
-			background-position: center; */
-		}
-		#boxPPortafolio > div:nth-child(2){
-			/* background-image: url(../img/portafolio/enP2.webp);
-			background-position: left; */
 		}
 		#boxPPortafolio > div:nth-child(3){
 			left: -9%;
 			right: auto;
-			/* background-image: url(../img/portafolio/enP3.webp); */
 		}
 
 		#portafolio h3 {
@@ -3080,31 +3073,33 @@ footer{
 	grid-template-columns: repeat(3, 1fr);
 	color: darkgray;
 }
+
 	div#fondoFooter {
 		width: 100%;
-		height: auto;
+		height: calc(100% + 25vh);
 		display: block;
 		position: absolute;
 		left: 0px;
-		top: -22vh;
+		top: auto;
+		display: flex;
+		overflow: visible;
+		justify-content: flex-end;
+		align-items: center;
+		bottom: 0;
+		overflow: hidden;
 	}
 		div#fondoFooter img {
-			width: 100%;
-			height: auto;
-			object-fit: cover;
+			width: auto;
+			height: 100%;
+			object-fit: contain;
 			object-position: center;
 		}
-		img#footerFuego {
-			display: block !important;
+		div#fondoFooter img#footerFuego {
+			display: block;
 			position: absolute !important;
-			width: 8.217% !important;
-			height: auto !important;
-			left: 50%;
-			top: 50%;
-			margin-left: calc(-4.108% - 0.2vw);
-			margin-top: calc((8.217vw * 1.44681) / 2);
-			margin-top: 9vw;
 			mix-blend-mode: color-dodge;
+			width: auto;
+			height: 32%;
 		}
 	footer > h2{
 		grid-area: titulo;
@@ -3307,7 +3302,7 @@ div#ventanaPOP {
 /* ==========================================================================
 	Estilos para un espect ratio de 2:1
 ========================================================================== */
-@media (min-aspect-ratio: 16/12) {
+/* @media (min-aspect-ratio: 16/12) {
 	div#fondoFooter {
 		width: 68%;
 		left: 50%;
@@ -3318,7 +3313,7 @@ div#ventanaPOP {
 			margin-top: 9%;
 		}
 }
-
+ */
 
 
 
@@ -3526,6 +3521,17 @@ div#ventanaPOP {
 	}
 
 
+	
+				
+	
+}
+
+@media screen and (orientation:portrait) and (max-width: 680px){
+	#yo h2{
+		font-size: 2.2vh;
+	}
+
+
 	footer {
 		grid-template-areas:
 			"titulo"
@@ -3560,13 +3566,27 @@ div#ventanaPOP {
 				#footerBoxRedes .redes i::before, #footerBoxRedes .webs i::before {
 					font-size: 160%;
 				}
-				
-	
-}
-
-@media screen and (orientation:portrait) and (max-width: 680px){
-	#yo h2{
-		font-size: 2.2vh;
+	div#textoContacto {
+		width: 100vw;
+		padding: 3rem var(--margenGlobal);
+		border-radius: 0px;
+		font-size: 93%;
+		text-align: justify;
+		font-family: 'Barlow Condensed';
+	}
+	div#fondoFooter::after {
+		content: "";
+		width: 100%;
+		height: calc(100% - 27vh);
+		display: block;
+		position: absolute;
+		top: auto;
+		bottom: 0;
+		left: 0px;
+		background-color: rgba(0 0 0 / 58%);
+	}
+	#footerBoxRedes .redes i::before, #footerBoxRedes .webs i::before {
+		color: darkorange;
 	}
 }
 
@@ -3691,11 +3711,6 @@ div#ventanaPOP {
 ========================================================================== */
 @media screen and (orientation:landscape) and (max-height: 460px){
 	
-	#portaArte .texto, #porta3D .texto,
-	#portaArte .negro, #porta3D .negro{
-		/* line-height: 1.1;
-		font-size: 94%; */
-	}
 		#portaArte .texto h4, #porta3D .texto h4 {
 			margin-bottom: 0.5em;
 			font-size: 130%;

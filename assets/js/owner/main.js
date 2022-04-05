@@ -27,21 +27,30 @@ function footerMapa(){
 		});
 	});
 }
+
+
+
+
 let fPv = "";
+let enviandoForm = false;
 function formulario(e){
 	e.preventDefault();
+	if(enviandoForm){ return; }
 
 	function enviado(j){
 		el.fPv.clear();
 		pop('Gracias por contactarnos, tu correo fue enviado y en breve me pondre en contacto contigo.', 'ok');
+		enviandoForm = false;
 	}
 
 	function error(j){
 		pop('No se puedo enviar el correo, intentolo mas tarde.', 'error');
+		enviandoForm = false;
 	}
 
 	if(el.fPv.validar()){
 		const formData = new FormData(el.form);
+		enviandoForm = true;
 		request('server/form.php', formData, enviado, error);
 	} else{
 		pop('El formulario tiene errores que se deben corregir.', 'alert');

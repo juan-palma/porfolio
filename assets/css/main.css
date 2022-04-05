@@ -3567,6 +3567,10 @@ div#ventanaPOP {
 				#footerBoxRedes .redes i::before, #footerBoxRedes .webs i::before {
 					font-size: 160%;
 				}
+	footer div#fondoFooter {
+		height: 100%;
+		margin: 0px 0px 0px 0px;
+	}
 	div#textoContacto {
 		width: 100vw;
 		padding: 3rem var(--margenGlobal);
@@ -3578,7 +3582,7 @@ div#ventanaPOP {
 	div#fondoFooter::after {
 		content: "";
 		width: 100%;
-		height: calc(100% - 27vh);
+		height: 100%;
 		display: block;
 		position: absolute;
 		top: auto;

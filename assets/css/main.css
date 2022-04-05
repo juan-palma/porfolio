@@ -3593,6 +3593,14 @@ div#ventanaPOP {
 	#footerBoxRedes .redes i::before, #footerBoxRedes .webs i::before {
 		color: darkorange;
 	}
+
+
+
+	div#fb-root .fb_dialog_content iframe, div#fb-root .fb-customer-chat iframe {
+		left: auto;
+		right: 12px !important;
+		top: calc((50% - 30px) + 40px) !important;
+	}
 }
 
 

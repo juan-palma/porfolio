@@ -305,7 +305,7 @@ let bosqueAnimar = false;
 let bosqueAnimarTimer = "";
 let holaAnimar = false;
 let holaAnimarTimer = "";
-let todosAnimarDealy = 1200;
+let todosAnimarDealy = 3200;
 let internosAnimarDealy = 400;
 function controlTimeLine1(area, accion, sentido){
 	switch(area){

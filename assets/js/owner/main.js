@@ -547,7 +547,7 @@ function permissionMotion (e, f) {
 			if ( typeof( DeviceMotionEvent ) !== "undefined" && typeof( DeviceMotionEvent.requestPermission ) === "function" ) {
 				DeviceMotionEvent.requestPermission().then( f ).catch( console.error );
 			} else {
-				console.log("DeviceMotionEvent is not defined");
+				//console.log("DeviceMotionEvent is not defined");
 				f(false);
 			}
 		break;
@@ -556,7 +556,7 @@ function permissionMotion (e, f) {
 			if (typeof DeviceOrientationEvent.requestPermission === 'function') {
 				DeviceOrientationEvent.requestPermission().then( f ).catch(console.error);
 			} else {
-				console.log("DeviceOrientationEvent is not defined");
+				//console.log("DeviceOrientationEvent is not defined");
 				f(false);
 			}
 		break;

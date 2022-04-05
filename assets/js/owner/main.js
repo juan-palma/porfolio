@@ -377,8 +377,8 @@ function controlTimeLine1(area, accion, sentido){
 						controlTimeLine1Espera('completado', sentido, 'home_pradera_box');
 						manejadorParallax('stop2');
 					};
-					el.p1nubes.style.animation = 'none';
-					el.pajaros.style.animation = 'none';
+					//el.p1nubes.style.animation = 'none';
+					//el.pajaros.style.animation = 'none';
 					el.p6arbol.style.animation = 'none';
 					el.p6hhojas3.style.animation = 'none';
 					el.p6hhojas4.style.animation = 'none';
@@ -395,8 +395,8 @@ function controlTimeLine1(area, accion, sentido){
 					};
 					//el.home_pradera_box.classList.remove('ocultar');
 					el.home_pradera_box.style.display = 'block';
-					el.p1nubes.style.animation = 'nubes 260s linear infinite';
-					el.pajaros.style.animation = 'pajaros 65s linear 0s infinite';
+					//el.p1nubes.style.animation = 'nubes 260s linear infinite';
+					//el.pajaros.style.animation = 'pajaros 65s linear 0s infinite';
 					el.p6arbol.style.animation = 'arbol 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
 					el.p6hhojas3.style.animation = 'hoja3 4.6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite';
 					el.p6hhojas4.style.animation = 'hoja4 28.6s ease-in-out 10ms infinite';

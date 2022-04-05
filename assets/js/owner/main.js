@@ -343,10 +343,10 @@ function controlTimeLine1(area, accion, sentido){
 						el.hbosque2.style.animation = 'none';
 						el.hbosque3.style.animation = 'none';
 						el.hbosque4.style.animation = 'none';
-						el.hbosque5juanP.style.animation = 'none';
+						//el.hbosque5juanP.style.animation = 'none';
 						el.hbosque6.style.animation = 'none';
-						el.hbosque6P.style.animation = 'none';
-						el.hbosque7P.style.animation = 'none';
+						//el.hbosque6P.style.animation = 'none';
+						//el.hbosque7P.style.animation = 'none';
 						el.hbosque7.style.animation = 'none';
 						el.home_bosque_box.style.display = 'none';
 					}
@@ -361,10 +361,10 @@ function controlTimeLine1(area, accion, sentido){
 					el.hbosque2.style.animation = 'bosque2 3.5s infinite alternate cubic-bezier(0.455, 0.03, 0.515, 0.955)';
 					el.hbosque3.style.animation = 'bosque3 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
 					el.hbosque4.style.animation = 'bosque4 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
-					el.hbosque5juanP.style.animation = 'bosque5P 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
+					//el.hbosque5juanP.style.animation = 'bosque5P 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
 					el.hbosque6.style.animation = 'hola4 5.6s linear 10ms infinite';
-					el.hbosque6P.style.animation = 'bosque7P 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
-					el.hbosque7P.style.animation = 'bosque7P 6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
+					//el.hbosque6P.style.animation = 'bosque7P 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
+					//el.hbosque7P.style.animation = 'bosque7P 6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
 					el.hbosque7.style.animation = 'hola4 4.6s linear 10ms infinite';
 				break;
 			}	
@@ -377,7 +377,15 @@ function controlTimeLine1(area, accion, sentido){
 						controlTimeLine1Espera('completado', sentido, 'home_pradera_box');
 						manejadorParallax('stop2');
 					};
-					el.home_pradera_box.classList.add('ocultar');
+					el.p1nubes.style.animation = 'none';
+					el.pajaros.style.animation = 'none';
+					el.p6arbol.style.animation = 'none';
+					el.p6hhojas3.style.animation = 'none';
+					el.p6hhojas4.style.animation = 'none';
+					el.phierva7.style.animation = 'none';
+					el.phierva8.style.animation = 'none';
+					//el.home_pradera_box.classList.add('ocultar');
+					el.home_pradera_box.style.display = 'none';
 				break;
 
 				case 'run':
@@ -385,7 +393,15 @@ function controlTimeLine1(area, accion, sentido){
 						controlTimeLine1Espera('comenzado', sentido, 'home_pradera_box');
 						setTimeout(() => manejadorParallax('run'), valGeneral.delayControlTimerRunParallax);
 					};
-					el.home_pradera_box.classList.remove('ocultar');
+					//el.home_pradera_box.classList.remove('ocultar');
+					el.home_pradera_box.style.display = 'block';
+					el.p1nubes.style.animation = 'nubes 260s linear infinite';
+					el.pajaros.style.animation = 'pajaros 65s linear 0s infinite';
+					el.p6arbol.style.animation = 'arbol 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
+					el.p6hhojas3.style.animation = 'hoja3 4.6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite';
+					el.p6hhojas4.style.animation = 'hoja4 28.6s ease-in-out 10ms infinite';
+					el.phierva7.style.animation = 'hierva7 4s ease-in-out 80ms infinite alternate';
+					el.phierva8.style.animation = 'hierva8 4s ease-in-out 80ms infinite alternate';
 				break;
 			}	
 		break;
@@ -689,6 +705,13 @@ function iniciar() {
 	el.hbosque7 = document.querySelector('#hbosque7 .anibox > img:first-child');
 
 	el.home_pradera_box = document.getElementById('home_pradera_box');
+	el.p1nubes = document.getElementById('p1nubes');
+	el.pajaros = document.querySelector('#hpradera1 > div > img');
+	el.p6arbol = document.getElementById('p6arbol');
+	el.p6hhojas3 = document.querySelector('#p6ahojas img:nth-child(3)');
+	el.p6hhojas4 = document.querySelector('#p6ahojas img:nth-child(4)');
+	el.phierva7 = document.querySelector('#hpradera7 > div > .sizeBox img');
+	el.phierva8 = document.querySelector('#hpradera8 > div > .sizeBox img');
 
 	el.menuBox = document.getElementById('menuPrincipalBox');
 	el.btnMenuP = document.getElementById('botonAccionMenuP');

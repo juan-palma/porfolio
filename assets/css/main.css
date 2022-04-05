@@ -1427,7 +1427,7 @@ h1 {
 		position: fixed;
 		top: 0px;
 		left: 0px;
-		display: block;
+		display: none;
 		overflow: hidden;
 	}
 		#home_pradera_box > div,
@@ -1473,7 +1473,7 @@ h1 {
 					display: block;
 					background: transparent url(../img/home_hola/p1.webp) no-repeat left center;
 					background-size: calc(100vh * (1.6 * 3)) 100vh;
-					animation: nubes 260s linear infinite;
+					/* animation: nubes 260s linear infinite; */
 				}
 				@keyframes pajaros {
 					0%{
@@ -1496,7 +1496,7 @@ h1 {
 					left: 0px;
 					top: 20vh;
 					opacity: 0.8;
-					animation: pajaros 65s linear 6s infinite;
+					/* animation: pajaros 65s linear 2s infinite; */
 				}
 				#hpradera6 > div > .sizeBox {
 					display: flex;
@@ -1514,7 +1514,7 @@ h1 {
 					#hpradera5 > div > .sizeBox img{
 						transform-origin: 50% 90%;
 						transform: skewX(3deg);
-						animation: brisaPradera 5s ease-in-out 800ms infinite alternate;
+						/* animation: brisaPradera 5s ease-in-out 800ms infinite alternate; */
 					}
 					@keyframes arbol {
 						0%{
@@ -1531,7 +1531,7 @@ h1 {
 						position: absolute;
 						transform-origin: 50% 100%;
 						transform: translateX(calc(120vh * .2225)) translateY(calc(120vh * .11)) skewX(10deg);
-						animation: arbol 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate;
+						/* animation: arbol 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate; */
 					}
 						#p6ahojas{
 							width: 100%;
@@ -1551,7 +1551,7 @@ h1 {
 								}
 							}
 							#p6ahojas img:nth-child(1){
-								animation: hoja1 5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0ms infinite alternate;
+								/* animation: hoja1 5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0ms infinite alternate; */
 							}
 							@keyframes hoja2 {
 								0%{
@@ -1568,7 +1568,7 @@ h1 {
 								}
 							}
 							#p6ahojas img:nth-child(2){
-								animation: hoja2 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0ms infinite alternate;
+								/* animation: hoja2 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0ms infinite alternate; */
 							}
 							@keyframes hoja3{
 								0% {
@@ -1579,9 +1579,9 @@ h1 {
 								}
 							}
 							#p6ahojas img:nth-child(3){
-								animation: hoja3 4.6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite;
+								/* animation: hoja3 4.6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite; */
 							}
-							@keyframes hoja4{
+							/* @keyframes hoja4{
 								0% {
 									transform: rotateZ(0deg) translate3d(0,1%,0) rotateZ(0deg);
 								}
@@ -1591,7 +1591,7 @@ h1 {
 							}
 							#p6ahojas img:nth-child(4){
 								animation: hoja4 3.6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite;
-							}
+							} */
 							@keyframes hoja4{
 								0% {
 									transform: translateX(0%) skewX(0deg);
@@ -1622,7 +1622,7 @@ h1 {
 								}
 							}
 							#p6ahojas img:nth-child(4){
-								animation: hoja4 28.6s ease-in-out 10ms infinite;
+								/* animation: hoja4 28.6s ease-in-out 10ms infinite; */
 							}
 							@keyframes hoja5{
 								0%{
@@ -1635,7 +1635,7 @@ h1 {
 								}
 							}
 							#p6ahojas img:nth-child(5){
-								animation: hoja5 2.6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate;
+								/* animation: hoja5 2.6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate; */
 							}
 					@keyframes hierva7 {
 						0%{
@@ -1647,7 +1647,7 @@ h1 {
 					}
 					#hpradera7 > div > .sizeBox img{
 						transform-origin: 50% 100%;
-						animation: hierva7 4s ease-in-out 80ms infinite alternate;
+						/* animation: hierva7 4s ease-in-out 80ms infinite alternate; */
 					}
 					@keyframes hierva8 {
 						0%{
@@ -1659,7 +1659,7 @@ h1 {
 					}
 					#hpradera8 > div > .sizeBox img{
 						transform-origin: 50% 100%;
-						animation: hierva8 4s ease-in-out 80ms infinite alternate;
+						/* animation: hierva8 4s ease-in-out 80ms infinite alternate; */
 					}
 					#praderaTexto1 {
 						width: 56vw;

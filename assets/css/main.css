@@ -1427,7 +1427,7 @@ h1 {
 		position: fixed;
 		top: 0px;
 		left: 0px;
-		display: none;
+		display: block;
 		overflow: hidden;
 	}
 		#home_pradera_box > div,

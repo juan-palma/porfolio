@@ -298,6 +298,14 @@ function controlTimeLine1Espera(accion, sentido, valor){
 		break;
 	}
 }
+
+let praderaAnimar = false;
+let praderaAnimarTimer = "";
+let bosqueAnimar = false;
+let bosqueAnimarTimer = "";
+let holaAnimar = false;
+let holaAnimarTimer = "";
+let todosAnimarDealy = 600;
 function controlTimeLine1(area, accion, sentido){
 	switch(area){
 		case 'hola':
@@ -307,6 +315,9 @@ function controlTimeLine1(area, accion, sentido){
 						controlTimeLine1Espera('completado', sentido, 'home_hola_box');
 						manejadorParallax('stop2');
 					}
+					holaAnimar = false;
+					clearTimeout(holaAnimarTimer);
+					holaAnimarTimer = "";
 					el.hhola5.style.animation = 'none';
 					el.hhola4.style.animation = 'none';
 					el.hhola3.style.animation = 'none';
@@ -322,12 +333,17 @@ function controlTimeLine1(area, accion, sentido){
 						setTimeout(() => manejadorParallax('run'), valGeneral.delayControlTimerRunParallax);
 					}
 					el.home_hola_box.style.display = 'flex';
-					el.hhola5.style.animation = 'hola5 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
-					el.hhola4.style.animation = 'hola4 4.6s linear 10ms infinite';
-					el.hhola3.style.animation = 'hola3 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
-					el.hhola2.style.animation = 'hola2 4.6s linear 10ms infinite';
-					el.scrollIcono.style.display = 'flex'
-					el.scrollTouch.style.animation = 'scrollTouch 4s cubic-bezier(.7,-0.01,.3,1) infinite';
+					holaAnimar = true;
+					holaAnimarTimer = setInterval(()=>{
+						if(holaAnimar){
+							el.hhola5.style.animation = 'hola5 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
+							el.hhola4.style.animation = 'hola4 4.6s linear 10ms infinite';
+							el.hhola3.style.animation = 'hola3 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
+							el.hhola2.style.animation = 'hola2 4.6s linear 10ms infinite';
+							el.scrollIcono.style.display = 'flex'
+							el.scrollTouch.style.animation = 'scrollTouch 4s cubic-bezier(.7,-0.01,.3,1) infinite';
+						}
+					}, todosAnimarDealy);
 				break;
 			}
 		break;
@@ -340,6 +356,10 @@ function controlTimeLine1(area, accion, sentido){
 						manejadorParallax('stop2');
 					};
 					if(sentido == 'normal'){
+						bosqueAnimar = false;
+						clearTimeout(bosqueAnimarTimer);
+						bosqueAnimarTimer = "";
+
 						el.hbosque2.style.animation = 'none';
 						el.hbosque3.style.animation = 'none';
 						el.hbosque4.style.animation = 'none';
@@ -358,14 +378,20 @@ function controlTimeLine1(area, accion, sentido){
 						setTimeout(() => manejadorParallax('run'), valGeneral.delayControlTimerRunParallax);
 					};
 					el.home_bosque_box.style.display = 'flex';
-					el.hbosque2.style.animation = 'bosque2 3.5s infinite alternate cubic-bezier(0.455, 0.03, 0.515, 0.955)';
-					el.hbosque3.style.animation = 'bosque3 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
-					el.hbosque4.style.animation = 'bosque4 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
-					//el.hbosque5juanP.style.animation = 'bosque5P 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
-					el.hbosque6.style.animation = 'hola4 5.6s linear 10ms infinite';
-					//el.hbosque6P.style.animation = 'bosque7P 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
-					//el.hbosque7P.style.animation = 'bosque7P 6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
-					el.hbosque7.style.animation = 'hola4 4.6s linear 10ms infinite';
+					bosqueAnimar = true;
+					bosqueAnimarTimer = setInterval(()=>{
+						if(bosqueAnimar){
+							el.hbosque2.style.animation = 'bosque2 3.5s infinite alternate cubic-bezier(0.455, 0.03, 0.515, 0.955)';
+							el.hbosque3.style.animation = 'bosque3 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
+							el.hbosque4.style.animation = 'bosque4 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
+							//el.hbosque5juanP.style.animation = 'bosque5P 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
+							el.hbosque6.style.animation = 'hola4 5.6s linear 10ms infinite';
+							//el.hbosque6P.style.animation = 'bosque7P 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
+							//el.hbosque7P.style.animation = 'bosque7P 6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
+							el.hbosque7.style.animation = 'hola4 4.6s linear 10ms infinite';
+						}
+					}, todosAnimarDealy);
+					
 				break;
 			}	
 		break;
@@ -377,8 +403,11 @@ function controlTimeLine1(area, accion, sentido){
 						controlTimeLine1Espera('completado', sentido, 'home_pradera_box');
 						manejadorParallax('stop2');
 					};
+					praderaAnimar = false;
+					clearTimeout(praderaAnimarTimer);
+					praderaAnimarTimer = "";
 					//el.p1nubes.style.animation = 'none';
-					//el.pajaros.style.animation = 'none';
+					el.pajaros.style.animation = 'none';
 					el.p6arbol.style.animation = 'none';
 					el.p6hhojas3.style.animation = 'none';
 					el.p6hhojas4.style.animation = 'none';
@@ -395,13 +424,19 @@ function controlTimeLine1(area, accion, sentido){
 					};
 					//el.home_pradera_box.classList.remove('ocultar');
 					el.home_pradera_box.style.display = 'block';
-					//el.p1nubes.style.animation = 'nubes 260s linear infinite';
-					//el.pajaros.style.animation = 'pajaros 65s linear 0s infinite';
-					el.p6arbol.style.animation = 'arbol 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
-					el.p6hhojas3.style.animation = 'hoja3 4.6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite';
-					el.p6hhojas4.style.animation = 'hoja4 28.6s ease-in-out 10ms infinite';
-					el.phierva7.style.animation = 'hierva7 4s ease-in-out 80ms infinite alternate';
-					el.phierva8.style.animation = 'hierva8 4s ease-in-out 80ms infinite alternate';
+					praderaAnimar = true;
+					praderaAnimarTimer = setInterval(()=>{
+						if(praderaAnimar){
+							//el.p1nubes.style.animation = 'nubes 260s linear infinite';
+							el.pajaros.style.animation = 'pajaros 65s linear 0s infinite';
+							el.p6arbol.style.animation = 'arbol 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
+							el.p6hhojas3.style.animation = 'hoja3 4.6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite';
+							el.p6hhojas4.style.animation = 'hoja4 28.6s ease-in-out 10ms infinite';
+							el.phierva7.style.animation = 'hierva7 4s ease-in-out 80ms infinite alternate';
+							el.phierva8.style.animation = 'hierva8 4s ease-in-out 80ms infinite alternate';
+						}
+					}, todosAnimarDealy);
+					
 				break;
 			}	
 		break;

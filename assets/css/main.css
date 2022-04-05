@@ -3598,8 +3598,13 @@ div#ventanaPOP {
 
 	div#fb-root .fb_dialog_content iframe, div#fb-root .fb-customer-chat iframe {
 		left: auto;
-		right: 12px !important;
-		top: calc((50% - 30px) + 40px) !important;
+		right: 2px !important;
+		top: calc((10vh - 30px) - 0px) !important
+	}
+	div#whats {
+		left: auto;
+		right: 6px !important;
+		top: calc((10% - 0px) + 46px) !important;
 	}
 }
 

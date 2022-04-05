@@ -21,7 +21,6 @@ valGeneral.TimeLine1Acelerador = 126;
 // ::::::::::::::::: Funciones :::::::::::::::::
 function footerMapa(){
 	const mapa = document.querySelectorAll('#footer [data-el]');
-	console.log(mapa);
 	mapa.forEach(e => {
 		e.addEventListener('click', function(e){
 			document.getElementById(this.attributes['data-el'].value).scrollIntoView({block: "start", behavior: "smooth"});
@@ -226,7 +225,7 @@ function btnRunMenuP(e){
 		break;
 	}
 	el.menuBox.classList.toggle('activo');
-	elemento.scrollIntoView({block: "nearest", behavior: "smooth"});
+	elemento.scrollIntoView({block: "start", behavior: "smooth"});
 	setTimeout(() => { actualizarScrollAni(); }, 10);
 }
 
@@ -619,6 +618,7 @@ function showPage(){
 	// }
 	actualizarScrollAni();
 	hideLoading('time');
+	document.getElementById('fondoContacto').classList.add('imagenPleca');
 }
 
 function animacionLoading(p){

@@ -2570,8 +2570,8 @@ article{
 				align-items: flex-start;
 				flex-direction: column;
 				text-align: justify;
-				font-weight: 200;
-				font-size: 98%;
+				/* font-weight: 200;
+				font-size: 98%; */
 			}
 				#portaArte .texto h4,
 				#porta3D .texto h4 {
@@ -2788,9 +2788,12 @@ article{
 		}
 			#fondoContacto {
 				height: 100%;
-				background: var(--colorPrincipal) url(../img/footer/pleca_sup_contacto.svg) no-repeat center top;
+				background: var(--colorPrincipal) /*url(../img/footer/pleca_sup_contacto.svg)*/ no-repeat center top;
 				/* background-size: auto 10vh; */
 				position: absolute;
+			}
+			#fondoContacto.imagenPleca{
+				background: var(--colorPrincipal) url(../img/footer/pleca_sup_contacto.svg) no-repeat center top;
 			}
 			#contacto .box {
 				position: relative;
@@ -2995,6 +2998,20 @@ article{
 		display: none;
 		transition: all 300ms ease-in-out;
 	}
+		div#textoContacto {
+			padding: 4em;
+			font-family: 'Sen';
+			background-color: #fff;
+			margin-bottom: 4em;
+			border-radius: 18px;
+		}
+		div#logoJuanContacto {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-bottom: 3em;
+		}
 		div#whats {
 			width: 76px;
 			height: 76px;
@@ -3121,6 +3138,9 @@ footer{
 			flex-direction: column;
 			align-content: flex-end;
 		}
+			div#footerBoxRedes h4{
+				font-size: 100%;
+			}
 			div#footerBoxRedes > div > div {
 				display: flex;
 				justify-content: flex-end;
@@ -3252,6 +3272,22 @@ div#ventanaPOP {
 		background-color: #b42b08;
 	}
 
+
+
+
+
+
+
+/* ==========================================================================
+	Estilos para un espect ratio de 2:1
+========================================================================== */
+@media (min-aspect-ratio: 2/1) {
+	#formacion p.onlyLanscape{
+		padding: 2em 2em calc(10vw + ((100vw - 100vh) / 8));
+		right: 6%;
+		width: 40%;
+	}
+}
 
 
 
@@ -3613,8 +3649,8 @@ div#ventanaPOP {
 	
 	#portaArte .texto, #porta3D .texto,
 	#portaArte .negro, #porta3D .negro{
-		line-height: 1.1;
-		font-size: 94%;
+		/* line-height: 1.1;
+		font-size: 94%; */
 	}
 		#portaArte .texto h4, #porta3D .texto h4 {
 			margin-bottom: 0.5em;

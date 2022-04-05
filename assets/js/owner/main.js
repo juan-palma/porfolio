@@ -338,10 +338,20 @@ function controlTimeLine1(area, accion, sentido){
 						if(holaAnimar){
 							el.hhola5.style.animation = 'hola5 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
 							el.hhola4.style.animation = 'hola4 4.6s linear 10ms infinite';
-							el.hhola3.style.animation = 'hola3 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
-							el.hhola2.style.animation = 'hola2 4.6s linear 10ms infinite';
-							el.scrollIcono.style.display = 'flex'
-							el.scrollTouch.style.animation = 'scrollTouch 4s cubic-bezier(.7,-0.01,.3,1) infinite';
+							setInterval(()=>{
+								if(holaAnimar){
+									el.hhola3.style.animation = 'hola3 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
+									el.hhola2.style.animation = 'hola2 4.6s linear 10ms infinite';
+								}
+							}, 250);
+							setInterval(()=>{
+								if(holaAnimar){
+									el.scrollIcono.style.display = 'flex'
+									el.scrollTouch.style.animation = 'scrollTouch 4s cubic-bezier(.7,-0.01,.3,1) infinite';
+								}
+							}, 500);
+							
+							
 						}
 					}, todosAnimarDealy);
 				break;
@@ -383,12 +393,21 @@ function controlTimeLine1(area, accion, sentido){
 						if(bosqueAnimar){
 							el.hbosque2.style.animation = 'bosque2 3.5s infinite alternate cubic-bezier(0.455, 0.03, 0.515, 0.955)';
 							el.hbosque3.style.animation = 'bosque3 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
-							el.hbosque4.style.animation = 'bosque4 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
-							//el.hbosque5juanP.style.animation = 'bosque5P 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
-							el.hbosque6.style.animation = 'hola4 5.6s linear 10ms infinite';
-							//el.hbosque6P.style.animation = 'bosque7P 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
-							//el.hbosque7P.style.animation = 'bosque7P 6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
-							el.hbosque7.style.animation = 'hola4 4.6s linear 10ms infinite';
+							setInterval(()=>{
+								if(bosqueAnimar){
+									el.hbosque4.style.animation = 'bosque4 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
+									//el.hbosque5juanP.style.animation = 'bosque5P 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
+									el.hbosque6.style.animation = 'hola4 5.6s linear 10ms infinite';
+								}
+							}, 250);
+							setInterval(()=>{
+								if(bosqueAnimar){
+									//el.hbosque6P.style.animation = 'bosque7P 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
+									//el.hbosque7P.style.animation = 'bosque7P 6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
+									el.hbosque7.style.animation = 'hola4 4.6s linear 10ms infinite';
+								}
+							}, 500);
+							
 						}
 					}, todosAnimarDealy);
 					
@@ -429,11 +448,26 @@ function controlTimeLine1(area, accion, sentido){
 						if(praderaAnimar){
 							//el.p1nubes.style.animation = 'nubes 260s linear infinite';
 							el.pajaros.style.animation = 'pajaros 65s linear 0s infinite';
-							el.p6arbol.style.animation = 'arbol 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
-							el.p6hhojas3.style.animation = 'hoja3 4.6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite';
-							el.p6hhojas4.style.animation = 'hoja4 28.6s ease-in-out 10ms infinite';
-							el.phierva7.style.animation = 'hierva7 4s ease-in-out 80ms infinite alternate';
-							el.phierva8.style.animation = 'hierva8 4s ease-in-out 80ms infinite alternate';
+							setInterval(()=>{
+								if(praderaAnimar){
+									el.p6arbol.style.animation = 'arbol 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
+									el.p6hhojas3.style.animation = 'hoja3 4.6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite';
+								}
+							}, 250);
+							setInterval(()=>{
+								if(praderaAnimar){
+									el.p6hhojas4.style.animation = 'hoja4 28.6s ease-in-out 10ms infinite';
+									el.phierva7.style.animation = 'hierva7 4s ease-in-out 80ms infinite alternate';
+								}
+							}, 500);
+							setInterval(()=>{
+								if(praderaAnimar){
+									el.phierva8.style.animation = 'hierva8 4s ease-in-out 80ms infinite alternate';
+								}
+							}, 750);
+						
+							
+							
 						}
 					}, todosAnimarDealy);
 					

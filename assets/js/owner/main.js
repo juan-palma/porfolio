@@ -305,7 +305,8 @@ let bosqueAnimar = false;
 let bosqueAnimarTimer = "";
 let holaAnimar = false;
 let holaAnimarTimer = "";
-let todosAnimarDealy = 600;
+let todosAnimarDealy = 1200;
+let internosAnimarDealy = 400;
 function controlTimeLine1(area, accion, sentido){
 	switch(area){
 		case 'hola':
@@ -343,13 +344,13 @@ function controlTimeLine1(area, accion, sentido){
 									el.hhola3.style.animation = 'hola3 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
 									el.hhola2.style.animation = 'hola2 4.6s linear 10ms infinite';
 								}
-							}, 250);
+							}, internosAnimarDealy);
 							setInterval(()=>{
 								if(holaAnimar){
 									el.scrollIcono.style.display = 'flex'
 									el.scrollTouch.style.animation = 'scrollTouch 4s cubic-bezier(.7,-0.01,.3,1) infinite';
 								}
-							}, 500);
+							}, internosAnimarDealy*2);
 							
 							
 						}
@@ -399,14 +400,14 @@ function controlTimeLine1(area, accion, sentido){
 									//el.hbosque5juanP.style.animation = 'bosque5P 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
 									el.hbosque6.style.animation = 'hola4 5.6s linear 10ms infinite';
 								}
-							}, 250);
+							}, internosAnimarDealy);
 							setInterval(()=>{
 								if(bosqueAnimar){
 									//el.hbosque6P.style.animation = 'bosque7P 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
 									//el.hbosque7P.style.animation = 'bosque7P 6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
 									el.hbosque7.style.animation = 'hola4 4.6s linear 10ms infinite';
 								}
-							}, 500);
+							}, internosAnimarDealy*2);
 							
 						}
 					}, todosAnimarDealy);
@@ -451,20 +452,20 @@ function controlTimeLine1(area, accion, sentido){
 							setInterval(()=>{
 								if(praderaAnimar){
 									el.p6arbol.style.animation = 'arbol 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate';
+								}
+							}, internosAnimarDealy);
+							setInterval(()=>{
+								if(praderaAnimar){
 									el.p6hhojas3.style.animation = 'hoja3 4.6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite';
-								}
-							}, 250);
-							setInterval(()=>{
-								if(praderaAnimar){
 									el.p6hhojas4.style.animation = 'hoja4 28.6s ease-in-out 10ms infinite';
-									el.phierva7.style.animation = 'hierva7 4s ease-in-out 80ms infinite alternate';
 								}
-							}, 500);
+							}, internosAnimarDealy*2);
 							setInterval(()=>{
 								if(praderaAnimar){
-									el.phierva8.style.animation = 'hierva8 4s ease-in-out 80ms infinite alternate';
+									el.phierva7.style.animation = 'hierva7 4s ease-in-out 80ms infinite alternate';
+									//el.phierva8.style.animation = 'hierva8 4s ease-in-out 80ms infinite alternate';
 								}
-							}, 750);
+							}, internosAnimarDealy*3);
 						
 							
 							

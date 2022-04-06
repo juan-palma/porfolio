@@ -674,9 +674,6 @@ function procesarPermiso(response){
 	setTimeout(() => {
 		el.permisoFire.style.display = 'none';
 		el.fondo.style.overflow = "auto";
-		// if(window.pageYOffset < window.innerHeight){
-		// 	controlTimeLine1('hola', 'run', 'normal');
-		// }
 		actualizarScrollAni();
 	}, 600 );
 }
@@ -705,12 +702,6 @@ function showPage(){
 		el.observer.run();
 		el.fondo.style.overflow = "auto";
 	}
-	// if(window.pageYOffset < window.innerHeight){
-	// 	controlTimeLine1('hola', 'run', 'normal');
-	// } else if(window.pageYOffset > (window.innerHeight * 23)){
-	// 	controlTimeLine1('hola', 'stop', 'normal');
-	// 	controlTimeLine1('bosque', 'stop', 'normal');
-	// }
 	actualizarScrollAni();
 	hideLoading('time');
 	document.getElementById('fondoContacto').classList.add('imagenPleca');
@@ -820,7 +811,6 @@ function iniciar() {
 	el.chats = document.getElementById('boxContactoChats');
 	footerMapa();
 	
-	//window.onscroll = controlRastreoMenu;
 	window.addEventListener('scroll', controlRastreoMenu, {passive: true});
 	
 

@@ -820,7 +820,8 @@ function iniciar() {
 	el.chats = document.getElementById('boxContactoChats');
 	footerMapa();
 	
-	window.onscroll = controlRastreoMenu;
+	//window.onscroll = controlRastreoMenu;
+	window.addEventListener('scroll', controlRastreoMenu, {passive: true});
 	
 
 	

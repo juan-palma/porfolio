@@ -14,9 +14,11 @@ class Precarga{
 			if(pre.hasAttribute('preload-srcset')){
 				pre.srcset = pre.attributes['preload-srcset'].value;
 				pre.removeAttribute('preload-srcset');
+			} else{
+				pre.src = pre.attributes['preload-src'].value;
+				pre.removeAttribute('preload-src');
 			}
-			pre.src = pre.attributes['preload-src'].value;
-			pre.removeAttribute('preload-src');
+			
 		});
 	}
 	loadDelay(){
@@ -44,9 +46,11 @@ class Precarga{
 				if(pre.hasAttribute('preload-srcset')){
 					pre.srcset = pre.attributes['preload-srcset'].value;
 					pre.removeAttribute('preload-srcset');
+				} else{
+					pre.src = pre.attributes['preload-src'].value;
+					pre.removeAttribute('preload-src');
 				}
-				pre.src = pre.attributes['preload-src'].value;
-				pre.removeAttribute('preload-src');
+				
 			}
 		}.bind(this));
 		

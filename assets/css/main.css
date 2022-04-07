@@ -1546,6 +1546,7 @@ h1 {
 								}
 								50%{
 									transform: scale(1);
+									overflow: auto;
 								}
 								100%{
 									transform: translateY(-1%) scale(1.02) skewX(-2deg);

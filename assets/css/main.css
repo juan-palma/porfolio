@@ -1530,7 +1530,8 @@ h1 {
 						display: block;
 						position: absolute;
 						transform-origin: 50% 100%;
-						transform: translateX(calc(120vh * .2225)) translateY(calc(120vh * .11)) skewX(10deg);
+						/* transform: translateX(calc(120vh * .2225)) translateY(calc(120vh * .11)) skewX(10deg); */
+						transform: translateX(calc(120vh * .2225)) translateY(calc(120vh * .11)) skewX(12deg);
 						/* animation: arbol 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 10ms infinite alternate; */
 					}
 						#p6ahojas{

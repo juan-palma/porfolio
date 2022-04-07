@@ -6,9 +6,16 @@ class Precarga{
 	userFunc;
 	userAni;
 	progress = false;
+	imgDelay = [];
+	delayLoad = false;
 	
 	showPreload(){
 		this.elementsPre.forEach(function(pre){
+			if(pre.hasAttribute('preload-delay')){
+				console.log(pre);
+				imgDelay.push(pre);
+				return;
+			}
 			pre.src = pre.attributes['preload-src'].value;
 		});
 		

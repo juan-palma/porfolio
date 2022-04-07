@@ -8,18 +8,48 @@ class Precarga{
 	progress = false;
 	imgDelay = [];
 	delayLoad = false;
+
+	showPreloadDealy(){
+		this.imgDelay.forEach(function(pre){
+			if(pre.hasAttribute('preload-srcset')){
+				pre.srcset = pre.attributes['preload-srcset'].value;
+				pre.removeAttribute('preload-srcset');
+			}
+			pre.src = pre.attributes['preload-src'].value;
+			pre.removeAttribute('preload-src');
+		});
+	}
+	loadDelay(){
+		this.delayLoad = true;
+		this.preloadTotal = 0;
+		this.preloadLoad = 0;
+		const miDOM = document.createDocumentFragment();
+
+		this.imgDelay.forEach((function(pre){
+			const tag = document.createElement(pre.tagName);
+			tag.src = pre.attributes['preload-src'].value;
+			if(pre.hasAttribute('preload-srcset')){
+				tag.srcset = pre.attributes['preload-srcset'].value;
+			}
+			tag.setAttribute('preload-delay', "");
+			tag.onload = this.checkPreload.bind(this);
+			miDOM.appendChild(tag);
+			this.preloadTotal++;
+		}).bind(this));
+	}
 	
 	showPreload(){
 		this.elementsPre.forEach(function(pre){
-			if(pre.hasAttribute('preload-delay')){
-				console.log(pre);
-				imgDelay.push(pre);
-				return;
+			if(!pre.hasAttribute('preload-delay')){
+				if(pre.hasAttribute('preload-srcset')){
+					pre.srcset = pre.attributes['preload-srcset'].value;
+					pre.removeAttribute('preload-srcset');
+				}
+				pre.src = pre.attributes['preload-src'].value;
+				pre.removeAttribute('preload-src');
 			}
-			pre.src = pre.attributes['preload-src'].value;
-		});
+		}.bind(this));
 		
-		//el.circuloCarga.style.display = 'none';
 		setTimeout((function(){
 			if(this.userFunc instanceof Function){
 				this.userFunc();
@@ -30,9 +60,14 @@ class Precarga{
 	checkPreload(e){
 		this.preloadLoad++;
 		if(this.preloadTotal == this.preloadLoad){
-			this.showPreload();
+			if(e.target.hasAttribute('preload-delay')){
+				this.showPreloadDealy();
+			} else{
+				this.showPreload();
+			}
+			
 		}
-		if(this.progress){
+		if(this.progress && !e.target.hasAttribute('preload-delay')){
 			const cargadoP = (this.preloadLoad * 100) / this.preLoadFind;
 			if(this.userAni instanceof Function){
 				this.userAni(cargadoP);
@@ -42,15 +77,24 @@ class Precarga{
 
 	run(){
 		this.elementsPre = document.querySelectorAll('[preload-src]');
-		this.preLoadFind = this.elementsPre.length;
+		//this.preLoadFind = this.elementsPre.length;
 		const miDOM = document.createDocumentFragment();
 		this.elementsPre.forEach((function(pre){
-			const tag = document.createElement(pre.tagName);
-			tag.src = pre.attributes['preload-src'].value;
-			tag.onload = this.checkPreload.bind(this);
-			miDOM.appendChild(tag);
-			this.preloadTotal++;
+			if(pre.hasAttribute('preload-delay')){
+				this.imgDelay.push(pre);
+			} else{
+				const tag = document.createElement(pre.tagName);
+				tag.src = pre.attributes['preload-src'].value;
+				if(pre.hasAttribute('preload-srcset')){
+					tag.srcset = pre.attributes['preload-srcset'].value;
+				}
+				tag.onload = this.checkPreload.bind(this);
+				miDOM.appendChild(tag);
+				this.preloadTotal++;
+			}
+			
 		}).bind(this));
+		this.preLoadFind = this.preloadTotal;
 	}
 
 	constructor(f){

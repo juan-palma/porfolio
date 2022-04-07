@@ -29,9 +29,10 @@ class Precarga{
 
 		this.imgDelay.forEach((function(pre){
 			const tag = document.createElement(pre.tagName);
-			tag.src = pre.attributes['preload-src'].value;
 			if(pre.hasAttribute('preload-srcset')){
 				tag.srcset = pre.attributes['preload-srcset'].value;
+			} else{
+				tag.src = pre.attributes['preload-src'].value;
 			}
 			tag.setAttribute('preload-delay', "");
 			tag.onload = this.checkPreload.bind(this);
@@ -88,9 +89,10 @@ class Precarga{
 				this.imgDelay.push(pre);
 			} else{
 				const tag = document.createElement(pre.tagName);
-				tag.src = pre.attributes['preload-src'].value;
 				if(pre.hasAttribute('preload-srcset')){
 					tag.srcset = pre.attributes['preload-srcset'].value;
+				} else{
+					tag.src = pre.attributes['preload-src'].value;
 				}
 				tag.onload = this.checkPreload.bind(this);
 				miDOM.appendChild(tag);

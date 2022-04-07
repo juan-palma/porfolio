@@ -873,3 +873,49 @@ requirejs.config({
 });
 requirejs(["l/modernizr", "n/lottie-web/build/player/lottie.min", "n/animejs/lib/anime.min", "l/parallax", "l/precarga", "observer", "validaciones", "alertas", "peticiones"], iniciar);
 
+
+
+
+
+
+
+
+let w = 1716;
+let h = 778;
+
+function medidas(){
+	let user = prompt('medidas');
+	user = user.split('×');
+	const r = parseInt(user[1]) / parseInt(user[0]);
+	let m = [];
+	
+	if(w > 1902){
+		p = 1920;
+		m.push({w:p, h:p*r});
+	}
+	if(w > 1706){
+		p = 1706;
+		m.push({w:p, h:p*r});
+	}
+	if(w > 1280){
+		p = 1280;
+		m.push({w:p, h:p*r});
+	}
+	if(w > 853){
+		p = 853;
+		m.push({w:p, h:p*r});
+	}
+	if(w > 640){
+		p = 640;
+		m.push({w:p, h:p*r});
+	}
+	if(w > 426){
+		p = 426;
+		m.push({w:p, h:p*r});
+	}
+
+	console.log(m);
+};
+
+const btn = document.getElementById('btnForm');
+btn.addEventListener('click', medidas);
